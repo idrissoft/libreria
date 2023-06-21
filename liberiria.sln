@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "liberiria", "liberiria.vbproj", "{3E7B422F-40B4-4BD3-A948-7105018C5BFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E7B422F-40B4-4BD3-A948-7105018C5BFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7B422F-40B4-4BD3-A948-7105018C5BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E7B422F-40B4-4BD3-A948-7105018C5BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E7B422F-40B4-4BD3-A948-7105018C5BFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A40A8C7-200E-4EA4-9BAD-A5A21DC2384C}
+	EndGlobalSection
+EndGlobal
