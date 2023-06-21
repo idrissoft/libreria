@@ -129,7 +129,7 @@ Public Class Libros
             ' Conexión a SQL Server
             Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
                 Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
-                Dim con As New SqlConnection("server=DESKTOP-N0AAU33\SQLEXPRESS;database=libreria;Integrated Security=True;")
+                Dim con As SqlConnection = miConexion.CrearConexion()
 
                 ' Consulta SQL para obtener los datos de la tabla filtrados por un parámetro
                 Dim query As String = "SELECT nombre, autor, ficha,cantidad,stock, description,precio from libros WHERE idlibro = @idlibro"
@@ -175,7 +175,7 @@ Public Class Libros
         Try
             Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
                 Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
-                Dim con As New SqlConnection("server=DESKTOP-N0AAU33\SQLEXPRESS;database=libreria;Integrated Security=True;")
+                Dim con As SqlConnection = miConexion.CrearConexion()
 
                 Dim delete As New SqlCommand("DELETE FROM libros WHERE idlibro = @idlibro", con)
                 delete.Parameters.AddWithValue("@idlibro", idlibro)

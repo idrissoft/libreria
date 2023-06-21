@@ -5,10 +5,11 @@ Public Class añadir_Cliente
     Private Sub btn_volver_Click(sender As Object, e As EventArgs) Handles btn_volver.Click
         Hide()
     End Sub
+    Private miconexion As New connexion
     Public Function agregar_clientes()
         Try
 
-            Dim con As New SqlConnection("Server=DESKTOP-N0AAU33\SQLEXPRESS;Database=libreria;Integrated Security=True;")
+            Dim con As SqlConnection = miconexion.CrearConexion()
 
             Dim command As New SqlCommand("INSERT INTO Cliente(nombre, telefono, direccion, informacion) 
     VALUES (@nombre, @telefono, @direccion, @informacion)", con)
@@ -48,7 +49,7 @@ Public Class añadir_Cliente
     Public Function modificar_cliente(ID_cliente As Integer)
 
         Try
-            Dim con As New SqlConnection("Server=DESKTOP-N0AAU33\SQLEXPRESS;Database=libreria;Integrated Security=True;")
+            Dim con As SqlConnection = miconexion.CrearConexion()
             Dim command As New SqlCommand("UPDATE Cliente SET nombre = @nombre, telefono = @telefono, direccion = @direccion, informacion = @informacion WHERE ID_cliente = @ID_cliente", con)
             command.Parameters.AddWithValue("@ID_cliente", ID_cliente)
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)

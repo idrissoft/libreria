@@ -6,6 +6,7 @@ Public Class añadire_libro
         libros.Show()
         Hide()
     End Sub
+    Private miconexion As New connexion
     Public Function modificar_libro(idlibro As Integer)
         Try
             If idlibro <= 0 Then
@@ -13,7 +14,7 @@ Public Class añadire_libro
 
             End If
 
-            Dim con As New SqlConnection("Server=DESKTOP-N0AAU33\SQLEXPRESS;Database=libreria;Integrated Security=True;")
+            Dim con As SqlConnection = miConexion.CrearConexion()
             Dim command As New SqlCommand("UPDATE libros SET nombre = @nombre, autor = @autor,cantidad=@cantidad, stock=@stock, ficha = @ficha, description = @description WHERE idlibro = @idlibro", con)
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
@@ -50,7 +51,7 @@ Public Class añadire_libro
 
         Try
 
-            Dim con As New SqlConnection("Server=DESKTOP-N0AAU33\SQLEXPRESS;Database=libreria;Integrated Security=True;")
+            Dim con As SqlConnection = miconexion.CrearConexion()
 
             Dim command As New SqlCommand("INSERT INTO libros(nombre, autor, ficha,cantidad,stock,precio, description) 
     VALUES (@nombre, @autor, @ficha,@cantidad,@stock,@precio, @description)", con)

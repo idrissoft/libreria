@@ -21,11 +21,11 @@ Public Class Clientes
     End Sub
     Public Function mostrarClientes() As DataTable
         Dim dt As New DataTable()
-        Dim conn As SqlConnection = miconexion.CrearConexion()
-        Dim cmd As New SqlCommand("mostrar_cliente", conn)
+        Dim con As SqlConnection = miconexion.CrearConexion()
+        Dim cmd As New SqlCommand("mostrar_cliente", con)
         cmd.CommandType = CommandType.StoredProcedure
 
-        conn.Open()
+        con.Open()
 
         Using da As New SqlDataAdapter(cmd)
             da.Fill(dt)
@@ -37,7 +37,7 @@ Public Class Clientes
         Try
             Using selectedRow As DataGridViewRow = DataGridView_clientes.SelectedRows(0)
                 Dim id_cliente As Integer = Convert.ToInt32(selectedRow.Cells("id_cliente").Value)
-                Dim con As New SqlConnection("server=DESKTOP-N0AAU33\SQLEXPRESS;database=libreria;Integrated Security=True;")
+                Dim con As SqlConnection = miconexion.CrearConexion()
 
                 Dim delete As New SqlCommand("DELETE FROM cliente WHERE id_cliente = @id_cliente", con)
                 delete.Parameters.AddWithValue("@id_cliente", id_cliente)
@@ -59,7 +59,7 @@ Public Class Clientes
     Sub buscar()
 
         Dim dt As New DataTable()
-        Dim con As New SqlConnection("server='DESKTOP-N0AAU33\SQLEXPRESS';database=libreria;integrated Security=true;")
+        Dim con As SqlConnection = miconexion.CrearConexion()
         Dim da As New SqlDataAdapter("buscar_clientes", con)
         da.SelectCommand.CommandType = CommandType.StoredProcedure
         da.SelectCommand.Parameters.AddWithValue("@letra", ComboBox1.Text)
@@ -74,7 +74,7 @@ Public Class Clientes
             ' Conexión a SQL Server
             Using selectedRow As DataGridViewRow = DataGridView_clientes.SelectedRows(0)
                 Dim ID_cliente As Integer = Convert.ToInt32(selectedRow.Cells("ID_cliente").Value)
-                Dim con As New SqlConnection("server=DESKTOP-N0AAU33\SQLEXPRESS;database=libreria;Integrated Security=True;")
+                Dim con As SqlConnection = miconexion.CrearConexion()
 
                 ' Consulta SQL para obtener los datos de la tabla filtrados por un parámetro
                 Dim query As String = "SELECT nombre, telefono, direccion, informacion from cliente WHERE ID_cliente = @ID_cliente"

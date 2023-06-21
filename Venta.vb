@@ -9,18 +9,18 @@ Public Class Venta
 
     Public Function mostrar_venta() As DataTable
         Dim dt As New DataTable()
-        Dim conn As SqlConnection = miConexion.CrearConexion()
-        Dim cmd As New SqlCommand("mostrar_venta", conn)
+        Dim con As SqlConnection = miConexion.CrearConexion()
+        Dim cmd As New SqlCommand("mostrar_venta", con)
 
         cmd.CommandType = CommandType.StoredProcedure
 
-        conn.Open()
+        con.Open()
 
         Using da As New SqlDataAdapter(cmd)
             da.Fill(dt)
         End Using
 
-        conn.Close()
+        con.Close()
 
         Return dt
     End Function

@@ -36,12 +36,12 @@ Public Class Nueva_Venta
 
     Private Sub CargarLibros()
         Try
-            Dim conn As SqlConnection = miConexion.CrearConexion()
+            Dim con As SqlConnection = miConexion.CrearConexion()
             conn.Open()
 
             ' Consulta SQL para obtener todos los nombres de libros
             Dim query As String = "SELECT nombre FROM libros"
-            Dim cmd As New SqlCommand(query, conn)
+            Dim cmd As New SqlCommand(query, con)
 
             Dim reader As SqlDataReader = cmd.ExecuteReader()
 
@@ -54,7 +54,7 @@ Public Class Nueva_Venta
             End While
 
             reader.Close()
-            conn.Close()
+            con.Close()
         Catch ex As Exception
             ' Si ocurre un error, mostrar un cuadro de mensaje con el mensaje de error
             MessageBox.Show(ex.Message)
