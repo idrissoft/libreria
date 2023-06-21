@@ -60,5 +60,7 @@ Public Class Nueva_Venta
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+    public sub a()
+        End sub
 End Class
 
