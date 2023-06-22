@@ -107,7 +107,7 @@ Public Class Clientes
         buscar()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Btn_editar_clientes.Click
         Editar()
     End Sub
 

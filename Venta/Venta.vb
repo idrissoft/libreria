@@ -142,4 +142,9 @@ Public Class Venta
         nueva_venta.Show()
 
     End Sub
+
+    Private Sub HistoriaLTransaccionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriaLTransaccionesToolStripMenuItem.Click
+        Dim HistorialTransacciones As New HistorialTransacciones()
+        HistorialTransacciones.Show()
+    End Sub
 End Class

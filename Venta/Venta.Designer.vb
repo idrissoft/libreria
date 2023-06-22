@@ -67,6 +67,7 @@ Partial Class Venta
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.HistoriaLTransaccionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -80,16 +81,16 @@ Partial Class Venta
         '
         Me.Panel1.BackColor = System.Drawing.Color.Red
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Location = New System.Drawing.Point(319, 3)
+        Me.Panel1.Location = New System.Drawing.Point(501, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(521, 22)
+        Me.Panel1.Size = New System.Drawing.Size(104, 22)
         Me.Panel1.TabIndex = 4
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(222, -2)
+        Me.Label1.Location = New System.Drawing.Point(32, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 26)
         Me.Label1.TabIndex = 2
@@ -99,11 +100,11 @@ Partial Class Venta
         '
         Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LibrosToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.CrearNuevaVentaToolStripMenuItem, Me.VolverToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LibrosToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.CrearNuevaVentaToolStripMenuItem, Me.HistoriaLTransaccionesToolStripMenuItem, Me.VolverToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 3)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 1, 0, 1)
-        Me.MenuStrip1.Size = New System.Drawing.Size(405, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(547, 24)
         Me.MenuStrip1.TabIndex = 3
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -532,6 +533,12 @@ Partial Class Venta
         Me.Label8.TabIndex = 29
         Me.Label8.Text = "dirección:"
         '
+        'HistoriaLTransaccionesToolStripMenuItem
+        '
+        Me.HistoriaLTransaccionesToolStripMenuItem.Name = "HistoriaLTransaccionesToolStripMenuItem"
+        Me.HistoriaLTransaccionesToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.HistoriaLTransaccionesToolStripMenuItem.Text = "Historia l Transacciones"
+        '
         'Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -603,4 +610,5 @@ Partial Class Venta
     Friend WithEvents txtVentaDescuento As TextBox
     Friend WithEvents Descuento As Label
     Friend WithEvents CrearNuevaVentaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HistoriaLTransaccionesToolStripMenuItem As ToolStripMenuItem
 End Class

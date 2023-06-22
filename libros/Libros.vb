@@ -26,12 +26,12 @@ Public Class Libros
 
     Public Function MostrarLibros() As DataTable
         Dim dt As New DataTable()
-        Dim conn As SqlConnection = miConexion.CrearConexion()
-        Dim cmd As New SqlCommand("mostrar_libros", conn)
+        Dim con As SqlConnection = miConexion.CrearConexion()
+        Dim cmd As New SqlCommand("mostrar_libros", con)
 
         cmd.CommandType = CommandType.StoredProcedure
 
-        conn.Open()
+        con.Open()
 
         Using da As New SqlDataAdapter(cmd)
             da.Fill(dt)
@@ -40,7 +40,7 @@ Public Class Libros
         Return dt
     End Function
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Btn_agregar_imagen.Click
         Try
             ' Obtener la fila seleccionada en el DataGridView
             Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
@@ -66,7 +66,7 @@ Public Class Libros
                     ' Guardar la imagen en la base de datos
 
                     ' Establecer la conexión a la base de datos
-                    Dim con As New SqlConnection("server=DESKTOP-N0AAU33\SQLEXPRESS ;database=libreria ;integrated Security=true;")
+                    Dim con As SqlConnection = miConexion.CrearConexion()
                     con.Open()
 
                     ' Convertir la imagen a un arreglo de bytes utilizando un objeto MemoryStream

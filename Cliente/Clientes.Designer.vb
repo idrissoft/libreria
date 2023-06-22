@@ -31,7 +31,7 @@ Partial Class Clientes
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Btn_editar_clientes = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -129,7 +129,7 @@ Partial Class Clientes
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.Highlight
-        Me.Panel3.Controls.Add(Me.Button1)
+        Me.Panel3.Controls.Add(Me.Btn_editar_clientes)
         Me.Panel3.Controls.Add(Me.btn_volver)
         Me.Panel3.Controls.Add(Me.Btn_eliminar_clientes)
         Me.Panel3.Controls.Add(Me.Btn_anadir_clientes)
@@ -139,20 +139,20 @@ Partial Class Clientes
         Me.Panel3.Size = New System.Drawing.Size(127, 513)
         Me.Panel3.TabIndex = 6
         '
-        'Button1
+        'Btn_editar_clientes
         '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(36, 186)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(91, 49)
-        Me.Button1.TabIndex = 5
-        Me.Button1.Text = "Editar"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.Btn_editar_clientes.BackColor = System.Drawing.Color.Transparent
+        Me.Btn_editar_clientes.BackgroundImage = CType(resources.GetObject("Btn_editar_clientes.BackgroundImage"), System.Drawing.Image)
+        Me.Btn_editar_clientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Btn_editar_clientes.FlatAppearance.BorderSize = 0
+        Me.Btn_editar_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_editar_clientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_editar_clientes.Location = New System.Drawing.Point(36, 186)
+        Me.Btn_editar_clientes.Name = "Btn_editar_clientes"
+        Me.Btn_editar_clientes.Size = New System.Drawing.Size(91, 49)
+        Me.Btn_editar_clientes.TabIndex = 5
+        Me.Btn_editar_clientes.Text = "Editar"
+        Me.Btn_editar_clientes.UseVisualStyleBackColor = False
         '
         'Panel4
         '
@@ -226,5 +226,5 @@ Partial Class Clientes
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents Button1 As Button
+    Friend WithEvents Btn_editar_clientes As Button
 End Class
