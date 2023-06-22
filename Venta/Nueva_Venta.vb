@@ -100,6 +100,7 @@ Public Class Nueva_Venta
             updateStockCmd.Parameters.AddWithValue("@Cantidad", txtVentaCantidad.Text)
             updateStockCmd.Parameters.AddWithValue("@idlibro", idlibro)
             updateStockCmd.ExecuteNonQuery()
+
             MessageBox.Show("La nueva venta se ha creado correctamente.")
             Close()
 
@@ -111,9 +112,8 @@ Public Class Nueva_Venta
         End Try
     End Function
 
-    Private Sub Btn_guardar_cliente1_Click(sender As Object, e As EventArgs) Handles Btn_guardar_cliente1.Click
-        agregar_venta()
+    Private Sub Btn_guardar_cliente1_Click(sender As Object, e As EventArgs, dateTimePicker As DateTimePicker) Handles Btn_guardar_cliente1.Click
+        agregar_venta(dateTimePicker)
     End Sub
 
 End Class
-
