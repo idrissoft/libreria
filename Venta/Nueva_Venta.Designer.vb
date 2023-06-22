@@ -48,7 +48,7 @@ Partial Class Nueva_Venta
         Me.Descuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Descuento.Location = New System.Drawing.Point(84, 331)
         Me.Descuento.Name = "Descuento"
-        Me.Descuento.Size = New System.Drawing.Size(130, 25)
+        Me.Descuento.Size = New System.Drawing.Size(92, 17)
         Me.Descuento.TabIndex = 76
         Me.Descuento.Text = "Descuento%:"
         '
@@ -58,7 +58,7 @@ Partial Class Nueva_Venta
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.Location = New System.Drawing.Point(84, 266)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(153, 25)
+        Me.Label15.Size = New System.Drawing.Size(111, 17)
         Me.Label15.TabIndex = 73
         Me.Label15.Text = "Precio de venta:"
         '
@@ -67,7 +67,7 @@ Partial Class Nueva_Venta
         Me.txtVentaPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVentaPrecio.Location = New System.Drawing.Point(286, 261)
         Me.txtVentaPrecio.Name = "txtVentaPrecio"
-        Me.txtVentaPrecio.Size = New System.Drawing.Size(119, 30)
+        Me.txtVentaPrecio.Size = New System.Drawing.Size(119, 23)
         Me.txtVentaPrecio.TabIndex = 71
         '
         'txtVentaCantidad
@@ -75,7 +75,7 @@ Partial Class Nueva_Venta
         Me.txtVentaCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVentaCantidad.Location = New System.Drawing.Point(286, 199)
         Me.txtVentaCantidad.Name = "txtVentaCantidad"
-        Me.txtVentaCantidad.Size = New System.Drawing.Size(119, 30)
+        Me.txtVentaCantidad.Size = New System.Drawing.Size(119, 23)
         Me.txtVentaCantidad.TabIndex = 70
         '
         'Label13
@@ -85,7 +85,7 @@ Partial Class Nueva_Venta
         Me.Label13.Location = New System.Drawing.Point(84, 390)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(119, 25)
+        Me.Label13.Size = New System.Drawing.Size(85, 17)
         Me.Label13.TabIndex = 67
         Me.Label13.Text = "Precio_Des:"
         '
@@ -96,7 +96,7 @@ Partial Class Nueva_Venta
         Me.Label14.Location = New System.Drawing.Point(84, 457)
         Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(86, 25)
+        Me.Label14.Size = New System.Drawing.Size(61, 17)
         Me.Label14.TabIndex = 65
         Me.Label14.Text = "Subtota:"
         '
@@ -106,7 +106,7 @@ Partial Class Nueva_Venta
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(84, 199)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(97, 25)
+        Me.Label9.Size = New System.Drawing.Size(68, 17)
         Me.Label9.TabIndex = 63
         Me.Label9.Text = "Cantidad:"
         '
@@ -117,7 +117,7 @@ Partial Class Nueva_Venta
         Me.Label5.Location = New System.Drawing.Point(84, 143)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(118, 25)
+        Me.Label5.Size = New System.Drawing.Size(86, 17)
         Me.Label5.TabIndex = 59
         Me.Label5.Text = "buscar libro:"
         '
@@ -128,7 +128,7 @@ Partial Class Nueva_Venta
         Me.Label4.Location = New System.Drawing.Point(84, 87)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(134, 25)
+        Me.Label4.Size = New System.Drawing.Size(97, 17)
         Me.Label4.TabIndex = 57
         Me.Label4.Text = "Buscar cliente"
         '
@@ -185,6 +185,7 @@ Partial Class Nueva_Venta
         '
         Me.txtprecio_des.Location = New System.Drawing.Point(286, 392)
         Me.txtprecio_des.Name = "txtprecio_des"
+        Me.txtprecio_des.ReadOnly = True
         Me.txtprecio_des.Size = New System.Drawing.Size(119, 26)
         Me.txtprecio_des.TabIndex = 80
         '
@@ -192,6 +193,7 @@ Partial Class Nueva_Venta
         '
         Me.Txt_subtota.Location = New System.Drawing.Point(286, 444)
         Me.Txt_subtota.Name = "Txt_subtota"
+        Me.Txt_subtota.ReadOnly = True
         Me.Txt_subtota.Size = New System.Drawing.Size(119, 26)
         Me.Txt_subtota.TabIndex = 81
         '
