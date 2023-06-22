@@ -64,45 +64,6 @@ Public Class Nueva_Venta
     Public Function agregar_venta()
 
         Try
-
-            Dim con As SqlConnection = miConexion.CrearConexion()
-
-            Dim command As New SqlCommand("INSERT INTO venta(ID_cliente,idlibro,Cantidad, Precio_venta, Descuento,Precio_Des,Subtota) 
-    VALUES (@ID_cliente,@idlibro,@Cantidad, @Precio_venta, @Descuento,@Precio_Des,@stock,@precio, @Subtota)", con)
-            'command.Parameters.AddWithValue("@id", id)
-            command.Parameters.AddWithValue("@Nombre", txtClienteNombre.Text)
-            command.Parameters.AddWithValue("@nombre", txtLibroNombre.Text)
-            command.Parameters.AddWithValue("@Precio_Des", txtClienteNombre.Text)
-            command.Parameters.AddWithValue("@Subtota", txtLibroNombre.Text)
-            command.Parameters.AddWithValue("@Cantidad", txtVentaCantidad.Text)
-            command.Parameters.AddWithValue("@Precio_venta", txtVentaPrecio.Text)
-            command.Parameters.AddWithValue("@Descuento", TxtDescuento.Text)
-            'command.Parameters.AddWithValue("@Precio_Des", txtprecio_des.Text)
-            'command.Parameters.AddWithValue("@Subtota", Txt_subtota.Text)
-            ' Ejecución de la consulta SQL
-            con.Open()
-            command.ExecuteNonQuery()
-
-            ' Mensaje de confirmación
-            MessageBox.Show("el nueva venta  se ha creado correctamente.")
-
-            ' Cerrar el formulario secundario después de guardar los cambios
-            Close()
-            Dim fr_libro As New Libros
-            fr_libro.Show()
-
-            ' Actualización de los datos mostrados en el formulario principal
-            Libros.MostrarLibros()
-
-
-        Catch ex As Exception
-            ' Si ocurre un error, mostrar un cuadro de mensaje con el mensaje de error
-            MessageBox.Show(ex.Message)
-        End Try
-    End Function
-
-    Private Sub Btn_guardar_cliente1_Click(sender As Object, e As EventArgs) Handles Btn_guardar_cliente1.Click
-        Try
             Dim con As SqlConnection = miConexion.CrearConexion()
 
             ' Obtener el ID del cliente seleccionado
@@ -142,6 +103,10 @@ Public Class Nueva_Venta
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Function
+
+    Private Sub Btn_guardar_cliente1_Click(sender As Object, e As EventArgs) Handles Btn_guardar_cliente1.Click
+        agregar_venta()
     End Sub
 
 End Class
