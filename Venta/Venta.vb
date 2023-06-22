@@ -62,7 +62,7 @@ Public Class Venta
         Dim libro As Libros = ObtenerLibro(idLibro)
         txtLibroID.Text = libro.idLibro
         txtLibroNombre.Text = libro.Nombre
-        'txtLibroAutor.Text = libro.Autor
+
         ' Mostrar otros datos de libro según tus propiedades
 
         ' Mostrar los datos del cliente en los cuadros de texto correspondientes
@@ -71,7 +71,7 @@ Public Class Venta
         txtClienteNombre.Text = cliente.Nombre
         txtClienteTelefono.Text = cliente.Telefono
         txtClientedireccion.Text = cliente.Direccion
-        'txtClienteInformacion.Text = cliente.Informacion
+
         ' Mostrar otros datos de cliente según tus propiedades
 
         ' Mostrar los datos de la venta en los cuadros de texto correspondientes
@@ -98,12 +98,7 @@ Public Class Venta
         If reader.Read() Then
             libro.idLibro = idLibro
             libro.Nombre = reader("nombre").ToString()
-            'libro.Autor = reader("autor").ToString()
-            'libro.Ficha = reader("ficha").ToString()
-            'libro.Cantidad = Convert.ToInt32(reader("cantidad"))
-            'libro.Stock = Convert.ToInt32(reader("stock"))
-            'libro.Description = reader("description").ToString()
-            'libro.Precio = Convert.ToDecimal(reader("precio"))
+
         End If
 
         ' Cerrar la conexión y el lector

@@ -80,17 +80,18 @@ Public Class Nueva_Venta
             libroCmd.Parameters.AddWithValue("@nombre", txtLibroNombre.Text)
 
             Dim idlibro As Integer = Convert.ToInt32(libroCmd.ExecuteScalar())
+            Dim subtotal As Double = CDbl(txtVentaCantidad.Text) * CDbl(txtVentaPrecio.Text) - CDbl(TxtDescuento.Text)
 
-            Dim command As New SqlCommand("INSERT INTO venta(ID_cliente, idlibro, Cantidad, Precio_venta, Descuento, Precio_Des, Subtota) 
-            VALUES (@ID_cliente, @idlibro, @Cantidad, @Precio_venta, @Descuento, @Precio_Des, @Subtota)", con)
+            Dim command As New SqlCommand("INSERT INTO venta(ID_cliente, idlibro, Cantidad, Precio_venta, Descuento, Subtota) 
+            VALUES (@ID_cliente, @idlibro, @Cantidad, @Precio_venta, @Descuento,  @Subtota)", con)
 
             command.Parameters.AddWithValue("@ID_cliente", ID_cliente)
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@Cantidad", txtVentaCantidad.Text)
             command.Parameters.AddWithValue("@Precio_venta", txtVentaPrecio.Text)
             command.Parameters.AddWithValue("@Descuento", TxtDescuento.Text)
-            command.Parameters.AddWithValue("@Precio_Des", txtprecio_des.Text)
-            command.Parameters.AddWithValue("@Subtota", Txt_subtota.Text)
+            'command.Parameters.AddWithValue("@Precio_Des", txtprecio_des.Text)
+            command.Parameters.AddWithValue("@Subtota", subtotal)
 
             command.ExecuteNonQuery()
 
