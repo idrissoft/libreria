@@ -11,8 +11,9 @@
     <AssemblyName>liberiria</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -23,6 +24,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>liberiria.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +35,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>liberiria.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -71,22 +74,22 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="añadire_libro.Designer.vb">
+    <Compile Include="libros\añadire_libro.Designer.vb">
       <DependentUpon>añadire_libro.vb</DependentUpon>
     </Compile>
-    <Compile Include="añadire_libro.vb">
+    <Compile Include="libros\añadire_libro.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="añadir_Cliente.Designer.vb">
+    <Compile Include="Cliente\añadir_Cliente.Designer.vb">
       <DependentUpon>añadir_Cliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="añadir_Cliente.vb">
+    <Compile Include="Cliente\añadir_Cliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clientes.Designer.vb">
+    <Compile Include="Cliente\Clientes.Designer.vb">
       <DependentUpon>Clientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="Clientes.vb">
+    <Compile Include="Cliente\Clientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="connexion.vb" />
@@ -97,16 +100,17 @@
       <DependentUpon>Entrada.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Libros.Designer.vb">
+    <Compile Include="libros\Libros.Designer.vb">
       <DependentUpon>Libros.vb</DependentUpon>
     </Compile>
-    <Compile Include="Libros.vb">
+    <Compile Include="libros\Libros.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -118,33 +122,33 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Nueva_Venta.Designer.vb">
+    <Compile Include="Venta\Nueva_Venta.Designer.vb">
       <DependentUpon>Nueva_Venta.vb</DependentUpon>
     </Compile>
-    <Compile Include="Nueva_Venta.vb">
+    <Compile Include="Venta\Nueva_Venta.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Venta.Designer.vb">
+    <Compile Include="Venta\Venta.Designer.vb">
       <DependentUpon>Venta.vb</DependentUpon>
     </Compile>
-    <Compile Include="Venta.vb">
+    <Compile Include="Venta\Venta.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="añadire_libro.resx">
+    <EmbeddedResource Include="libros\añadire_libro.resx">
       <DependentUpon>añadire_libro.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="añadir_Cliente.resx">
+    <EmbeddedResource Include="Cliente\añadir_Cliente.resx">
       <DependentUpon>añadir_Cliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clientes.resx">
+    <EmbeddedResource Include="Cliente\Clientes.resx">
       <DependentUpon>Clientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Entrada.resx">
       <DependentUpon>Entrada.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Libros.resx">
+    <EmbeddedResource Include="libros\Libros.resx">
       <DependentUpon>Libros.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -153,14 +157,15 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Nueva_Venta.resx">
+    <EmbeddedResource Include="Venta\Nueva_Venta.resx">
       <DependentUpon>Nueva_Venta.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Venta.resx">
+    <EmbeddedResource Include="Venta\Venta.resx">
       <DependentUpon>Venta.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
