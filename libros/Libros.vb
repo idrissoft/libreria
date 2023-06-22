@@ -147,7 +147,7 @@ Public Class Libros
                     'a.TextBox5.Text = Convert.ToString(idlibro)
                     a.TextBox1.Text = reader("nombre").ToString()
                     a.TextBox2.Text = reader("autor").ToString()
-                    a.DateTimePicker1.Value = DateTime.Parse(reader("ficha").ToString())
+                    a.DateTimePicker1.Value = Date.Parse(reader("ficha").ToString())
                     a.TextBox3.Text = Convert.ToInt32(reader("cantidad"))
                     a.TextBox3.Text = Convert.ToInt32(reader("stock"))
                     a.TextBox3.Text = reader("precio").ToString()

@@ -1,9 +1,10 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class Nueva_Venta
     Private miConexion As New connexion()
     Dim con As SqlConnection = miConexion.CrearConexion()
+
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Hide()
     End Sub
@@ -11,10 +12,10 @@ Public Class Nueva_Venta
     Private Sub Nueva_Venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarClientes()
         CargarLibros()
+
     End Sub
 
     Private Sub CargarClientes()
-
         con.Open()
 
         ' Consulta SQL para obtener todos los nombres de clientes
@@ -37,7 +38,6 @@ Public Class Nueva_Venta
 
     Private Sub CargarLibros()
         Try
-
             con.Open()
 
             ' Consulta SQL para obtener todos los nombres de libros
@@ -61,8 +61,8 @@ Public Class Nueva_Venta
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-    Public Function agregar_venta()
 
+    Public Function agregar_venta()
         Try
             Dim con As SqlConnection = miConexion.CrearConexion()
 
@@ -82,18 +82,22 @@ Public Class Nueva_Venta
             Dim idlibro As Integer = Convert.ToInt32(libroCmd.ExecuteScalar())
             Dim subtotal As Double = CDbl(txtVentaCantidad.Text) * CDbl(txtVentaPrecio.Text) - CDbl(TxtDescuento.Text)
 
-            Dim command As New SqlCommand("INSERT INTO venta(ID_cliente, idlibro, Cantidad, Precio_venta, Descuento, Subtota) 
-            VALUES (@ID_cliente, @idlibro, @Cantidad, @Precio_venta, @Descuento,  @Subtota)", con)
+            Dim command As New SqlCommand("INSERT INTO venta(ID_cliente, idlibro, Cantidad, Precio_venta, ficha_de_venta, Descuento, Subtota) 
+                                           VALUES (@ID_cliente, @idlibro, @Cantidad, @Precio_venta, @ficha_de_venta, @Descuento, @Subtotal)", con)
+
+            ' Convertir la fecha de venta a un objeto DateTime
+            Dim fechaVenta As DateTime = ficha_de_venta.Value
 
             command.Parameters.AddWithValue("@ID_cliente", ID_cliente)
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@Cantidad", txtVentaCantidad.Text)
             command.Parameters.AddWithValue("@Precio_venta", txtVentaPrecio.Text)
+            command.Parameters.AddWithValue("@ficha_de_venta", fechaVenta)
             command.Parameters.AddWithValue("@Descuento", TxtDescuento.Text)
-            'command.Parameters.AddWithValue("@Precio_Des", txtprecio_des.Text)
-            command.Parameters.AddWithValue("@Subtota", subtotal)
+            command.Parameters.AddWithValue("@Subtotal", subtotal)
 
             command.ExecuteNonQuery()
+
             ' Restar la cantidad vendida al stock del libro
             Dim updateStockQuery As String = "UPDATE libros SET stock = stock - @Cantidad WHERE idlibro = @idlibro"
             Dim updateStockCmd As New SqlCommand(updateStockQuery, con)
@@ -106,14 +110,13 @@ Public Class Nueva_Venta
 
             ' Actualizar los datos mostrados en el formulario principal
             Venta.mostrar_venta()
-
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Function
 
-    Private Sub Btn_guardar_cliente1_Click(sender As Object, e As EventArgs, dateTimePicker As DateTimePicker) Handles Btn_guardar_cliente1.Click
-        agregar_venta(dateTimePicker)
+    Private Sub Btn_guardar_cliente1_Click(sender As Object, e As EventArgs) Handles Btn_guardar_cliente1.Click
+        agregar_venta()
     End Sub
-
 End Class
+

@@ -40,13 +40,15 @@ Partial Class Nueva_Venta
         Me.Txt_subtota = New System.Windows.Forms.TextBox()
         Me.txtClienteNombre = New System.Windows.Forms.ComboBox()
         Me.txtLibroNombre = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ficha_de_venta = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'Descuento
         '
         Me.Descuento.AutoSize = True
         Me.Descuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Descuento.Location = New System.Drawing.Point(84, 331)
+        Me.Descuento.Location = New System.Drawing.Point(84, 373)
         Me.Descuento.Name = "Descuento"
         Me.Descuento.Size = New System.Drawing.Size(92, 17)
         Me.Descuento.TabIndex = 76
@@ -82,7 +84,7 @@ Partial Class Nueva_Venta
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(84, 390)
+        Me.Label13.Location = New System.Drawing.Point(84, 432)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(85, 17)
@@ -93,7 +95,7 @@ Partial Class Nueva_Venta
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(84, 457)
+        Me.Label14.Location = New System.Drawing.Point(84, 499)
         Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(61, 17)
@@ -139,7 +141,7 @@ Partial Class Nueva_Venta
         Me.ListBox1.ItemHeight = 20
         Me.ListBox1.Location = New System.Drawing.Point(12, 12)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(896, 564)
+        Me.ListBox1.Size = New System.Drawing.Size(896, 644)
         Me.ListBox1.TabIndex = 54
         '
         'Btn_guardar_cliente1
@@ -150,7 +152,7 @@ Partial Class Nueva_Venta
         Me.Btn_guardar_cliente1.FlatAppearance.BorderSize = 0
         Me.Btn_guardar_cliente1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_guardar_cliente1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_guardar_cliente1.Location = New System.Drawing.Point(89, 522)
+        Me.Btn_guardar_cliente1.Location = New System.Drawing.Point(82, 588)
         Me.Btn_guardar_cliente1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Btn_guardar_cliente1.Name = "Btn_guardar_cliente1"
         Me.Btn_guardar_cliente1.Size = New System.Drawing.Size(304, 51)
@@ -166,7 +168,7 @@ Partial Class Nueva_Venta
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(542, 522)
+        Me.Button1.Location = New System.Drawing.Point(535, 588)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(304, 51)
@@ -176,14 +178,14 @@ Partial Class Nueva_Venta
         '
         'TxtDescuento
         '
-        Me.TxtDescuento.Location = New System.Drawing.Point(286, 332)
+        Me.TxtDescuento.Location = New System.Drawing.Point(286, 374)
         Me.TxtDescuento.Name = "TxtDescuento"
         Me.TxtDescuento.Size = New System.Drawing.Size(119, 26)
         Me.TxtDescuento.TabIndex = 79
         '
         'txtprecio_des
         '
-        Me.txtprecio_des.Location = New System.Drawing.Point(286, 392)
+        Me.txtprecio_des.Location = New System.Drawing.Point(286, 434)
         Me.txtprecio_des.Name = "txtprecio_des"
         Me.txtprecio_des.ReadOnly = True
         Me.txtprecio_des.Size = New System.Drawing.Size(119, 26)
@@ -191,7 +193,7 @@ Partial Class Nueva_Venta
         '
         'Txt_subtota
         '
-        Me.Txt_subtota.Location = New System.Drawing.Point(286, 444)
+        Me.Txt_subtota.Location = New System.Drawing.Point(286, 486)
         Me.Txt_subtota.Name = "Txt_subtota"
         Me.Txt_subtota.ReadOnly = True
         Me.Txt_subtota.Size = New System.Drawing.Size(119, 26)
@@ -213,11 +215,31 @@ Partial Class Nueva_Venta
         Me.txtLibroNombre.Size = New System.Drawing.Size(379, 28)
         Me.txtLibroNombre.TabIndex = 84
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(84, 320)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(101, 17)
+        Me.Label1.TabIndex = 86
+        Me.Label1.Text = "ficha de venta:"
+        '
+        'ficha_de_venta
+        '
+        Me.ficha_de_venta.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.ficha_de_venta.Location = New System.Drawing.Point(286, 312)
+        Me.ficha_de_venta.Name = "ficha_de_venta"
+        Me.ficha_de_venta.Size = New System.Drawing.Size(200, 26)
+        Me.ficha_de_venta.TabIndex = 87
+        '
         'Nueva_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(961, 587)
+        Me.ClientSize = New System.Drawing.Size(961, 695)
+        Me.Controls.Add(Me.ficha_de_venta)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtLibroNombre)
         Me.Controls.Add(Me.txtClienteNombre)
         Me.Controls.Add(Me.Txt_subtota)
@@ -259,4 +281,6 @@ Partial Class Nueva_Venta
     Friend WithEvents Txt_subtota As TextBox
     Friend WithEvents txtClienteNombre As ComboBox
     Friend WithEvents txtLibroNombre As ComboBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents ficha_de_venta As DateTimePicker
 End Class
