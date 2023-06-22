@@ -55,13 +55,35 @@ Public Class Nueva_Venta
             End While
 
             reader.Close()
+
             con.Close()
+
+            ' Asociar el evento SelectedIndexChanged al control txtLibroNombre
+            AddHandler txtLibroNombre.SelectedIndexChanged, AddressOf txtLibroNombre_SelectedIndexChanged
         Catch ex As Exception
             ' Si ocurre un error, mostrar un cuadro de mensaje con el mensaje de error
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+    Private Sub carga_precio_libro()
+        Try
+            con.Open()
 
+            ' Obtener el ID del libro seleccionado
+            Dim libroQuery As String = "SELECT precio FROM libros WHERE nombre = @nombre"
+            Dim libroCmd As New SqlCommand(libroQuery, con)
+            libroCmd.Parameters.AddWithValue("@nombre", txtLibroNombre.Text)
+
+            Dim precio As Decimal = Convert.ToDecimal(libroCmd.ExecuteScalar())
+
+            ' Asignar el precio al control txtVentaPrecio
+            txtVentaPrecio.Text = precio.ToString()
+
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
     Public Function agregar_venta()
         Try
             Dim con As SqlConnection = miConexion.CrearConexion()
@@ -117,6 +139,10 @@ Public Class Nueva_Venta
 
     Private Sub Btn_guardar_cliente1_Click(sender As Object, e As EventArgs) Handles Btn_guardar_cliente1.Click
         agregar_venta()
+    End Sub
+
+    Private Sub txtLibroNombre_SelectedIndexChanged(sender As Object, e As EventArgs)
+        carga_precio_libro()
     End Sub
 End Class
 

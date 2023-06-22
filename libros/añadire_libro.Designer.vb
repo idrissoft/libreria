@@ -51,7 +51,7 @@ Partial Class añadire_libro
         Me.Label1.Location = New System.Drawing.Point(46, 128)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(227, 32)
+        Me.Label1.Size = New System.Drawing.Size(153, 24)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "nombre del libro:"
         '
@@ -61,7 +61,7 @@ Partial Class añadire_libro
         Me.TextBox1.Location = New System.Drawing.Point(326, 120)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(313, 39)
+        Me.TextBox1.Size = New System.Drawing.Size(313, 29)
         Me.TextBox1.TabIndex = 1
         '
         'TextBox2
@@ -70,7 +70,7 @@ Partial Class añadire_libro
         Me.TextBox2.Location = New System.Drawing.Point(326, 189)
         Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(313, 39)
+        Me.TextBox2.Size = New System.Drawing.Size(313, 29)
         Me.TextBox2.TabIndex = 3
         '
         'Label2
@@ -80,7 +80,7 @@ Partial Class añadire_libro
         Me.Label2.Location = New System.Drawing.Point(46, 194)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(88, 32)
+        Me.Label2.Size = New System.Drawing.Size(57, 24)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "autor:"
         '
@@ -91,7 +91,7 @@ Partial Class añadire_libro
         Me.Label3.Location = New System.Drawing.Point(30, 452)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(284, 32)
+        Me.Label3.Size = New System.Drawing.Size(191, 24)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Ficha de publicacion:"
         '
@@ -112,7 +112,7 @@ Partial Class añadire_libro
         Me.Label4.Location = New System.Drawing.Point(46, 505)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(166, 32)
+        Me.Label4.Size = New System.Drawing.Size(109, 24)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Description:"
         '
@@ -122,7 +122,7 @@ Partial Class añadire_libro
         Me.TextBox5.Location = New System.Drawing.Point(326, 38)
         Me.TextBox5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(313, 39)
+        Me.TextBox5.Size = New System.Drawing.Size(313, 29)
         Me.TextBox5.TabIndex = 9
         '
         'Label5
@@ -132,7 +132,7 @@ Partial Class añadire_libro
         Me.Label5.Location = New System.Drawing.Point(46, 46)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(158, 32)
+        Me.Label5.Size = New System.Drawing.Size(104, 24)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "ID del libro:"
         '
@@ -193,7 +193,7 @@ Partial Class añadire_libro
         Me.DateTimePicker1.Location = New System.Drawing.Point(326, 458)
         Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(349, 30)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(349, 23)
         Me.DateTimePicker1.TabIndex = 26
         Me.DateTimePicker1.TabStop = False
         '
@@ -203,7 +203,7 @@ Partial Class añadire_libro
         Me.TextBox3.Location = New System.Drawing.Point(326, 405)
         Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(313, 39)
+        Me.TextBox3.Size = New System.Drawing.Size(313, 29)
         Me.TextBox3.TabIndex = 28
         '
         'Label6
@@ -213,7 +213,7 @@ Partial Class añadire_libro
         Me.Label6.Location = New System.Drawing.Point(46, 405)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(101, 32)
+        Me.Label6.Size = New System.Drawing.Size(68, 24)
         Me.Label6.TabIndex = 27
         Me.Label6.Text = "precio:"
         '
@@ -223,7 +223,7 @@ Partial Class añadire_libro
         Me.TextBox6.Location = New System.Drawing.Point(326, 257)
         Me.TextBox6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(313, 39)
+        Me.TextBox6.Size = New System.Drawing.Size(313, 29)
         Me.TextBox6.TabIndex = 30
         '
         'Label7
@@ -233,7 +233,7 @@ Partial Class añadire_libro
         Me.Label7.Location = New System.Drawing.Point(46, 262)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(132, 32)
+        Me.Label7.Size = New System.Drawing.Size(86, 24)
         Me.Label7.TabIndex = 29
         Me.Label7.Text = "cantidad:"
         '
@@ -243,7 +243,7 @@ Partial Class añadire_libro
         Me.TextBox7.Location = New System.Drawing.Point(326, 326)
         Me.TextBox7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(313, 39)
+        Me.TextBox7.Size = New System.Drawing.Size(313, 29)
         Me.TextBox7.TabIndex = 32
         '
         'Label8
@@ -253,7 +253,7 @@ Partial Class añadire_libro
         Me.Label8.Location = New System.Drawing.Point(46, 331)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(89, 32)
+        Me.Label8.Size = New System.Drawing.Size(58, 24)
         Me.Label8.TabIndex = 31
         Me.Label8.Text = "stock:"
         '
