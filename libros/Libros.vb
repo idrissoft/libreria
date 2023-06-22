@@ -171,7 +171,7 @@ Public Class Libros
         añadire_libro.Show()
         Me.Hide()
     End Sub
-    Public Function eliminar_libros()
+    Public Sub eliminar_libros()
         Try
             Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
                 Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
@@ -190,7 +190,7 @@ Public Class Libros
             ' Si ocurre un error, mostrar un cuadro de mensaje con el mensaje de error
             MessageBox.Show(ex.Message)
         End Try
-    End Function
+    End Sub
 
     Private Sub Btn_eliminar_libro_Click(sender As Object, e As EventArgs) Handles Btn_eliminar_libro.Click
         eliminar_libros()

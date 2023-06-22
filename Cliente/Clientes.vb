@@ -33,7 +33,7 @@ Public Class Clientes
         End Using
         Return dt
     End Function
-    Public Function eliminar_clientes()
+    Public Sub eliminar_clientes()
         Try
             Using selectedRow As DataGridViewRow = DataGridView_clientes.SelectedRows(0)
                 Dim id_cliente As Integer = Convert.ToInt32(selectedRow.Cells("id_cliente").Value)
@@ -52,7 +52,7 @@ Public Class Clientes
             ' Si ocurre un error, mostrar un cuadro de mensaje con el mensaje de error
             MessageBox.Show(ex.Message)
         End Try
-    End Function
+    End Sub
     Private Sub Btn_eliminar_clientes_Click(sender As Object, e As EventArgs) Handles Btn_eliminar_clientes.Click
         eliminar_clientes()
     End Sub

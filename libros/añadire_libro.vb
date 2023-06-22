@@ -7,14 +7,14 @@ Public Class añadire_libro
         Hide()
     End Sub
     Private miconexion As New connexion
-    Public Function modificar_libro(idlibro As Integer)
+    Public Sub modificar_libro(idlibro As Integer)
         Try
             If idlibro <= 0 Then
                 MessageBox.Show("El ID del libro no es válido.")
 
             End If
 
-            Dim con As SqlConnection = miConexion.CrearConexion()
+            Dim con As SqlConnection = miconexion.CrearConexion()
             Dim command As New SqlCommand("UPDATE libros SET nombre = @nombre, autor = @autor,cantidad=@cantidad, stock=@stock, ficha = @ficha, description = @description WHERE idlibro = @idlibro", con)
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
@@ -34,7 +34,7 @@ Public Class añadire_libro
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-    End Function
+    End Sub
 
     Private Sub guardar_cambios1_Click(sender As Object, e As EventArgs) Handles guardar_cambios1.Click
         Dim dgvlibros As DataGridView = Libros.ObtenerDataGridViewLibros()
@@ -47,15 +47,12 @@ Public Class añadire_libro
             MessageBox.Show("Por favor seleccione un libro para editar.")
         End If
     End Sub
-    Public Function agregar_libro()
-
+    Public Sub agregar_libro()
         Try
-
             Dim con As SqlConnection = miconexion.CrearConexion()
+            Dim command As New SqlCommand("INSERT INTO libros(nombre, autor, ficha, cantidad, stock, precio, description) 
+                                      VALUES (@nombre, @autor, @ficha, @cantidad, @stock, @precio, @description)", con)
 
-            Dim command As New SqlCommand("INSERT INTO libros(nombre, autor, ficha,cantidad,stock,precio, description) 
-    VALUES (@nombre, @autor, @ficha,@cantidad,@stock,@precio, @description)", con)
-            'command.Parameters.AddWithValue("@id", id)
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
             command.Parameters.AddWithValue("@autor", TextBox2.Text)
             command.Parameters.AddWithValue("@ficha", DateTimePicker1.Value)
@@ -63,27 +60,21 @@ Public Class añadire_libro
             command.Parameters.AddWithValue("@stock", TextBox7.Text)
             command.Parameters.AddWithValue("@precio", TextBox3.Text)
             command.Parameters.AddWithValue("@description", TextBox4.Text)
-            ' Ejecución de la consulta SQL
+
             con.Open()
             command.ExecuteNonQuery()
 
-            ' Mensaje de confirmación
-            MessageBox.Show("el libro se ha agregado correctamente.")
+            MessageBox.Show("El libro se ha agregado correctamente.")
 
-            ' Cerrar el formulario secundario después de guardar los cambios
             Close()
-            Dim fr_libro As New Libros
+            Dim fr_libro As New Libros()
             fr_libro.Show()
 
-            ' Actualización de los datos mostrados en el formulario principal
             Libros.MostrarLibros()
-
-
         Catch ex As Exception
-            ' Si ocurre un error, mostrar un cuadro de mensaje con el mensaje de error
             MessageBox.Show(ex.Message)
         End Try
-    End Function
+    End Sub
     Private Sub Btn_guardar_libro1_Click(sender As Object, e As EventArgs) Handles Btn_guardar_libro1.Click
         agregar_libro()
     End Sub

@@ -56,7 +56,7 @@ Public Class Venta
         Dim idCliente As String = DataGridView_Venta.Rows(rowindex).Cells("ID de cliente").Value.ToString()
         Dim cantidad As String = DataGridView_Venta.Rows(rowindex).Cells("cantidad").Value.ToString()
         Dim precioVenta As String = DataGridView_Venta.Rows(rowindex).Cells("Precio de Unidad").Value.ToString()
-        Dim descuento As String = DataGridView_Venta.Rows(rowindex).Cells("Descuento en %").Value.ToString()
+        Dim descuento As String = DataGridView_Venta.Rows(rowindex).Cells("Descuento ").Value.ToString()
 
         ' Mostrar los datos del libro en los cuadros de texto correspondientes
         Dim libro As Libros = ObtenerLibro(idLibro)
