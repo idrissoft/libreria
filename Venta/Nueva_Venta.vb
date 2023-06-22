@@ -94,7 +94,12 @@ Public Class Nueva_Venta
             command.Parameters.AddWithValue("@Subtota", subtotal)
 
             command.ExecuteNonQuery()
-
+            ' Restar la cantidad vendida al stock del libro
+            Dim updateStockQuery As String = "UPDATE libros SET stock = stock - @Cantidad WHERE idlibro = @idlibro"
+            Dim updateStockCmd As New SqlCommand(updateStockQuery, con)
+            updateStockCmd.Parameters.AddWithValue("@Cantidad", txtVentaCantidad.Text)
+            updateStockCmd.Parameters.AddWithValue("@idlibro", idlibro)
+            updateStockCmd.ExecuteNonQuery()
             MessageBox.Show("La nueva venta se ha creado correctamente.")
             Close()
 
