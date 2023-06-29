@@ -20,4 +20,7 @@ Public Class HistorialTransacciones
             End Using
         End Using
     End Sub
+    Public Sub crear_HistorialTransacciones()
+
+    End Sub
 End Class

@@ -17,14 +17,14 @@ Public Class añadire_libro
             End If
 
             Dim con As SqlConnection = miconexion.CrearConexion()
-            Dim command As New SqlCommand("UPDATE libros SET nombre = @nombre, autor = @autor, cantidad = @cantidad, stock = @stock, ficha = @ficha, description = @description WHERE idlibro = @idlibro", con)
+            Dim command As New SqlCommand("UPDATE libros SET nombre = @nombre, autor = @autor, unidad_logistica = @unidad_logistica,precio = @precio, ficha = @ficha,  description = @description WHERE idlibro = @idlibro", con)
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
             command.Parameters.AddWithValue("@autor", TextBox2.Text)
-            command.Parameters.AddWithValue("@description", TextBox4.Text)
-            command.Parameters.AddWithValue("@cantidad", TextBox6.Text)
-            command.Parameters.AddWithValue("@stock", TextBox7.Text)
+            command.Parameters.AddWithValue("@unidad_logistica", ComboBox_unidad_logistica.SelectedItem)
+            command.Parameters.AddWithValue("@precio", TextBox3.Text)
             command.Parameters.AddWithValue("@ficha", DateTimePicker1.Value)
+            command.Parameters.AddWithValue("@description", TextBox4.Text)
 
             con.Open()
             command.ExecuteNonQuery()
@@ -43,12 +43,8 @@ Public Class añadire_libro
     Private Sub guardar_cambios1_Click(sender As Object, e As EventArgs) Handles guardar_cambios1.Click
         Dim dgvlibros As DataGridView = Libros.ObtenerDataGridViewLibros()
         Try
-
-            
-Dim idlibro As Integer = Convert.ToInt32(dgvlibros.CurrentRow.Cells("idlibro").Value)
-
+            Dim idlibro As Integer = Convert.ToInt32(dgvlibros.CurrentRow.Cells("idlibro").Value)
             modificar_libro(idlibro)
-
         Catch ex As Exception
             ' Si ocurre un error, mostrar un cuadro de mensaje con el mensaje de error
             MessageBox.Show(ex.Message)
@@ -58,14 +54,13 @@ Dim idlibro As Integer = Convert.ToInt32(dgvlibros.CurrentRow.Cells("idlibro").V
     Public Sub agregar_libro()
         Try
             Dim con As SqlConnection = miconexion.CrearConexion()
-            Dim command As New SqlCommand("INSERT INTO libros(nombre, autor, ficha, cantidad, stock, precio, description) VALUES (@nombre, @autor, @ficha, @cantidad, @stock, @precio, @description)", con)
+            Dim command As New SqlCommand("INSERT INTO libros(nombre, autor,unidad_logistica,precio,ficha ,description) VALUES (@nombre, @autor,@unidad_logistica,@precio,@ficha ,@description)", con)
 
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
             command.Parameters.AddWithValue("@autor", TextBox2.Text)
-            command.Parameters.AddWithValue("@ficha", DateTimePicker1.Value)
-            command.Parameters.AddWithValue("@cantidad", TextBox6.Text)
-            command.Parameters.AddWithValue("@stock", TextBox7.Text)
+            command.Parameters.AddWithValue("@unidad_logistica", ComboBox_unidad_logistica.SelectedItem)
             command.Parameters.AddWithValue("@precio", TextBox3.Text)
+            command.Parameters.AddWithValue("@ficha", DateTimePicker1.Value)
             command.Parameters.AddWithValue("@description", TextBox4.Text)
 
             con.Open()
@@ -86,8 +81,31 @@ Dim idlibro As Integer = Convert.ToInt32(dgvlibros.CurrentRow.Cells("idlibro").V
     Private Sub Btn_guardar_libro1_Click(sender As Object, e As EventArgs) Handles Btn_guardar_libro1.Click
         agregar_libro()
     End Sub
-
-    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
-
+    Sub cargar_unidad_logistoca()
+        ComboBox_unidad_logistica.Items.Clear()
+        ComboBox_unidad_logistica.Items.Add(0)
+        ComboBox_unidad_logistica.Items.Add(1)
     End Sub
+
+    Private Sub añadire_libro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargar_unidad_logistoca()
+    End Sub
+
+    Private Sub ComboBox_unidad_logistica_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_unidad_logistica.SelectedIndexChanged
+        If ComboBox_unidad_logistica.SelectedItem.ToString() = "0" Then
+            ' Cuando la Unidad Logística es 0, entonces la Unidad_por_UL y el stock deben ser 0
+            TextBox8.Text = "0"  ' TextBox8 es Unidad_por_UL
+            TextBox7.Text = "0"  ' TextBox7 es stock
+        ElseIf ComboBox_unidad_logistica.SelectedItem.ToString() = "1" Then
+            ' Cuando la Unidad Logística es 1, entonces la Unidad_por_UL tiene el número de unidades dentro de la Unidad Logística
+            ' Aquí debes poner el número de unidades dentro de la Unidad Logística
+            TextBox8.Text = "1"
+            ' El stock es la suma de todas las Unidad_por_UL
+            ' En este ejemplo, asumimos que solo tienes una Unidad Logística, por lo que el stock es igual a Unidad_por_UL
+            TextBox7.Text = TextBox8.Text
+        Else
+            ' Manejo de otros valores
+        End If
+    End Sub
+
 End Class

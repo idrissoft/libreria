@@ -38,49 +38,51 @@ Partial Class añadire_libro
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.ComboBox_unidad_logistica = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(46, 128)
+        Me.Label1.Location = New System.Drawing.Point(34, 90)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(153, 24)
+        Me.Label1.Size = New System.Drawing.Size(227, 32)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "nombre del libro:"
         '
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(326, 120)
+        Me.TextBox1.Location = New System.Drawing.Point(326, 87)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(313, 29)
+        Me.TextBox1.Size = New System.Drawing.Size(313, 39)
         Me.TextBox1.TabIndex = 1
         '
         'TextBox2
         '
         Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(326, 189)
+        Me.TextBox2.Location = New System.Drawing.Point(326, 136)
         Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(313, 29)
+        Me.TextBox2.Size = New System.Drawing.Size(313, 39)
         Me.TextBox2.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(46, 194)
+        Me.Label2.Location = New System.Drawing.Point(34, 139)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(57, 24)
+        Me.Label2.Size = New System.Drawing.Size(88, 32)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "autor:"
         '
@@ -88,17 +90,17 @@ Partial Class añadire_libro
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(30, 452)
+        Me.Label3.Location = New System.Drawing.Point(34, 443)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(191, 24)
+        Me.Label3.Size = New System.Drawing.Size(284, 32)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Ficha de publicacion:"
         '
         'TextBox4
         '
         Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(326, 525)
+        Me.TextBox4.Location = New System.Drawing.Point(326, 513)
         Me.TextBox4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox4.Multiline = True
         Me.TextBox4.Name = "TextBox4"
@@ -109,10 +111,10 @@ Partial Class añadire_libro
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(46, 505)
+        Me.Label4.Location = New System.Drawing.Point(34, 513)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(109, 24)
+        Me.Label4.Size = New System.Drawing.Size(166, 32)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Description:"
         '
@@ -122,17 +124,17 @@ Partial Class añadire_libro
         Me.TextBox5.Location = New System.Drawing.Point(326, 38)
         Me.TextBox5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(313, 29)
+        Me.TextBox5.Size = New System.Drawing.Size(313, 39)
         Me.TextBox5.TabIndex = 9
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(46, 46)
+        Me.Label5.Location = New System.Drawing.Point(34, 41)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(104, 24)
+        Me.Label5.Size = New System.Drawing.Size(158, 32)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "ID del libro:"
         '
@@ -144,7 +146,7 @@ Partial Class añadire_libro
         Me.Btn_guardar_libro1.FlatAppearance.BorderSize = 0
         Me.Btn_guardar_libro1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_guardar_libro1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_guardar_libro1.Location = New System.Drawing.Point(30, 828)
+        Me.Btn_guardar_libro1.Location = New System.Drawing.Point(20, 777)
         Me.Btn_guardar_libro1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Btn_guardar_libro1.Name = "Btn_guardar_libro1"
         Me.Btn_guardar_libro1.Size = New System.Drawing.Size(180, 75)
@@ -160,7 +162,7 @@ Partial Class añadire_libro
         Me.btn_volver.FlatAppearance.BorderSize = 0
         Me.btn_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_volver.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_volver.Location = New System.Drawing.Point(585, 828)
+        Me.btn_volver.Location = New System.Drawing.Point(575, 777)
         Me.btn_volver.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btn_volver.Name = "btn_volver"
         Me.btn_volver.Size = New System.Drawing.Size(180, 75)
@@ -176,7 +178,7 @@ Partial Class añadire_libro
         Me.guardar_cambios1.FlatAppearance.BorderSize = 0
         Me.guardar_cambios1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.guardar_cambios1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.guardar_cambios1.Location = New System.Drawing.Point(242, 828)
+        Me.guardar_cambios1.Location = New System.Drawing.Point(232, 777)
         Me.guardar_cambios1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.guardar_cambios1.Name = "guardar_cambios1"
         Me.guardar_cambios1.Size = New System.Drawing.Size(334, 75)
@@ -190,81 +192,103 @@ Partial Class añadire_libro
         Me.DateTimePicker1.Checked = False
         Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(326, 458)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(326, 445)
         Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(349, 23)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(349, 30)
         Me.DateTimePicker1.TabIndex = 26
         Me.DateTimePicker1.TabStop = False
         '
         'TextBox3
         '
         Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(326, 405)
+        Me.TextBox3.Location = New System.Drawing.Point(326, 375)
         Me.TextBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(313, 29)
+        Me.TextBox3.Size = New System.Drawing.Size(313, 39)
         Me.TextBox3.TabIndex = 28
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(46, 405)
+        Me.Label6.Location = New System.Drawing.Point(34, 378)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(68, 24)
+        Me.Label6.Size = New System.Drawing.Size(101, 32)
         Me.Label6.TabIndex = 27
         Me.Label6.Text = "precio:"
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(326, 257)
-        Me.TextBox6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(313, 29)
-        Me.TextBox6.TabIndex = 30
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(46, 262)
+        Me.Label7.Location = New System.Drawing.Point(34, 196)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(86, 24)
+        Me.Label7.Size = New System.Drawing.Size(222, 32)
         Me.Label7.TabIndex = 29
-        Me.Label7.Text = "cantidad:"
+        Me.Label7.Text = "unidad logistica:"
         '
         'TextBox7
         '
         Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(326, 326)
+        Me.TextBox7.Location = New System.Drawing.Point(326, 312)
         Me.TextBox7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(313, 29)
+        Me.TextBox7.Size = New System.Drawing.Size(313, 39)
         Me.TextBox7.TabIndex = 32
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(46, 331)
+        Me.Label8.Location = New System.Drawing.Point(34, 315)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(58, 24)
+        Me.Label8.Size = New System.Drawing.Size(89, 32)
         Me.Label8.TabIndex = 31
         Me.Label8.Text = "stock:"
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox8.Location = New System.Drawing.Point(326, 252)
+        Me.TextBox8.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(313, 39)
+        Me.TextBox8.TabIndex = 34
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(34, 255)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(201, 32)
+        Me.Label9.TabIndex = 33
+        Me.Label9.Text = "unidad por U/L"
+        '
+        'ComboBox_unidad_logistica
+        '
+        Me.ComboBox_unidad_logistica.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox_unidad_logistica.FormattingEnabled = True
+        Me.ComboBox_unidad_logistica.Location = New System.Drawing.Point(326, 193)
+        Me.ComboBox_unidad_logistica.Name = "ComboBox_unidad_logistica"
+        Me.ComboBox_unidad_logistica.Size = New System.Drawing.Size(313, 40)
+        Me.ComboBox_unidad_logistica.TabIndex = 35
         '
         'añadire_libro
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(786, 930)
+        Me.ClientSize = New System.Drawing.Size(770, 880)
+        Me.Controls.Add(Me.ComboBox_unidad_logistica)
+        Me.Controls.Add(Me.TextBox8)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.TextBox7)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.TextBox6)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label6)
@@ -304,8 +328,10 @@ Partial Class añadire_libro
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox6 As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents ComboBox_unidad_logistica As ComboBox
 End Class

@@ -41,6 +41,7 @@ Partial Class Libros
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.DataGridView_UnidadesLogisticas = New System.Windows.Forms.DataGridView()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView_libros, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,6 +51,7 @@ Partial Class Libros
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        CType(Me.DataGridView_UnidadesLogisticas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -104,7 +106,7 @@ Partial Class Libros
         Me.Btn_volver.FlatAppearance.BorderSize = 0
         Me.Btn_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_volver.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_volver.Location = New System.Drawing.Point(9, 291)
+        Me.Btn_volver.Location = New System.Drawing.Point(3, 291)
         Me.Btn_volver.Name = "Btn_volver"
         Me.Btn_volver.Size = New System.Drawing.Size(84, 33)
         Me.Btn_volver.TabIndex = 2
@@ -119,7 +121,7 @@ Partial Class Libros
         Me.Btn_añadir_libro.FlatAppearance.BorderSize = 0
         Me.Btn_añadir_libro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_añadir_libro.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_añadir_libro.Location = New System.Drawing.Point(3, 43)
+        Me.Btn_añadir_libro.Location = New System.Drawing.Point(3, 37)
         Me.Btn_añadir_libro.Name = "Btn_añadir_libro"
         Me.Btn_añadir_libro.Size = New System.Drawing.Size(81, 33)
         Me.Btn_añadir_libro.TabIndex = 1
@@ -173,7 +175,7 @@ Partial Class Libros
         Me.Btn_agregar_imagen.FlatAppearance.BorderSize = 0
         Me.Btn_agregar_imagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_agregar_imagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_agregar_imagen.Location = New System.Drawing.Point(6, 221)
+        Me.Btn_agregar_imagen.Location = New System.Drawing.Point(0, 225)
         Me.Btn_agregar_imagen.Name = "Btn_agregar_imagen"
         Me.Btn_agregar_imagen.Size = New System.Drawing.Size(84, 51)
         Me.Btn_agregar_imagen.TabIndex = 5
@@ -256,12 +258,24 @@ Partial Class Libros
         '
         'Panel6
         '
+        Me.Panel6.Controls.Add(Me.DataGridView_UnidadesLogisticas)
         Me.Panel6.Controls.Add(Me.PictureBox3)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel6.Location = New System.Drawing.Point(90, 320)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(967, 365)
         Me.Panel6.TabIndex = 8
+        '
+        'DataGridView_UnidadesLogisticas
+        '
+        Me.DataGridView_UnidadesLogisticas.AllowUserToAddRows = False
+        Me.DataGridView_UnidadesLogisticas.AllowUserToDeleteRows = False
+        Me.DataGridView_UnidadesLogisticas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_UnidadesLogisticas.Location = New System.Drawing.Point(265, 8)
+        Me.DataGridView_UnidadesLogisticas.Name = "DataGridView_UnidadesLogisticas"
+        Me.DataGridView_UnidadesLogisticas.ReadOnly = True
+        Me.DataGridView_UnidadesLogisticas.Size = New System.Drawing.Size(699, 281)
+        Me.DataGridView_UnidadesLogisticas.TabIndex = 7
         '
         'PictureBox3
         '
@@ -293,6 +307,7 @@ Partial Class Libros
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
+        CType(Me.DataGridView_UnidadesLogisticas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -317,4 +332,5 @@ Partial Class Libros
     Friend WithEvents Panel6 As Panel
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Btn_Editar As Button
+    Friend WithEvents DataGridView_UnidadesLogisticas As DataGridView
 End Class

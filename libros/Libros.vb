@@ -7,10 +7,15 @@ Public Class Libros
     Public Property Nombre As String
     Public Property Autor As String
     Public Property Ficha As String
+    Public Property unidad_logistica As String
+    Public Property Unidad_por_UL As String
     Public Property Cantidad As Integer
     Public Property Stock As Integer
     Public Property Description As String
     Public Property Precio As Decimal
+    Public Function ObtenerDataGridView_UnidadesLogisticas() As DataGridView
+        Return DataGridView_UnidadesLogisticas
+    End Function
     Public Function ObtenerDataGridViewLibros() As DataGridView
         Return DataGridView_libros
     End Function
@@ -38,6 +43,7 @@ Public Class Libros
 
         End Using
         Return dt
+
     End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Btn_agregar_imagen.Click
@@ -92,11 +98,14 @@ Public Class Libros
         MostrarLibros()
     End Sub
 
-    Private Sub DataGridView_libros_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_libros.CellClick
+    Public Sub DataGridView_libros_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_libros.CellClick
+        ' Mover la definición de selectedRow aquí
+        Dim selectedRow As DataGridViewRow
+
         Try
             If e.RowIndex >= 0 Then
                 ' Obtener la fila seleccionada en el DataGridView
-                Dim selectedRow As DataGridViewRow = DataGridView_libros.Rows(e.RowIndex)
+                selectedRow = DataGridView_libros.Rows(e.RowIndex)
 
                 ' Verificar si la celda "imagenes" no es nula antes de convertirla a Byte()
                 If selectedRow.Cells("imagenes").Value IsNot DBNull.Value Then
@@ -120,6 +129,15 @@ Public Class Libros
         Catch ex As Exception
             'MessageBox.Show(ex.Message)
         End Try
+
+        Dim idLibro As Integer = Convert.ToInt32(selectedRow.Cells("idLibro").Value)
+
+        ' Obtener las unidades logísticas del libro seleccionado
+        Dim dtUL As DataTable = MostrarUnidadesLogisticas(idLibro)
+
+        ' Mostrar las unidades logísticas en un nuevo DataGridView
+        Dim dgw As New ObtenerDataGridView_UnidadesLogisticas()
+        dgw.DataSource
     End Sub
     Sub editar_libros()
         Try
@@ -132,7 +150,7 @@ Public Class Libros
                 Dim con As SqlConnection = miConexion.CrearConexion()
 
                 ' Consulta SQL para obtener los datos de la tabla filtrados por un parámetro
-                Dim query As String = "SELECT nombre, autor, ficha,cantidad,stock, description,precio from libros WHERE idlibro = @idlibro"
+                Dim query As String = "SELECT nombre, autor,unidad_logistica,Unidad_por_UL, stock,precio,ficha ,description from libros WHERE idlibro = @idlibro"
 
                 ' Creación del comando y asignación de parámetros
                 Dim command As New SqlCommand(query, con)
@@ -147,11 +165,13 @@ Public Class Libros
                     'a.TextBox5.Text = Convert.ToString(idlibro)
                     a.TextBox1.Text = reader("nombre").ToString()
                     a.TextBox2.Text = reader("autor").ToString()
-                    a.DateTimePicker1.Value = Date.Parse(reader("ficha").ToString())
-                    a.TextBox3.Text = Convert.ToInt32(reader("cantidad"))
-                    a.TextBox3.Text = Convert.ToInt32(reader("stock"))
+                    a.ComboBox_unidad_logistica.SelectedItem = Convert.ToInt32(reader("unidad_logistica"))
+                    a.TextBox8.Text = Convert.ToInt32(reader("Unidad_por_UL"))
+                    a.TextBox7.Text = Convert.ToInt32(reader("stock"))
                     a.TextBox3.Text = reader("precio").ToString()
+                    a.DateTimePicker1.Value = Date.Parse(reader("ficha").ToString())
                     a.TextBox4.Text = reader("description").ToString()
+
                 End If
 
                 reader.Close()
@@ -196,4 +216,19 @@ Public Class Libros
         eliminar_libros()
         MostrarLibros()
     End Sub
+    Public Function MostrarUnidadesLogisticas(idLibro As Integer) As DataTable
+        Dim dt As New DataTable()
+        Dim con As SqlConnection = miConexion.CrearConexion()
+        Dim cmd As New SqlCommand("SELECT * FROM UnidadesLogisticas WHERE idUL = @idUL ORDER BY tipoUL", con)
+
+        cmd.CommandType = CommandType.Text
+        cmd.Parameters.AddWithValue("@idUL", idUL)
+
+        con.Open()
+
+        Using da As New SqlDataAdapter(cmd)
+            da.Fill(dt)
+        End Using
+        Return dt
+    End Function
 End Class

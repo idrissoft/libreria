@@ -7,6 +7,7 @@ Public Class Venta
         Return DataGridView_Venta
     End Function
 
+
     Public Function mostrar_venta() As DataTable
         Dim dt As New DataTable()
         Dim con As SqlConnection = miConexion.CrearConexion()
@@ -89,7 +90,7 @@ Public Class Venta
         conn.Open()
 
         ' Consulta SQL para obtener los datos del libro por su ID
-        Dim query As String = "SELECT nombre, autor, ficha, cantidad, stock, description, precio FROM Libros WHERE idlibro = @idLibro"
+        Dim query As String = "SELECT nombre, autor, ficha, unidad_logistica, stock, description, precio FROM Libros WHERE idlibro = @idLibro"
         Dim cmd As New SqlCommand(query, conn)
         cmd.Parameters.AddWithValue("@idLibro", idLibro)
 
@@ -147,4 +148,6 @@ Public Class Venta
         Dim HistorialTransacciones As New HistorialTransacciones()
         HistorialTransacciones.Show()
     End Sub
+
+
 End Class

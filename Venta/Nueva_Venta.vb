@@ -2,17 +2,20 @@
 
 Public Class Nueva_Venta
     Private miConexion As New connexion()
-
+    Friend WithEvents BtnAddVenta As Button
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        ' Cerrar la venta actual y volver a la vista principal
         Me.Hide()
     End Sub
 
     Private Sub Nueva_Venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Cargar los nombres de los clientes y libros disponibles al iniciar el formulario
         CargarClientes()
         CargarLibros()
     End Sub
 
     Private Sub CargarClientes()
+        ' Obtener los nombres de todos los clientes de la base de datos
         Using con As SqlConnection = miConexion.CrearConexion()
             con.Open()
 
@@ -31,6 +34,7 @@ Public Class Nueva_Venta
     End Sub
 
     Private Sub CargarLibros()
+        ' Obtener los nombres de todos los libros de la base de datos
         Using con As SqlConnection = miConexion.CrearConexion()
             con.Open()
 
@@ -46,11 +50,13 @@ Public Class Nueva_Venta
 
             reader.Close()
 
+            ' Añadir un evento de cambio de selección al cuadro de lista de libros
             AddHandler txtLibroNombre.SelectedIndexChanged, AddressOf txtLibroNombre_SelectedIndexChanged
         End Using
     End Sub
 
     Private Sub carga_precio_libro()
+        ' Obtener el precio del libro seleccionado y mostrarlo en el formulario
         Using con As SqlConnection = miConexion.CrearConexion()
             con.Open()
 
@@ -67,6 +73,7 @@ Public Class Nueva_Venta
     End Sub
 
     Public Sub agregar_venta()
+        ' Agregar una nueva venta a la base de datos
         Using con As SqlConnection = miConexion.CrearConexion()
             con.Open()
 
@@ -88,36 +95,31 @@ Public Class Nueva_Venta
                 If libroResult IsNot Nothing Then
                     Dim idlibro As Integer = Convert.ToInt32(libroResult)
                     Dim Precio_Des_por_unidad As Decimal = CDec(txtVentaPrecio.Text) - CDec(TxtDescuento.Text)
-                    Dim subtotal As Decimal = CDec(txtVentaCantidad.Text) * CDec(txtVentaPrecio.Text) - CDec(TxtDescuento.Text)
+                    Dim subtotal As Decimal = CDec(txtVentaCantidad.Text) * Precio_Des_por_unidad
+                    Dim IVA As Decimal = (subtotal * 16) / 100
+                    Dim total As Decimal = subtotal + IVA
 
-                    Dim command As New SqlCommand("INSERT INTO venta(ID_cliente, idlibro, Cantidad, Precio_venta, ficha_de_venta, Descuento,Precio_Des_por_unidad, Subtota) 
-                                               VALUES (@ID_cliente, @idlibro, @Cantidad, @Precio_venta, @ficha_de_venta, @Descuento,@Precio_Des_por_unidad, @Subtota)", con)
+                    Dim ventaQuery As String = "INSERT INTO ventas (ID_Cliente, Fecha, Cantidad, ID_Libro, Subtotal, Descuento, IVA, Total) VALUES (@ID_Cliente, GETDATE(), @Cantidad, @ID_Libro, @Subtotal, @Descuento, @IVA, @Total)"
+                    Dim ventaCmd As New SqlCommand(ventaQuery, con)
+                    ventaCmd.Parameters.AddWithValue("@ID_Cliente", ID_cliente)
+                    ventaCmd.Parameters.AddWithValue("@Cantidad", txtVentaCantidad.Text)
+                    ventaCmd.Parameters.AddWithValue("@ID_Libro", idlibro)
+                    ventaCmd.Parameters.AddWithValue("@Subtotal", subtotal)
+                    ventaCmd.Parameters.AddWithValue("@Descuento", TxtDescuento.Text)
+                    ventaCmd.Parameters.AddWithValue("@IVA", IVA)
+                    ventaCmd.Parameters.AddWithValue("@Total", total)
 
-                    Dim fechaVenta As DateTime = ficha_de_venta.Value
+                    ventaCmd.ExecuteNonQuery()
 
-                    command.Parameters.AddWithValue("@ID_cliente", ID_cliente)
-                    command.Parameters.AddWithValue("@idlibro", idlibro)
-                    command.Parameters.AddWithValue("@Cantidad", txtVentaCantidad.Text)
-                    command.Parameters.AddWithValue("@Precio_venta", CDec(txtVentaPrecio.Text))
-                    command.Parameters.AddWithValue("@ficha_de_venta", fechaVenta)
-                    command.Parameters.AddWithValue("@Descuento", CDec(TxtDescuento.Text))
-                    command.Parameters.AddWithValue("@Precio_Des_por_unidad", Precio_Des_por_unidad)
-                    command.Parameters.AddWithValue("@Subtota", subtotal)
-
-                    ' Cambiar el tipo de dato del parámetro Subtotal a SqlDbType.Money
-                    command.Parameters("@Subtota").SqlDbType = SqlDbType.Money
-
-                    command.ExecuteNonQuery()
-
+                    ' Actualizar el stock del libro
                     Dim updateStockQuery As String = "UPDATE libros SET stock = stock - @Cantidad WHERE idlibro = @idlibro"
                     Dim updateStockCmd As New SqlCommand(updateStockQuery, con)
                     updateStockCmd.Parameters.AddWithValue("@Cantidad", txtVentaCantidad.Text)
                     updateStockCmd.Parameters.AddWithValue("@idlibro", idlibro)
                     updateStockCmd.ExecuteNonQuery()
 
-                    MessageBox.Show("La nueva venta se ha creado correctamente.")
-                    Close()
-                    Venta.mostrar_venta()
+                    ' Mostrar un mensaje de éxito
+                    MessageBox.Show("Venta agregada correctamente.")
                 Else
                     MessageBox.Show("No se encontró el libro seleccionado.")
                 End If
@@ -127,12 +129,13 @@ Public Class Nueva_Venta
         End Using
     End Sub
 
-
-    Private Sub Btn_guardar_cliente1_Click(sender As Object, e As EventArgs) Handles Btn_guardar_cliente1.Click
+    Private Sub BtnAddVenta_Click(sender As Object, e As EventArgs) Handles BtnAddVenta.Click
+        ' Añadir una nueva venta cuando se hace clic en el botón "Añadir venta"
         agregar_venta()
     End Sub
 
     Private Sub txtLibroNombre_SelectedIndexChanged(sender As Object, e As EventArgs)
+        ' Actualizar el precio del libro cuando se selecciona un nuevo libro
         carga_precio_libro()
     End Sub
 End Class
