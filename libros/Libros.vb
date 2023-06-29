@@ -135,9 +135,9 @@ Public Class Libros
         ' Obtener las unidades logísticas del libro seleccionado
         Dim dtUL As DataTable = MostrarUnidadesLogisticas(idLibro)
 
-        ' Mostrar las unidades logísticas en un nuevo DataGridView
-        Dim dgw As New ObtenerDataGridView_UnidadesLogisticas()
-        dgw.DataSource
+        ' Mostrar las unidades logísticas en un DataGridView
+        Dim dgw As DataGridView = ObtenerDataGridView_UnidadesLogisticas()
+        dgw.DataSource = dtUL
     End Sub
     Sub editar_libros()
         Try
@@ -219,10 +219,10 @@ Public Class Libros
     Public Function MostrarUnidadesLogisticas(idLibro As Integer) As DataTable
         Dim dt As New DataTable()
         Dim con As SqlConnection = miConexion.CrearConexion()
-        Dim cmd As New SqlCommand("SELECT * FROM UnidadesLogisticas WHERE idUL = @idUL ORDER BY tipoUL", con)
+        Dim cmd As New SqlCommand("SELECT * FROM UnidadesLogisticas WHERE idLibro = @idLibro ORDER BY tipoUL", con)
 
         cmd.CommandType = CommandType.Text
-        cmd.Parameters.AddWithValue("@idUL", idUL)
+        cmd.Parameters.AddWithValue("@idLibro", idLibro)
 
         con.Open()
 
