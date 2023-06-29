@@ -53,33 +53,18 @@ Public Class Venta
         Dim rowindex As Integer = DataGridView_Venta.CurrentCell.RowIndex
 
         ' Obtener los valores de las columnas correspondientes
-        Dim idLibro As String = DataGridView_Venta.Rows(rowindex).Cells("ID de Libro").Value.ToString()
-        Dim idCliente As String = DataGridView_Venta.Rows(rowindex).Cells("ID de cliente").Value.ToString()
-        Dim cantidad As String = DataGridView_Venta.Rows(rowindex).Cells("cantidad").Value.ToString()
-        Dim precioVenta As String = DataGridView_Venta.Rows(rowindex).Cells("Precio de Unidad").Value.ToString()
-        Dim descuento As String = DataGridView_Venta.Rows(rowindex).Cells("Descuento ").Value.ToString()
+        Dim idUL As String = DataGridView_Venta.Rows(rowindex).Cells("idUL").Value.ToString()
+        Dim idlibro As String = DataGridView_Venta.Rows(rowindex).Cells("idlibro").Value.ToString()
+        Dim tipoUL As String = DataGridView_Venta.Rows(rowindex).Cells("tipoUL").Value.ToString()
+        Dim stock As String = DataGridView_Venta.Rows(rowindex).Cells("stock").Value.ToString()
+
 
         ' Mostrar los datos del libro en los cuadros de texto correspondientes
         Dim libro As Libros = ObtenerLibro(idLibro)
-        txtLibroID.Text = libro.idLibro
+        TextBox6.Text = idUL
         txtLibroNombre.Text = libro.Nombre
 
-        ' Mostrar otros datos de libro según tus propiedades
 
-        ' Mostrar los datos del cliente en los cuadros de texto correspondientes
-        Dim cliente As Clientes = ObtenerCliente(idCliente)
-        txtClienteID.Text = cliente.ID_Cliente
-        txtClienteNombre.Text = cliente.Nombre
-        txtClienteTelefono.Text = cliente.Telefono
-        txtClientedireccion.Text = cliente.Direccion
-
-        ' Mostrar otros datos de cliente según tus propiedades
-
-        ' Mostrar los datos de la venta en los cuadros de texto correspondientes
-        txtVentaCantidad.Text = cantidad
-        txtVentaPrecio.Text = precioVenta
-        txtVentaDescuento.Text = descuento
-        txtVentaSubtotal.Text = (CDbl(cantidad) * CDbl(precioVenta) - CDbl(descuento)).ToString()
     End Sub
 
     Private Function ObtenerLibro(idLibro As String) As Libros

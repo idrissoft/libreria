@@ -231,4 +231,10 @@ Public Class Libros
         End Using
         Return dt
     End Function
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim gestionar_del_stock As New unidades_logisticas()
+        gestionar_del_stock.Show()
+        Me.Hide()
+    End Sub
 End Class
