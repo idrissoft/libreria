@@ -16,42 +16,51 @@ Public Class agregarUL
             Dim tipoUL As Integer = ComboBox1.SelectedItem
             Dim stock As Integer = TextBox2.Text
             Dim unidades_por_UL As Integer = TextBox1.Text
-            ' Primero, verifica si ya existe un registro con el mismo tipoUL
-            Dim commandCheck As New SqlCommand("SELECT COUNT(*) FROM UnidadesLogisticas WHERE idLibro = @idLibro AND tipoUL = @tipoUL", con)
+
+            Dim commandCheck As New SqlCommand("SELECT COUNT(*) FROM UnidadesLogisticas WHERE idLibro = @idLibro AND tipoUL = @tipoUL AND unidades_por_UL = @unidades_por_UL", con)
             commandCheck.Parameters.AddWithValue("@idLibro", idLibro)
             commandCheck.Parameters.AddWithValue("@tipoUL", tipoUL)
+            commandCheck.Parameters.AddWithValue("@unidades_por_UL", unidades_por_UL)
 
             con.Open()
 
             Dim exist As Integer = commandCheck.ExecuteScalar()
 
+            Console.WriteLine("Exist: " & exist)
+
             con.Close()
 
             If exist > 0 Then
-                ' Si el registro existe, actualiza el stock
-                Dim commandUpdate As New SqlCommand("UPDATE UnidadesLogisticas SET stock = stock + @stock WHERE idLibro = @idLibro AND tipoUL = @tipoUL,unidades_por_UL=@unidades_por_UL", con)
+                Dim commandUpdate As New SqlCommand("UPDATE UnidadesLogisticas SET stock = stock + @stock WHERE idLibro = @idLibro AND tipoUL = @tipoUL AND unidades_por_UL = @unidades_por_UL", con)
                 commandUpdate.Parameters.AddWithValue("@idLibro", idLibro)
                 commandUpdate.Parameters.AddWithValue("@tipoUL", tipoUL)
-                commandUpdate.Parameters.AddWithValue("@unidades_por_ULL", unidades_por_UL)
+                commandUpdate.Parameters.AddWithValue("@unidades_por_UL", unidades_por_UL)
                 commandUpdate.Parameters.AddWithValue("@stock", stock)
 
                 con.Open()
+
                 commandUpdate.ExecuteNonQuery()
+
+                Console.WriteLine("Stock actualizado.")
+
                 con.Close()
             Else
-                ' Si el registro no existe, inserta un nuevo registro
-                Dim commandInsert As New SqlCommand("INSERT INTO UnidadesLogisticas(idLibro, tipoUL,unidades_por_ULL, stock) VALUES (@idLibro, @tipoUL,@unidades_por_ULL, @stock)", con)
+                Dim commandInsert As New SqlCommand("INSERT INTO UnidadesLogisticas(idLibro, tipoUL, unidades_por_UL, stock) VALUES (@idLibro, @tipoUL, @unidades_por_UL, @stock)", con)
                 commandInsert.Parameters.AddWithValue("@idLibro", idLibro)
                 commandInsert.Parameters.AddWithValue("@tipoUL", tipoUL)
-                commandInsert.Parameters.AddWithValue("@unidades_por_ULL", unidades_por_UL)
+                commandInsert.Parameters.AddWithValue("@unidades_por_UL", unidades_por_UL)
                 commandInsert.Parameters.AddWithValue("@stock", stock)
 
                 con.Open()
+
                 commandInsert.ExecuteNonQuery()
+
+                Console.WriteLine("Nueva unidad logística insertada.")
+
                 con.Close()
             End If
 
-            MessageBox.Show(" se ha agregado correctamente.")
+            MessageBox.Show("Se ha agregado correctamente.")
 
             Me.Close()
         Catch ex As Exception
