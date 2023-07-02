@@ -41,7 +41,7 @@ Partial Class añadire_libro
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.TxtUporUL = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.ComboBox_unidad_logistica = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
@@ -232,13 +232,13 @@ Partial Class añadire_libro
         Me.Label8.TabIndex = 31
         Me.Label8.Text = "stock:"
         '
-        'TextBox8
+        'TxtUporUL
         '
-        Me.TextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(217, 153)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(210, 29)
-        Me.TextBox8.TabIndex = 34
+        Me.TxtUporUL.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUporUL.Location = New System.Drawing.Point(217, 153)
+        Me.TxtUporUL.Name = "TxtUporUL"
+        Me.TxtUporUL.Size = New System.Drawing.Size(210, 29)
+        Me.TxtUporUL.TabIndex = 34
         '
         'Label9
         '
@@ -255,7 +255,7 @@ Partial Class añadire_libro
         Me.ComboBox_unidad_logistica.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox_unidad_logistica.FormattingEnabled = True
         Me.ComboBox_unidad_logistica.Location = New System.Drawing.Point(217, 116)
-        Me.ComboBox_unidad_logistica.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ComboBox_unidad_logistica.Margin = New System.Windows.Forms.Padding(2)
         Me.ComboBox_unidad_logistica.Name = "ComboBox_unidad_logistica"
         Me.ComboBox_unidad_logistica.Size = New System.Drawing.Size(210, 32)
         Me.ComboBox_unidad_logistica.TabIndex = 35
@@ -266,7 +266,7 @@ Partial Class añadire_libro
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(513, 572)
         Me.Controls.Add(Me.ComboBox_unidad_logistica)
-        Me.Controls.Add(Me.TextBox8)
+        Me.Controls.Add(Me.TxtUporUL)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.TextBox7)
         Me.Controls.Add(Me.Label8)
@@ -311,7 +311,7 @@ Partial Class añadire_libro
     Friend WithEvents Label7 As Label
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents TxtUporUL As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents ComboBox_unidad_logistica As ComboBox
 End Class

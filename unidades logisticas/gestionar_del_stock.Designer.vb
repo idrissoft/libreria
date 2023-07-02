@@ -58,10 +58,16 @@ Partial Class unidades_logisticas
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TabControl_stock = New System.Windows.Forms.TabControl()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.DataGridView_UL = New System.Windows.Forms.DataGridView()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
@@ -77,33 +83,35 @@ Partial Class unidades_logisticas
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.DataGridView_UL = New System.Windows.Forms.DataGridView()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.ListBox3 = New System.Windows.Forms.ListBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.TextBox15 = New System.Windows.Forms.TextBox()
+        Me.TextBox16 = New System.Windows.Forms.TextBox()
+        Me.TextBox17 = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl_stock.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        CType(Me.DataGridView_UL, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage1.SuspendLayout()
-        CType(Me.DataGridView_UL, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
@@ -239,7 +247,7 @@ Partial Class unidades_logisticas
         Me.Panel1.ForeColor = System.Drawing.Color.Black
         Me.Panel1.Location = New System.Drawing.Point(-4, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1130, 29)
+        Me.Panel1.Size = New System.Drawing.Size(1115, 29)
         Me.Panel1.TabIndex = 69
         '
         'Label1
@@ -258,7 +266,7 @@ Partial Class unidades_logisticas
         Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Location = New System.Drawing.Point(-4, 29)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1130, 44)
+        Me.Panel2.Size = New System.Drawing.Size(1115, 44)
         Me.Panel2.TabIndex = 70
         '
         'ComboBox2
@@ -284,6 +292,7 @@ Partial Class unidades_logisticas
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(-41, -54)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersWidth = 62
         Me.DataGridView1.Size = New System.Drawing.Size(1160, 472)
         Me.DataGridView1.TabIndex = 0
         '
@@ -444,29 +453,33 @@ Partial Class unidades_logisticas
         Me.TabControl_stock.Location = New System.Drawing.Point(-4, 79)
         Me.TabControl_stock.Name = "TabControl_stock"
         Me.TabControl_stock.SelectedIndex = 0
-        Me.TabControl_stock.Size = New System.Drawing.Size(1130, 965)
+        Me.TabControl_stock.Size = New System.Drawing.Size(1339, 965)
         Me.TabControl_stock.TabIndex = 94
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.Label24)
-        Me.TabPage2.Controls.Add(Me.TextBox13)
-        Me.TabPage2.Controls.Add(Me.Label23)
-        Me.TabPage2.Controls.Add(Me.DataGridView_UL)
-        Me.TabPage2.Controls.Add(Me.Button4)
-        Me.TabPage2.Controls.Add(Me.PictureBox3)
-        Me.TabPage2.Controls.Add(Me.ComboBox4)
+        Me.TabPage2.AutoScroll = True
+        Me.TabPage2.Controls.Add(Me.TextBox10)
         Me.TabPage2.Controls.Add(Me.Label19)
+        Me.TabPage2.Controls.Add(Me.TextBox11)
         Me.TabPage2.Controls.Add(Me.Label20)
+        Me.TabPage2.Controls.Add(Me.TextBox12)
         Me.TabPage2.Controls.Add(Me.Label21)
         Me.TabPage2.Controls.Add(Me.Label22)
-        Me.TabPage2.Controls.Add(Me.TextBox10)
-        Me.TabPage2.Controls.Add(Me.TextBox11)
-        Me.TabPage2.Controls.Add(Me.TextBox12)
+        Me.TabPage2.Controls.Add(Me.Label25)
+        Me.TabPage2.Controls.Add(Me.Label26)
+        Me.TabPage2.Controls.Add(Me.TextBox15)
+        Me.TabPage2.Controls.Add(Me.TextBox16)
+        Me.TabPage2.Controls.Add(Me.TextBox17)
+        Me.TabPage2.Controls.Add(Me.TextBox14)
+        Me.TabPage2.Controls.Add(Me.Panel5)
+        Me.TabPage2.Controls.Add(Me.Label24)
+        Me.TabPage2.Controls.Add(Me.TextBox13)
+        Me.TabPage2.Controls.Add(Me.Button4)
+        Me.TabPage2.Controls.Add(Me.PictureBox3)
         Me.TabPage2.Controls.Add(Me.ListBox3)
         Me.TabPage2.Controls.Add(Me.Label9)
         Me.TabPage2.Controls.Add(Me.TextBox6)
-        Me.TabPage2.Controls.Add(Me.ComboBox3)
         Me.TabPage2.Controls.Add(Me.Label10)
         Me.TabPage2.Controls.Add(Me.Label11)
         Me.TabPage2.Controls.Add(Me.Label17)
@@ -480,26 +493,98 @@ Partial Class unidades_logisticas
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1122, 939)
+        Me.TabPage2.Size = New System.Drawing.Size(1331, 939)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "unidades logisticas"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.PictureBox4)
+        Me.Panel5.Controls.Add(Me.Label23)
+        Me.Panel5.Controls.Add(Me.DataGridView_UL)
+        Me.Panel5.Location = New System.Drawing.Point(0, 235)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(1111, 104)
+        Me.Panel5.TabIndex = 120
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.Location = New System.Drawing.Point(396, 0)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(259, 20)
+        Me.Label23.TabIndex = 116
+        Me.Label23.Text = "Selectionar la unidade logistica"
+        '
+        'DataGridView_UL
+        '
+        Me.DataGridView_UL.BackgroundColor = System.Drawing.Color.White
+        Me.DataGridView_UL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_UL.Location = New System.Drawing.Point(68, 23)
+        Me.DataGridView_UL.Name = "DataGridView_UL"
+        Me.DataGridView_UL.RowHeadersWidth = 62
+        Me.DataGridView_UL.Size = New System.Drawing.Size(1043, 650)
+        Me.DataGridView_UL.TabIndex = 115
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(264, 438)
+        Me.Label24.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(54, 17)
+        Me.Label24.TabIndex = 118
+        Me.Label24.Text = "id libro:"
+        '
+        'TextBox13
+        '
+        Me.TextBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox13.Location = New System.Drawing.Point(229, 458)
+        Me.TextBox13.Name = "TextBox13"
+        Me.TextBox13.Size = New System.Drawing.Size(206, 23)
+        Me.TextBox13.TabIndex = 117
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.Transparent
+        Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(455, 775)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(172, 35)
+        Me.Button4.TabIndex = 114
+        Me.Button4.Text = "actualisar"
+        Me.Button4.UseVisualStyleBackColor = False
+        '
         'PictureBox3
         '
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(504, 571)
+        Me.PictureBox3.Location = New System.Drawing.Point(481, 459)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(113, 143)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox3.TabIndex = 113
         Me.PictureBox3.TabStop = False
         '
+        'ListBox3
+        '
+        Me.ListBox3.FormattingEnabled = True
+        Me.ListBox3.Location = New System.Drawing.Point(630, 350)
+        Me.ListBox3.Name = "ListBox3"
+        Me.ListBox3.Size = New System.Drawing.Size(481, 420)
+        Me.ListBox3.TabIndex = 104
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(76, 548)
+        Me.Label9.Location = New System.Drawing.Point(264, 382)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(49, 17)
@@ -509,24 +594,16 @@ Partial Class unidades_logisticas
         'TextBox6
         '
         Me.TextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(41, 569)
+        Me.TextBox6.Location = New System.Drawing.Point(229, 403)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(206, 23)
         Me.TextBox6.TabIndex = 102
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(41, 635)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(206, 21)
-        Me.ComboBox3.TabIndex = 101
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(38, 813)
+        Me.Label10.Location = New System.Drawing.Point(264, 672)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(76, 17)
         Me.Label10.TabIndex = 100
@@ -536,7 +613,7 @@ Partial Class unidades_logisticas
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(38, 751)
+        Me.Label11.Location = New System.Drawing.Point(264, 610)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(45, 17)
         Me.Label11.TabIndex = 99
@@ -546,18 +623,18 @@ Partial Class unidades_logisticas
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(38, 682)
+        Me.Label17.Location = New System.Drawing.Point(264, 548)
         Me.Label17.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(66, 17)
+        Me.Label17.Size = New System.Drawing.Size(102, 17)
         Me.Label17.TabIndex = 98
-        Me.Label17.Text = "cantidad:"
+        Me.Label17.Text = "unidad por UL:"
         '
         'Label18
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(38, 615)
+        Me.Label18.Location = New System.Drawing.Point(264, 495)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(110, 17)
         Me.Label18.TabIndex = 97
@@ -566,7 +643,7 @@ Partial Class unidades_logisticas
         'TextBox7
         '
         Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(41, 832)
+        Me.TextBox7.Location = New System.Drawing.Point(229, 691)
         Me.TextBox7.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(206, 23)
@@ -575,7 +652,7 @@ Partial Class unidades_logisticas
         'TextBox8
         '
         Me.TextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(41, 770)
+        Me.TextBox8.Location = New System.Drawing.Point(229, 629)
         Me.TextBox8.Margin = New System.Windows.Forms.Padding(2)
         Me.TextBox8.Name = "TextBox8"
         Me.TextBox8.Size = New System.Drawing.Size(206, 23)
@@ -584,7 +661,7 @@ Partial Class unidades_logisticas
         'TextBox9
         '
         Me.TextBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox9.Location = New System.Drawing.Point(41, 702)
+        Me.TextBox9.Location = New System.Drawing.Point(229, 568)
         Me.TextBox9.Name = "TextBox9"
         Me.TextBox9.Size = New System.Drawing.Size(206, 23)
         Me.TextBox9.TabIndex = 94
@@ -592,9 +669,9 @@ Partial Class unidades_logisticas
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(17, 469)
+        Me.ListBox1.Location = New System.Drawing.Point(205, 353)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(481, 420)
+        Me.ListBox1.Size = New System.Drawing.Size(270, 420)
         Me.ListBox1.TabIndex = 2
         '
         'Panel4
@@ -602,15 +679,17 @@ Partial Class unidades_logisticas
         Me.Panel4.Controls.Add(Me.DataGridView2)
         Me.Panel4.Location = New System.Drawing.Point(3, 34)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(1116, 291)
+        Me.Panel4.Size = New System.Drawing.Size(1108, 195)
         Me.Panel4.TabIndex = 1
         '
         'DataGridView2
         '
+        Me.DataGridView2.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView2.Location = New System.Drawing.Point(3, 0)
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(1116, 291)
+        Me.DataGridView2.RowHeadersWidth = 62
+        Me.DataGridView2.Size = New System.Drawing.Size(1105, 194)
         Me.DataGridView2.TabIndex = 0
         '
         'Panel3
@@ -621,7 +700,7 @@ Partial Class unidades_logisticas
         Me.Panel3.Controls.Add(Me.Label7)
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1122, 31)
+        Me.Panel3.Size = New System.Drawing.Size(1111, 31)
         Me.Panel3.TabIndex = 0
         '
         'TextBox2
@@ -685,151 +764,145 @@ Partial Class unidades_logisticas
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1122, 813)
+        Me.TabPage1.Size = New System.Drawing.Size(1331, 939)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "stock"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'Button4
+        'PictureBox4
         '
-        Me.Button4.BackColor = System.Drawing.Color.Transparent
-        Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(466, 898)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(172, 35)
-        Me.Button4.TabIndex = 114
-        Me.Button4.Text = "actualisar"
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(30, 39)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(36, 27)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox4.TabIndex = 117
+        Me.PictureBox4.TabStop = False
         '
-        'DataGridView_UL
+        'TextBox14
         '
-        Me.DataGridView_UL.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_UL.Location = New System.Drawing.Point(0, 359)
-        Me.DataGridView_UL.Name = "DataGridView_UL"
-        Me.DataGridView_UL.Size = New System.Drawing.Size(1122, 100)
-        Me.DataGridView_UL.TabIndex = 115
+        Me.TextBox14.Location = New System.Drawing.Point(229, 516)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(206, 20)
+        Me.TextBox14.TabIndex = 121
         '
-        'Label23
+        'TextBox10
         '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(410, 336)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(259, 20)
-        Me.Label23.TabIndex = 116
-        Me.Label23.Text = "Selectionar la unidade logistica"
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(66, 483)
-        Me.Label24.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(54, 17)
-        Me.Label24.TabIndex = 118
-        Me.Label24.Text = "id libro:"
-        '
-        'TextBox13
-        '
-        Me.TextBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox13.Location = New System.Drawing.Point(31, 504)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(206, 23)
-        Me.TextBox13.TabIndex = 117
-        '
-        'ComboBox4
-        '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(647, 635)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(206, 21)
-        Me.ComboBox4.TabIndex = 112
+        Me.TextBox10.Location = New System.Drawing.Point(646, 516)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(206, 20)
+        Me.TextBox10.TabIndex = 133
         '
         'Label19
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(644, 813)
+        Me.Label19.Location = New System.Drawing.Point(681, 438)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(76, 17)
-        Me.Label19.TabIndex = 111
-        Me.Label19.Text = "stock total:"
+        Me.Label19.Size = New System.Drawing.Size(54, 17)
+        Me.Label19.TabIndex = 132
+        Me.Label19.Text = "id libro:"
         '
         'TextBox11
         '
         Me.TextBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox11.Location = New System.Drawing.Point(647, 770)
-        Me.TextBox11.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox11.Location = New System.Drawing.Point(646, 458)
         Me.TextBox11.Name = "TextBox11"
         Me.TextBox11.Size = New System.Drawing.Size(206, 23)
-        Me.TextBox11.TabIndex = 106
+        Me.TextBox11.TabIndex = 131
         '
         'Label20
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(644, 751)
+        Me.Label20.Location = New System.Drawing.Point(681, 382)
+        Me.Label20.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(45, 17)
-        Me.Label20.TabIndex = 110
-        Me.Label20.Text = "stock:"
+        Me.Label20.Size = New System.Drawing.Size(49, 17)
+        Me.Label20.TabIndex = 130
+        Me.Label20.Text = "id U/L:"
         '
         'TextBox12
         '
         Me.TextBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox12.Location = New System.Drawing.Point(647, 702)
+        Me.TextBox12.Location = New System.Drawing.Point(646, 403)
         Me.TextBox12.Name = "TextBox12"
         Me.TextBox12.Size = New System.Drawing.Size(206, 23)
-        Me.TextBox12.TabIndex = 105
+        Me.TextBox12.TabIndex = 129
         '
         'Label21
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(644, 682)
-        Me.Label21.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label21.Location = New System.Drawing.Point(681, 672)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(66, 17)
-        Me.Label21.TabIndex = 109
-        Me.Label21.Text = "cantidad:"
+        Me.Label21.Size = New System.Drawing.Size(76, 17)
+        Me.Label21.TabIndex = 128
+        Me.Label21.Text = "stock total:"
         '
         'Label22
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(644, 615)
+        Me.Label22.Location = New System.Drawing.Point(681, 610)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(110, 17)
-        Me.Label22.TabIndex = 108
-        Me.Label22.Text = "unidad logistica:"
+        Me.Label22.Size = New System.Drawing.Size(45, 17)
+        Me.Label22.TabIndex = 127
+        Me.Label22.Text = "stock:"
         '
-        'TextBox10
+        'Label25
         '
-        Me.TextBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox10.Location = New System.Drawing.Point(647, 832)
-        Me.TextBox10.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(206, 23)
-        Me.TextBox10.TabIndex = 107
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(681, 548)
+        Me.Label25.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(102, 17)
+        Me.Label25.TabIndex = 126
+        Me.Label25.Text = "unidad por UL:"
         '
-        'ListBox3
+        'Label26
         '
-        Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.Location = New System.Drawing.Point(635, 469)
-        Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(481, 420)
-        Me.ListBox3.TabIndex = 104
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(681, 495)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(110, 17)
+        Me.Label26.TabIndex = 125
+        Me.Label26.Text = "unidad logistica:"
+        '
+        'TextBox15
+        '
+        Me.TextBox15.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox15.Location = New System.Drawing.Point(646, 691)
+        Me.TextBox15.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox15.Name = "TextBox15"
+        Me.TextBox15.Size = New System.Drawing.Size(206, 23)
+        Me.TextBox15.TabIndex = 124
+        '
+        'TextBox16
+        '
+        Me.TextBox16.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox16.Location = New System.Drawing.Point(646, 629)
+        Me.TextBox16.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox16.Name = "TextBox16"
+        Me.TextBox16.Size = New System.Drawing.Size(206, 23)
+        Me.TextBox16.TabIndex = 123
+        '
+        'TextBox17
+        '
+        Me.TextBox17.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox17.Location = New System.Drawing.Point(646, 568)
+        Me.TextBox17.Name = "TextBox17"
+        Me.TextBox17.Size = New System.Drawing.Size(206, 23)
+        Me.TextBox17.TabIndex = 122
         '
         'unidades_logisticas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1138, 1071)
+        Me.ClientSize = New System.Drawing.Size(1400, 1061)
         Me.Controls.Add(Me.TabControl_stock)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -844,6 +917,9 @@ Partial Class unidades_logisticas
         Me.TabControl_stock.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        CType(Me.DataGridView_UL, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -852,7 +928,7 @@ Partial Class unidades_logisticas
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
-        CType(Me.DataGridView_UL, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -903,7 +979,6 @@ Partial Class unidades_logisticas
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents Label9 As Label
     Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label17 As Label
@@ -917,13 +992,20 @@ Partial Class unidades_logisticas
     Friend WithEvents DataGridView_UL As DataGridView
     Friend WithEvents Label24 As Label
     Friend WithEvents TextBox13 As TextBox
-    Friend WithEvents ComboBox4 As ComboBox
+    Friend WithEvents ListBox3 As ListBox
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents TextBox14 As TextBox
+    Friend WithEvents TextBox10 As TextBox
     Friend WithEvents Label19 As Label
+    Friend WithEvents TextBox11 As TextBox
     Friend WithEvents Label20 As Label
+    Friend WithEvents TextBox12 As TextBox
     Friend WithEvents Label21 As Label
     Friend WithEvents Label22 As Label
-    Friend WithEvents TextBox10 As TextBox
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TextBox12 As TextBox
-    Friend WithEvents ListBox3 As ListBox
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label26 As Label
+    Friend WithEvents TextBox15 As TextBox
+    Friend WithEvents TextBox16 As TextBox
+    Friend WithEvents TextBox17 As TextBox
 End Class

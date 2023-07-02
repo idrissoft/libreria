@@ -166,7 +166,7 @@ Public Class Libros
                     a.TextBox1.Text = reader("nombre").ToString()
                     a.TextBox2.Text = reader("autor").ToString()
                     a.ComboBox_unidad_logistica.SelectedItem = Convert.ToInt32(reader("unidad_logistica"))
-                    a.TextBox8.Text = Convert.ToInt32(reader("Unidad_por_UL"))
+                    a.TxtUporUL.Text = Convert.ToInt32(reader("Unidad_por_UL"))
                     a.TextBox7.Text = Convert.ToInt32(reader("stock"))
                     a.TextBox3.Text = reader("precio").ToString()
                     a.DateTimePicker1.Value = Date.Parse(reader("ficha").ToString())

@@ -56,11 +56,10 @@ Public Class añadire_libro
             Dim con As SqlConnection = miconexion.CrearConexion()
 
             ' Insertar nuevo libro
-            Dim command As New SqlCommand("INSERT INTO libros(nombre, autor,unidad_logistica,precio,ficha ,description) OUTPUT INSERTED.idlibro VALUES (@nombre, @autor,@unidad_logistica,@precio,@ficha ,@description)", con)
+            Dim command As New SqlCommand("INSERT INTO libros(nombre, autor,precio,ficha ,description) OUTPUT INSERTED.idlibro VALUES (@nombre, @autor,@precio,@ficha ,@description)", con)
 
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
             command.Parameters.AddWithValue("@autor", TextBox2.Text)
-            command.Parameters.AddWithValue("@unidad_logistica", ComboBox_unidad_logistica.SelectedItem)
             command.Parameters.AddWithValue("@precio", TextBox3.Text)
             command.Parameters.AddWithValue("@ficha", DateTimePicker1.Value)
             command.Parameters.AddWithValue("@description", TextBox4.Text)
@@ -71,17 +70,18 @@ Public Class añadire_libro
             con.Close()
 
             ' Insertar en UnidadesLogisticas con el idlibro obtenido
-            command = New SqlCommand("INSERT INTO UnidadesLogisticas(idlibro, tipoUL, stock) VALUES (@idlibro, @tipoUL, @stock)", con)
+            command = New SqlCommand("INSERT INTO UnidadesLogisticas(idlibro, tipoUL,unidades_por_UL, stock) VALUES (@idlibro, @tipoUL,@unidades_por_UL, @stock)", con)
 
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@tipoUL", ComboBox_unidad_logistica.SelectedItem)
+            command.Parameters.AddWithValue("@unidades_por_UL", TxtUporUL.Text)
             command.Parameters.AddWithValue("@stock", TextBox7.Text)
 
             con.Open()
             command.ExecuteNonQuery()
             con.Close()
 
-            MessageBox.Show("El libro y su unidad logística se han agregado correctamente.")
+            MessageBox.Show("El libro se ha agregado correctamente.")
 
             Dim fr_libro As New Libros()
             fr_libro.Show()
@@ -109,14 +109,14 @@ Public Class añadire_libro
     Private Sub ComboBox_unidad_logistica_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_unidad_logistica.SelectedIndexChanged
         If ComboBox_unidad_logistica.SelectedItem.ToString() = "0" Then
 
-            TextBox8.Text = "0"  ' TextBox8 es Unidad_por_UL
+            TxtUporUL.Text = "0"  ' TextBox8 es Unidad_por_UL
             TextBox7.Text = "0"  ' TextBox7 es stock
         ElseIf ComboBox_unidad_logistica.SelectedItem.ToString() = "1" Then
             ' Cuando la Unidad Logística es 1, entonces la Unidad_por_UL tiene el número de unidades dentro de la Unidad Logística
 
-            TextBox8.Text = "1"
+            TxtUporUL.Text = "1"
 
-            TextBox7.Text = TextBox8.Text
+            TextBox7.Text = TxtUporUL.Text
         Else
             ' Manejo de otros valores
         End If

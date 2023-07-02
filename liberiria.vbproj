@@ -11,7 +11,7 @@
     <AssemblyName>liberiria</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -128,10 +128,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="gestionar_del_stock.Designer.vb">
+    <Compile Include="unidades logisticas\agregarUL.Designer.vb">
+      <DependentUpon>agregarUL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="unidades logisticas\agregarUL.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="unidades logisticas\gestionar_del_stock.Designer.vb">
       <DependentUpon>gestionar_del_stock.vb</DependentUpon>
     </Compile>
-    <Compile Include="gestionar_del_stock.vb">
+    <Compile Include="unidades logisticas\gestionar_del_stock.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Venta\Nueva_Venta.Designer.vb">
@@ -148,7 +154,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="gestionar_del_stock.resx">
+    <EmbeddedResource Include="unidades logisticas\agregarUL.resx">
+      <DependentUpon>agregarUL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="unidades logisticas\gestionar_del_stock.resx">
       <DependentUpon>gestionar_del_stock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistorialTransacciones.resx">
@@ -194,5 +203,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
