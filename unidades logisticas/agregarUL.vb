@@ -17,10 +17,10 @@ Public Class agregarUL
             Dim stock As Integer = TextBox2.Text
             Dim unidades_por_UL As Integer = TextBox1.Text
 
-            Dim commandCheck As New SqlCommand("SELECT COUNT(*) FROM UnidadesLogisticas WHERE idLibro = @idLibro AND tipoUL = @tipoUL AND unidades_por_UL = @unidades_por_UL", con)
+            ' Chequeamos si existe una unidad logística con el mismo id de libro y tipo de unidad logística
+            Dim commandCheck As New SqlCommand("SELECT COUNT(*) FROM UnidadesLogisticas WHERE idLibro = @idLibro AND tipoUL = @tipoUL", con)
             commandCheck.Parameters.AddWithValue("@idLibro", idLibro)
             commandCheck.Parameters.AddWithValue("@tipoUL", tipoUL)
-            commandCheck.Parameters.AddWithValue("@unidades_por_UL", unidades_por_UL)
 
             con.Open()
 
@@ -31,10 +31,10 @@ Public Class agregarUL
             con.Close()
 
             If exist > 0 Then
-                Dim commandUpdate As New SqlCommand("UPDATE UnidadesLogisticas SET stock = stock + @stock WHERE idLibro = @idLibro AND tipoUL = @tipoUL AND unidades_por_UL = @unidades_por_UL", con)
+                ' Si existe, incrementamos el stock
+                Dim commandUpdate As New SqlCommand("UPDATE UnidadesLogisticas SET stock = stock + @stock WHERE idLibro = @idLibro AND tipoUL = @tipoUL", con)
                 commandUpdate.Parameters.AddWithValue("@idLibro", idLibro)
                 commandUpdate.Parameters.AddWithValue("@tipoUL", tipoUL)
-                commandUpdate.Parameters.AddWithValue("@unidades_por_UL", unidades_por_UL)
                 commandUpdate.Parameters.AddWithValue("@stock", stock)
 
                 con.Open()
@@ -45,6 +45,7 @@ Public Class agregarUL
 
                 con.Close()
             Else
+                ' Si no existe, insertamos una nueva fila
                 Dim commandInsert As New SqlCommand("INSERT INTO UnidadesLogisticas(idLibro, tipoUL, unidades_por_UL, stock) VALUES (@idLibro, @tipoUL, @unidades_por_UL, @stock)", con)
                 commandInsert.Parameters.AddWithValue("@idLibro", idLibro)
                 commandInsert.Parameters.AddWithValue("@tipoUL", tipoUL)
@@ -59,6 +60,18 @@ Public Class agregarUL
 
                 con.Close()
             End If
+
+            ' Ahora actualizamos el stock total del libro en la tabla Libros
+            Dim commandUpdateTotalStock As New SqlCommand("UPDATE Libros SET stock_Total = (SELECT SUM(stock) FROM UnidadesLogisticas WHERE idLibro = @idLibro) WHERE idLibro = @idLibro", con)
+            commandUpdateTotalStock.Parameters.AddWithValue("@idLibro", idLibro)
+
+            con.Open()
+
+            commandUpdateTotalStock.ExecuteNonQuery()
+
+            Console.WriteLine("Stock total actualizado.")
+
+            con.Close()
 
             MessageBox.Show("Se ha agregado correctamente.")
 

@@ -80,7 +80,13 @@ Public Class añadire_libro
             con.Open()
             command.ExecuteNonQuery()
             con.Close()
+            ' Actualización del stock total
+            command = New SqlCommand("EXEC ActualizarStockTotal @idLibro", con)
+            command.Parameters.AddWithValue("@idLibro", idlibro)
 
+            con.Open()
+            command.ExecuteNonQuery()
+            con.Close()
             MessageBox.Show("El libro se ha agregado correctamente.")
 
             Dim fr_libro As New Libros()

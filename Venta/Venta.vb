@@ -79,7 +79,12 @@ Public Class Venta
         txtVentaCantidad.Text = cantidad
         txtVentaPrecio.Text = precioVenta
         txtVentaDescuento.Text = descuento
-        txtVentaSubtotal.Text = (CDbl(cantidad) * CDbl(precioVenta) - CDbl(descuento)).ToString()
+        ' Verificar si los campos no están vacíos
+        If Not String.IsNullOrEmpty(cantidad) And Not String.IsNullOrEmpty(precioVenta) And Not String.IsNullOrEmpty(descuento) Then
+            ' Realizar la operación
+            txtVentaSubtotal.Text = (CDbl(cantidad) * CDbl(precioVenta) - CDbl(descuento)).ToString()
+        End If
+
     End Sub
 
     Private Function ObtenerLibro(idLibro As String) As Libros
