@@ -165,7 +165,7 @@ Public Class Libros
 
                 If reader.Read() Then
                     ' Asignación de los valores a los TextBox correspondientes
-                    'a.TextBox5.Text = Convert.ToString(idlibro)
+                    editarLibrosForm.TextBox5.Text = Convert.ToString(idlibro)
                     editarLibrosForm.TextBox1.Text = reader("nombre").ToString()
                     editarLibrosForm.TextBox2.Text = reader("autor").ToString()
                     editarLibrosForm.TextBox7.Text = Convert.ToInt32(reader("stock_total"))
