@@ -36,10 +36,9 @@ Partial Class Entrada
         Me.Btnlibros.FlatAppearance.BorderSize = 0
         Me.Btnlibros.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btnlibros.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btnlibros.Location = New System.Drawing.Point(18, 106)
-        Me.Btnlibros.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Btnlibros.Location = New System.Drawing.Point(12, 69)
         Me.Btnlibros.Name = "Btnlibros"
-        Me.Btnlibros.Size = New System.Drawing.Size(219, 117)
+        Me.Btnlibros.Size = New System.Drawing.Size(146, 76)
         Me.Btnlibros.TabIndex = 0
         Me.Btnlibros.Text = "Libros"
         Me.Btnlibros.UseVisualStyleBackColor = False
@@ -52,10 +51,9 @@ Partial Class Entrada
         Me.BtnClientes.FlatAppearance.BorderSize = 0
         Me.BtnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClientes.Location = New System.Drawing.Point(596, 106)
-        Me.BtnClientes.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnClientes.Location = New System.Drawing.Point(397, 69)
         Me.BtnClientes.Name = "BtnClientes"
-        Me.BtnClientes.Size = New System.Drawing.Size(224, 117)
+        Me.BtnClientes.Size = New System.Drawing.Size(149, 76)
         Me.BtnClientes.TabIndex = 1
         Me.BtnClientes.Text = "Clientes"
         Me.BtnClientes.UseVisualStyleBackColor = False
@@ -68,27 +66,25 @@ Partial Class Entrada
         Me.BtnCompra.FlatAppearance.BorderSize = 0
         Me.BtnCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnCompra.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCompra.Location = New System.Drawing.Point(276, 207)
-        Me.BtnCompra.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnCompra.Location = New System.Drawing.Point(184, 135)
         Me.BtnCompra.Name = "BtnCompra"
-        Me.BtnCompra.Size = New System.Drawing.Size(272, 117)
+        Me.BtnCompra.Size = New System.Drawing.Size(181, 76)
         Me.BtnCompra.TabIndex = 2
         Me.BtnCompra.Text = "Venta"
         Me.BtnCompra.UseVisualStyleBackColor = False
         '
         'Entrada
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(837, 395)
+        Me.ClientSize = New System.Drawing.Size(558, 257)
         Me.Controls.Add(Me.BtnCompra)
         Me.Controls.Add(Me.BtnClientes)
         Me.Controls.Add(Me.Btnlibros)
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Entrada"
-        Me.Text = "Form1"
+        Me.Text = "Entrada"
         Me.ResumeLayout(False)
 
     End Sub

@@ -3,9 +3,9 @@
 Public Class Venta
     Private miConexion As New connexion()
 
-    Public Function ObtenerDataGridView_Venta() As DataGridView
-        Return DataGridView_Venta
-    End Function
+    'Public Function ObtenerDataGridView_Venta() As DataGridView
+    'Return DataGridView_Venta
+    'End Function
 
 
     Public Function mostrar_venta() As DataTable
@@ -45,7 +45,8 @@ Public Class Venta
     End Sub
 
     Private Sub Venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ObtenerDataGridView_Venta().DataSource = mostrar_venta()
+        CenterToParent()
+        DataGridView_Venta.DataSource = mostrar_venta()
     End Sub
 
     Private Sub DataGridView_Venta_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_Venta.CellClick
@@ -58,7 +59,7 @@ Public Class Venta
         Dim cantidad As String = DataGridView_Venta.Rows(rowindex).Cells("cantidad").Value.ToString()
         Dim precioVenta As String = DataGridView_Venta.Rows(rowindex).Cells("Precio de Unidad").Value.ToString()
         Dim descuento As String = DataGridView_Venta.Rows(rowindex).Cells("Descuento ").Value.ToString()
-
+        txtVentaSubtotal.Text = DataGridView_Venta.Rows(e.RowIndex).Cells("Precio Total").Value.ToString()
         ' Mostrar los datos del libro en los cuadros de texto correspondientes
         Dim libro As Libros = ObtenerLibro(idLibro)
         txtLibroID.Text = libro.idLibro
@@ -82,7 +83,7 @@ Public Class Venta
         ' Verificar si los campos no están vacíos
         If Not String.IsNullOrEmpty(cantidad) And Not String.IsNullOrEmpty(precioVenta) And Not String.IsNullOrEmpty(descuento) Then
             ' Realizar la operación
-            txtVentaSubtotal.Text = (CDbl(cantidad) * CDbl(precioVenta) - CDbl(descuento)).ToString()
+            'txtVentaSubtotal.Text = (CDbl(cantidad) * CDbl(precioVenta) - CDbl(descuento)).ToString()
         End If
 
     End Sub
@@ -152,6 +153,64 @@ Public Class Venta
     Private Sub HistoriaLTransaccionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriaLTransaccionesToolStripMenuItem.Click
         Dim HistorialTransacciones As New HistorialTransacciones()
         HistorialTransacciones.Show()
+    End Sub
+
+
+    Sub editar_venta()
+
+
+    End Sub
+
+    Private Sub Btn_editar_venta_Click(sender As Object, e As EventArgs) Handles Btn_editar_venta.Click
+        ' Comprobar si hay una fila seleccionada
+        If DataGridView_Venta.SelectedRows.Count > 0 Then
+            Dim fila As DataGridViewRow = DataGridView_Venta.SelectedRows(0)
+
+            ' Crear una nueva instancia de Nueva_Venta
+            Dim nueva_venta As New Nueva_Venta()
+
+            ' Obtener el ID del cliente de la fila seleccionada
+            Dim idCliente As Integer = Convert.ToInt32(fila.Cells("ID de cliente").Value)
+
+            ' Consultar la base de datos para obtener el nombre del cliente
+            Using con As SqlConnection = miConexion.CrearConexion()
+                con.Open()
+
+                Dim clienteQuery As String = "SELECT Nombre FROM Cliente WHERE ID_cliente = @ID_cliente"
+                Dim clienteCmd As New SqlCommand(clienteQuery, con)
+                clienteCmd.Parameters.AddWithValue("@ID_cliente", idCliente)
+
+                Dim clienteReader As SqlDataReader = clienteCmd.ExecuteReader()
+                If clienteReader.Read() Then
+                    nueva_venta.txtClienteNombre.Text = clienteReader("Nombre").ToString()
+                End If
+                clienteReader.Close()
+
+                ' Obtener el ID del libro de la fila seleccionada
+                Dim idLibro As Integer = Convert.ToInt32(fila.Cells("id de libro").Value)
+
+                ' Consultar la base de datos para obtener el nombre del libro
+                Dim libroQuery As String = "SELECT nombre FROM libros WHERE idlibro = @idlibro"
+                Dim libroCmd As New SqlCommand(libroQuery, con)
+                libroCmd.Parameters.AddWithValue("@idlibro", idLibro)
+
+                Dim libroReader As SqlDataReader = libroCmd.ExecuteReader()
+                If libroReader.Read() Then
+                    nueva_venta.txtLibroNombre.Text = libroReader("nombre").ToString()
+                End If
+                libroReader.Close()
+            End Using
+
+            ' Continuar rellenando los demás campos como antes
+
+            nueva_venta.ComboBox1.SelectedItem = "UL"
+
+
+            ' Mostrar la ventana de Nueva_Venta
+            nueva_venta.Show()
+        Else
+            MessageBox.Show("Por favor, selecciona una fila para editar.")
+        End If
     End Sub
 
 

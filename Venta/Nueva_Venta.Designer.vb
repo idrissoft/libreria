@@ -45,6 +45,7 @@ Partial Class Nueva_Venta
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.editar_venta = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -55,7 +56,7 @@ Partial Class Nueva_Venta
         Me.Descuento.Location = New System.Drawing.Point(56, 303)
         Me.Descuento.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Descuento.Name = "Descuento"
-        Me.Descuento.Size = New System.Drawing.Size(130, 25)
+        Me.Descuento.Size = New System.Drawing.Size(92, 17)
         Me.Descuento.TabIndex = 76
         Me.Descuento.Text = "Descuento%:"
         '
@@ -66,7 +67,7 @@ Partial Class Nueva_Venta
         Me.Label15.Location = New System.Drawing.Point(56, 234)
         Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(153, 25)
+        Me.Label15.Size = New System.Drawing.Size(111, 17)
         Me.Label15.TabIndex = 73
         Me.Label15.Text = "Precio de venta:"
         '
@@ -76,7 +77,7 @@ Partial Class Nueva_Venta
         Me.txtVentaPrecio.Location = New System.Drawing.Point(221, 236)
         Me.txtVentaPrecio.Margin = New System.Windows.Forms.Padding(2)
         Me.txtVentaPrecio.Name = "txtVentaPrecio"
-        Me.txtVentaPrecio.Size = New System.Drawing.Size(81, 30)
+        Me.txtVentaPrecio.Size = New System.Drawing.Size(81, 23)
         Me.txtVentaPrecio.TabIndex = 71
         '
         'txtVentaCantidad
@@ -85,7 +86,7 @@ Partial Class Nueva_Venta
         Me.txtVentaCantidad.Location = New System.Drawing.Point(221, 192)
         Me.txtVentaCantidad.Margin = New System.Windows.Forms.Padding(2)
         Me.txtVentaCantidad.Name = "txtVentaCantidad"
-        Me.txtVentaCantidad.Size = New System.Drawing.Size(81, 30)
+        Me.txtVentaCantidad.Size = New System.Drawing.Size(81, 23)
         Me.txtVentaCantidad.TabIndex = 70
         '
         'Label13
@@ -94,7 +95,7 @@ Partial Class Nueva_Venta
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(56, 342)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(119, 25)
+        Me.Label13.Size = New System.Drawing.Size(85, 17)
         Me.Label13.TabIndex = 67
         Me.Label13.Text = "Precio_Des:"
         '
@@ -104,7 +105,7 @@ Partial Class Nueva_Venta
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.Location = New System.Drawing.Point(56, 385)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(86, 25)
+        Me.Label14.Size = New System.Drawing.Size(61, 17)
         Me.Label14.TabIndex = 65
         Me.Label14.Text = "Subtota:"
         '
@@ -115,7 +116,7 @@ Partial Class Nueva_Venta
         Me.Label9.Location = New System.Drawing.Point(56, 190)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(97, 25)
+        Me.Label9.Size = New System.Drawing.Size(68, 17)
         Me.Label9.TabIndex = 63
         Me.Label9.Text = "Cantidad:"
         '
@@ -125,7 +126,7 @@ Partial Class Nueva_Venta
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(56, 93)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(118, 25)
+        Me.Label5.Size = New System.Drawing.Size(86, 17)
         Me.Label5.TabIndex = 59
         Me.Label5.Text = "buscar libro:"
         '
@@ -135,7 +136,7 @@ Partial Class Nueva_Venta
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(56, 57)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(134, 25)
+        Me.Label4.Size = New System.Drawing.Size(97, 17)
         Me.Label4.TabIndex = 57
         Me.Label4.Text = "Buscar cliente"
         '
@@ -157,7 +158,7 @@ Partial Class Nueva_Venta
         Me.BtnAddVenta1.FlatAppearance.BorderSize = 0
         Me.BtnAddVenta1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAddVenta1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAddVenta1.Location = New System.Drawing.Point(45, 547)
+        Me.BtnAddVenta1.Location = New System.Drawing.Point(12, 547)
         Me.BtnAddVenta1.Name = "BtnAddVenta1"
         Me.BtnAddVenta1.Size = New System.Drawing.Size(203, 48)
         Me.BtnAddVenta1.TabIndex = 77
@@ -172,7 +173,7 @@ Partial Class Nueva_Venta
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(347, 547)
+        Me.Button1.Location = New System.Drawing.Point(403, 547)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(203, 48)
         Me.Button1.TabIndex = 78
@@ -230,7 +231,7 @@ Partial Class Nueva_Venta
         Me.Label1.Location = New System.Drawing.Point(56, 269)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(139, 25)
+        Me.Label1.Size = New System.Drawing.Size(101, 17)
         Me.Label1.TabIndex = 86
         Me.Label1.Text = "ficha de venta:"
         '
@@ -250,7 +251,7 @@ Partial Class Nueva_Venta
         Me.Label2.Location = New System.Drawing.Point(56, 139)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(43, 25)
+        Me.Label2.Size = New System.Drawing.Size(30, 17)
         Me.Label2.TabIndex = 88
         Me.Label2.Text = "UL:"
         '
@@ -272,11 +273,27 @@ Partial Class Nueva_Venta
         Me.DataGridView1.Size = New System.Drawing.Size(585, 113)
         Me.DataGridView1.TabIndex = 90
         '
+        'editar_venta
+        '
+        Me.editar_venta.BackColor = System.Drawing.Color.Transparent
+        Me.editar_venta.BackgroundImage = CType(resources.GetObject("editar_venta.BackgroundImage"), System.Drawing.Image)
+        Me.editar_venta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.editar_venta.FlatAppearance.BorderSize = 0
+        Me.editar_venta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.editar_venta.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.editar_venta.Location = New System.Drawing.Point(221, 547)
+        Me.editar_venta.Name = "editar_venta"
+        Me.editar_venta.Size = New System.Drawing.Size(192, 48)
+        Me.editar_venta.TabIndex = 91
+        Me.editar_venta.Text = "editar venta"
+        Me.editar_venta.UseVisualStyleBackColor = False
+        '
         'Nueva_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(641, 633)
+        Me.Controls.Add(Me.editar_venta)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label2)
@@ -330,4 +347,5 @@ Partial Class Nueva_Venta
     Friend WithEvents Label2 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents editar_venta As Button
 End Class

@@ -38,12 +38,12 @@ Partial Class añadire_libro
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TxtUporUL = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.TxtUporUL = New System.Windows.Forms.TextBox()
         Me.ComboBox_unidad_logistica = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -204,16 +204,6 @@ Partial Class añadire_libro
         Me.Label6.TabIndex = 27
         Me.Label6.Text = "precio:"
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(23, 118)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(145, 24)
-        Me.Label7.TabIndex = 29
-        Me.Label7.Text = "unidad logistica:"
-        '
         'TextBox7
         '
         Me.TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -232,14 +222,6 @@ Partial Class añadire_libro
         Me.Label8.TabIndex = 31
         Me.Label8.Text = "stock:"
         '
-        'TxtUporUL
-        '
-        Me.TxtUporUL.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtUporUL.Location = New System.Drawing.Point(217, 153)
-        Me.TxtUporUL.Name = "TxtUporUL"
-        Me.TxtUporUL.Size = New System.Drawing.Size(210, 29)
-        Me.TxtUporUL.TabIndex = 34
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -250,6 +232,14 @@ Partial Class añadire_libro
         Me.Label9.TabIndex = 33
         Me.Label9.Text = "unidad por U/L"
         '
+        'TxtUporUL
+        '
+        Me.TxtUporUL.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUporUL.Location = New System.Drawing.Point(217, 153)
+        Me.TxtUporUL.Name = "TxtUporUL"
+        Me.TxtUporUL.Size = New System.Drawing.Size(210, 29)
+        Me.TxtUporUL.TabIndex = 34
+        '
         'ComboBox_unidad_logistica
         '
         Me.ComboBox_unidad_logistica.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -259,6 +249,16 @@ Partial Class añadire_libro
         Me.ComboBox_unidad_logistica.Name = "ComboBox_unidad_logistica"
         Me.ComboBox_unidad_logistica.Size = New System.Drawing.Size(210, 32)
         Me.ComboBox_unidad_logistica.TabIndex = 35
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(23, 118)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(145, 24)
+        Me.Label7.TabIndex = 29
+        Me.Label7.Text = "unidad logistica:"
         '
         'añadire_libro
         '
@@ -308,10 +308,10 @@ Partial Class añadire_libro
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TxtUporUL As TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents TxtUporUL As TextBox
     Friend WithEvents ComboBox_unidad_logistica As ComboBox
+    Friend WithEvents Label7 As Label
 End Class

@@ -11,7 +11,7 @@
     <AssemblyName>liberiria</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -106,6 +106,12 @@
       <DependentUpon>Entrada.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="libros\Editar_libros.Designer.vb">
+      <DependentUpon>Editar_libros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="libros\Editar_libros.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="libros\Libros.Designer.vb">
       <DependentUpon>Libros.vb</DependentUpon>
     </Compile>
@@ -154,6 +160,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="libros\Editar_libros.resx">
+      <DependentUpon>Editar_libros.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="unidades logisticas\agregarUL.resx">
       <DependentUpon>agregarUL.vb</DependentUpon>
     </EmbeddedResource>

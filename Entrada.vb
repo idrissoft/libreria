@@ -1,8 +1,8 @@
 ﻿Public Class Entrada
     Private Sub Btnlibros_Click(sender As Object, e As EventArgs) Handles Btnlibros.Click
         Dim libros As New Libros()
-        libros.Show()
-        Hide()
+        libros.ShowDialog()
+        Me.Hide()
     End Sub
 
     Private Sub BtnClientes_Click(sender As Object, e As EventArgs) Handles BtnClientes.Click

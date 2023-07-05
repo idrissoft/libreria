@@ -13,6 +13,7 @@ Public Class Libros
     Public Property Stock As Integer
     Public Property Description As String
     Public Property Precio As Decimal
+
     Public Function ObtenerDataGridView_UnidadesLogisticas() As DataGridView
         Return DataGridView_UnidadesLogisticas
     End Function
@@ -21,6 +22,7 @@ Public Class Libros
     End Function
     Private miConexion As New connexion()
     Private Sub Libros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CenterToParent()
         DataGridView_libros.DataSource = MostrarLibros()
     End Sub
     Private Sub Btn_volver_Click(sender As Object, e As EventArgs) Handles Btn_volver.Click
@@ -99,11 +101,11 @@ Public Class Libros
     End Sub
 
     Public Sub DataGridView_libros_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_libros.CellClick
-        ' Mover la definición de selectedRow aquí
-        Dim selectedRow As DataGridViewRow
-
         Try
             If e.RowIndex >= 0 Then
+                ' Mover la definición de selectedRow aquí
+                Dim selectedRow As DataGridViewRow
+
                 ' Obtener la fila seleccionada en el DataGridView
                 selectedRow = DataGridView_libros.Rows(e.RowIndex)
 
@@ -125,24 +127,25 @@ Public Class Libros
                     ' La celda "imagenes" contiene un valor nulo
                     'MessageBox.Show("La imagen no está disponible.")
                 End If
+
+                Dim idLibro As Integer = Convert.ToInt32(selectedRow.Cells("idLibro").Value)
+
+                ' Obtener las unidades logísticas del libro seleccionado
+                Dim dtUL As DataTable = MostrarUnidadesLogisticas(idLibro)
+
+                ' Mostrar las unidades logísticas en un DataGridView
+                Dim dgw As DataGridView = ObtenerDataGridView_UnidadesLogisticas()
+                dgw.DataSource = dtUL
             End If
         Catch ex As Exception
             'MessageBox.Show(ex.Message)
         End Try
-
-        Dim idLibro As Integer = Convert.ToInt32(selectedRow.Cells("idLibro").Value)
-
-        ' Obtener las unidades logísticas del libro seleccionado
-        Dim dtUL As DataTable = MostrarUnidadesLogisticas(idLibro)
-
-        ' Mostrar las unidades logísticas en un DataGridView
-        Dim dgw As DataGridView = ObtenerDataGridView_UnidadesLogisticas()
-        dgw.DataSource = dtUL
     End Sub
+
     Sub editar_libros()
         Try
-            Dim a As New añadire_libro()
-            a.Show()
+            Dim editarLibrosForm As New Editar_libros(Me)
+            editarLibrosForm.Show()
 
             ' Conexión a SQL Server
             Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
@@ -150,7 +153,7 @@ Public Class Libros
                 Dim con As SqlConnection = miConexion.CrearConexion()
 
                 ' Consulta SQL para obtener los datos de la tabla filtrados por un parámetro
-                Dim query As String = "SELECT nombre, autor,unidad_logistica,Unidad_por_UL, stock,precio,ficha ,description from libros WHERE idlibro = @idlibro"
+                Dim query As String = "SELECT nombre, autor,precio,ficha,description, stock_Total  from libros WHERE idlibro = @idlibro"
 
                 ' Creación del comando y asignación de parámetros
                 Dim command As New SqlCommand(query, con)
@@ -163,14 +166,12 @@ Public Class Libros
                 If reader.Read() Then
                     ' Asignación de los valores a los TextBox correspondientes
                     'a.TextBox5.Text = Convert.ToString(idlibro)
-                    a.TextBox1.Text = reader("nombre").ToString()
-                    a.TextBox2.Text = reader("autor").ToString()
-                    a.ComboBox_unidad_logistica.SelectedItem = Convert.ToInt32(reader("unidad_logistica"))
-                    a.TxtUporUL.Text = Convert.ToInt32(reader("Unidad_por_UL"))
-                    a.TextBox7.Text = Convert.ToInt32(reader("stock"))
-                    a.TextBox3.Text = reader("precio").ToString()
-                    a.DateTimePicker1.Value = Date.Parse(reader("ficha").ToString())
-                    a.TextBox4.Text = reader("description").ToString()
+                    editarLibrosForm.TextBox1.Text = reader("nombre").ToString()
+                    editarLibrosForm.TextBox2.Text = reader("autor").ToString()
+                    editarLibrosForm.TextBox7.Text = Convert.ToInt32(reader("stock_total"))
+                    editarLibrosForm.TextBox3.Text = reader("precio").ToString()
+                    editarLibrosForm.DateTimePicker1.Value = Date.Parse(reader("ficha").ToString())
+                    editarLibrosForm.TextBox4.Text = reader("description").ToString()
 
                 End If
 

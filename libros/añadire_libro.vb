@@ -17,11 +17,11 @@ Public Class añadire_libro
             End If
 
             Dim con As SqlConnection = miconexion.CrearConexion()
-            Dim command As New SqlCommand("UPDATE libros SET nombre = @nombre, autor = @autor, unidad_logistica = @unidad_logistica,precio = @precio, ficha = @ficha,  description = @description WHERE idlibro = @idlibro", con)
+            Dim command As New SqlCommand("UPDATE libros SET nombre = @nombre, autor = @autor, ,precio = @precio, ficha = @ficha,  description = @description WHERE idlibro = @idlibro", con)
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
             command.Parameters.AddWithValue("@autor", TextBox2.Text)
-            command.Parameters.AddWithValue("@unidad_logistica", ComboBox_unidad_logistica.SelectedItem)
+
             command.Parameters.AddWithValue("@precio", TextBox3.Text)
             command.Parameters.AddWithValue("@ficha", DateTimePicker1.Value)
             command.Parameters.AddWithValue("@description", TextBox4.Text)
@@ -109,6 +109,7 @@ Public Class añadire_libro
     End Sub
 
     Private Sub añadire_libro_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CenterToParent()
         cargar_unidad_logistoca()
     End Sub
 

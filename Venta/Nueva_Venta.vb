@@ -151,7 +151,6 @@ Public Class Nueva_Venta
                 If libroResult IsNot Nothing Then
                     Dim idlibro As Integer = Convert.ToInt32(libroResult)
 
-                    ' Obtener el stock de la unidad logística correspondiente al libro y al tipo de unidad logística
                     Dim ulQuery As String = "SELECT * FROM UnidadesLogisticas WHERE idLibro = @idLibro AND tipoUL = @tipoUL"
                     Dim ulCmd As New SqlCommand(ulQuery, con)
                     ulCmd.Parameters.AddWithValue("@idLibro", idlibro)
@@ -164,12 +163,22 @@ Public Class Nueva_Venta
                     End If
                     ulReader.Close()
 
-                    ' Actualizar el stock de la unidad logística según el tipoUL
                     Dim tipoUL As Integer = ComboBox1.SelectedItem
-                    Dim cantidad As Integer = txtVentaCantidad.Text
+                    Dim cantidad As Integer
+                    Dim precio As Integer
 
-                    Dim Precio_Des_por_unidad As Decimal = CDec(txtVentaPrecio.Text) - CDec(TxtDescuento.Text)
-                    Dim subtotal As Decimal = 0
+                    If Not Integer.TryParse(txtVentaCantidad.Text, cantidad) Then
+                        MessageBox.Show("Por favor, introduzca una cantidad válida.")
+                        Return
+                    End If
+
+                    If Not Integer.TryParse(txtVentaPrecio.Text, precio) Then
+                        MessageBox.Show("Por favor, introduzca un precio válido.")
+                        Return
+                    End If
+
+                    Dim Precio_Des_por_unidad As Integer = precio * cantidad
+                    Dim subtotal As Integer = 0
                     If tipoUL = 1 Then
                         cantidad = cantidad * unidades_por_UL
                         subtotal = cantidad * Precio_Des_por_unidad
@@ -177,21 +186,23 @@ Public Class Nueva_Venta
                         subtotal = cantidad * Precio_Des_por_unidad
                     End If
 
-                    Dim ventaQuery As String = "INSERT INTO venta (ID_Cliente, idlibro, Cantidad, ficha_de_venta, Subtota, Descuento) VALUES (@ID_Cliente, @idlibro, @Cantidad, @ficha_de_venta, @Subtota, @Descuento)"
+                    Dim ventaQuery As String = "INSERT INTO venta (ID_Cliente, idlibro,UL, Cantidad,Precio_venta,Precio_Des_por_unidad, ficha_de_venta, Subtotal, Descuento) VALUES (@ID_Cliente, @idlibro,@UL, @Cantidad,@Precio_venta,@Precio_Des_por_unidad, @ficha_de_venta, @Subtotal, @Descuento)"
                     Dim ventaCmd As New SqlCommand(ventaQuery, con)
                     ventaCmd.Parameters.AddWithValue("@ID_Cliente", ID_cliente)
                     ventaCmd.Parameters.AddWithValue("@idlibro", idlibro)
-                    ventaCmd.Parameters.AddWithValue("@Cantidad", txtVentaCantidad.Text)
+                    ventaCmd.Parameters.AddWithValue("@UL", ComboBox1.SelectedItem)
+                    ventaCmd.Parameters.AddWithValue("@Cantidad", cantidad)
+                    ventaCmd.Parameters.AddWithValue("@Precio_venta", precio)
+                    ventaCmd.Parameters.AddWithValue("@Precio_Des_por_unidad", Precio_Des_por_unidad)
                     ventaCmd.Parameters.AddWithValue("@ficha_de_venta", ficha_de_venta.Value) ' DateTimePicker value
-                    ventaCmd.Parameters.AddWithValue("@Subtota", subtotal)
-                    ventaCmd.Parameters.AddWithValue("@Descuento", TxtDescuento.Text)
+                    ventaCmd.Parameters.AddWithValue("@Subtotal", subtotal)
+                    ventaCmd.Parameters.AddWithValue("@Descuento", Convert.ToInt32(TxtDescuento.Text))
 
                     ventaCmd.ExecuteNonQuery()
 
-                    ' Actualizar el stock del libro
                     Dim updateStockQuery As String = "UPDATE libros SET stock_Total = stock_Total - @Cantidad WHERE idlibro = @idlibro"
                     Dim updateStockCmd As New SqlCommand(updateStockQuery, con)
-                    updateStockCmd.Parameters.AddWithValue("@Cantidad", txtVentaCantidad.Text)
+                    updateStockCmd.Parameters.AddWithValue("@Cantidad", cantidad)
                     updateStockCmd.Parameters.AddWithValue("@idlibro", idlibro)
                     updateStockCmd.ExecuteNonQuery()
 
@@ -202,13 +213,11 @@ Public Class Nueva_Venta
                     updateULStockCmd.Parameters.AddWithValue("@Cantidad", cantidad)
                     updateULStockCmd.ExecuteNonQuery()
 
-                    ' Actualización del stock total
                     Dim command As New SqlCommand("EXEC ActualizarStockTotal @idLibro", con)
                     command.Parameters.AddWithValue("@idLibro", idlibro)
                     command.ExecuteNonQuery()
 
                     Me.Close()
-                    ' Mostrar un mensaje de éxito
                     MessageBox.Show("Venta agregada correctamente.")
                 Else
                     MessageBox.Show("No se encontró el libro seleccionado.")
@@ -220,11 +229,58 @@ Public Class Nueva_Venta
     End Sub
 
 
-
-
-
     Private Sub BtnAddVenta1_Click(sender As Object, e As EventArgs) Handles BtnAddVenta1.Click
         ' Añadir una nueva venta cuando se hace clic en el botón "Añadir venta"
         agregar_venta()
+    End Sub
+
+    Private Sub editar_venta_Click(sender As Object, e As EventArgs) Handles editar_venta.Click
+        Dim ID_cliente As Integer
+        Dim idlibro As Integer
+        Dim UL As String ' Asume que UL es una cadena, cambia el tipo de datos según tu necesidad
+        Dim Cantidad As Integer
+        Dim Precio_venta As Integer
+        Dim Precio_Des_por_unidad As Integer
+        Dim Subtotal As Integer
+        Dim idVenta As Integer
+
+        ' Editar una venta existente en la base de datos
+        Using con As SqlConnection = miConexion.CrearConexion()
+            con.Open()
+
+            Dim ventaQuery As String = "UPDATE venta SET ID_Cliente = @ID_Cliente, idlibro = @idlibro, UL = @UL, Cantidad = @Cantidad, Precio_venta = @Precio_venta, Precio_Des_por_unidad = @Precio_Des_por_unidad, ficha_de_venta = @ficha_de_venta, Subtotal = @Subtotal, Descuento = @Descuento WHERE idVenta = @idVenta"
+            Dim ventaCmd As New SqlCommand(ventaQuery, con)
+            ventaCmd.Parameters.AddWithValue("@ID_Cliente", ID_cliente)
+            ventaCmd.Parameters.AddWithValue("@idlibro", idlibro)
+            ventaCmd.Parameters.AddWithValue("@UL", UL)
+            ventaCmd.Parameters.AddWithValue("@Cantidad", Cantidad)
+            ventaCmd.Parameters.AddWithValue("@Precio_venta", Precio_venta)
+            ventaCmd.Parameters.AddWithValue("@Precio_Des_por_unidad", Precio_Des_por_unidad)
+            ventaCmd.Parameters.AddWithValue("@ficha_de_venta", ficha_de_venta.Value)
+            ventaCmd.Parameters.AddWithValue("@Subtotal", Subtotal)
+            ventaCmd.Parameters.AddWithValue("@Descuento", Descuento)
+            ventaCmd.Parameters.AddWithValue("@idVenta", idVenta) ' Asegurate de tener este idVenta correctamente
+
+            ventaCmd.ExecuteNonQuery()
+
+            Dim updateStockQuery As String = "UPDATE libros SET stock_Total = stock_Total - @Cantidad WHERE idlibro = @idlibro"
+            Dim updateStockCmd As New SqlCommand(updateStockQuery, con)
+            updateStockCmd.Parameters.AddWithValue("@Cantidad", Cantidad)
+            updateStockCmd.Parameters.AddWithValue("@idlibro", idlibro)
+            updateStockCmd.ExecuteNonQuery()
+
+            Dim updateULStockQuery As String = "UPDATE UnidadesLogisticas SET stock = stock - @Cantidad WHERE idLibro = @idLibro AND tipoUL = @tipoUL"
+            Dim updateULStockCmd As New SqlCommand(updateULStockQuery, con)
+            updateULStockCmd.Parameters.AddWithValue("@idLibro", idlibro)
+            updateULStockCmd.Parameters.AddWithValue("@tipoUL", UL)
+            updateULStockCmd.Parameters.AddWithValue("@Cantidad", Cantidad)
+            updateULStockCmd.ExecuteNonQuery()
+
+            Dim command As New SqlCommand("EXEC ActualizarStockTotal @idLibro", con)
+            command.Parameters.AddWithValue("@idLibro", idlibro)
+            command.ExecuteNonQuery()
+
+            MessageBox.Show("Venta actualizada correctamente.")
+        End Using
     End Sub
 End Class
