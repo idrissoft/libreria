@@ -89,9 +89,25 @@ Public Class añadire_libro
         End Try
 
     End Sub
-
+    Sub insertar_MV_LIBROS()
+        '    Try
+        '        Dim con As SqlConnection = miconexion.CrearConexion()
+        '        Dim hay = TextBox7.Text + 
+        '        ' Insertar en Movimientos
+        '        Dim command = New SqlCommand("INSERT INTO Movimientos(FechaMovimiento, idlibro, TipoMovimiento, Habia, Cantidad, hay) VALUES (GETDATE(), @idlibro, 'Entrada', 0, @Cantidad, @hay)", con)
+        '        command.Parameters.AddWithValue("@idlibro", idlibro)
+        '        command.Parameters.AddWithValue("@Cantidad", TextBox7.Text)
+        '        command.Parameters.AddWithValue("@hay", hay)
+        '        con.Open()
+        '        command.ExecuteNonQuery()
+        '        con.Close()
+        '    Catch ex As Exception
+        '        MessageBox.Show(ex.Message)
+        '    End Try
+    End Sub
     Private Sub Btn_guardar_libro1_Click(sender As Object, e As EventArgs) Handles Btn_guardar_libro1.Click
         agregar_libro()
+        insertar_MV_LIBROS()
     End Sub
     Sub cargar_unidad_logistoca()
         ComboBox_unidad_logistica.Items.Clear()

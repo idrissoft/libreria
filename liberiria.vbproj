@@ -74,12 +74,6 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HistorialTransacciones.Designer.vb">
-      <DependentUpon>HistorialTransacciones.vb</DependentUpon>
-    </Compile>
-    <Compile Include="HistorialTransacciones.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="libros\añadire_libro.Designer.vb">
       <DependentUpon>añadire_libro.vb</DependentUpon>
     </Compile>
@@ -116,6 +110,12 @@
       <DependentUpon>Libros.vb</DependentUpon>
     </Compile>
     <Compile Include="libros\Libros.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimientos\Movimientos.Designer.vb">
+      <DependentUpon>Movimientos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos\Movimientos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -163,14 +163,14 @@
     <EmbeddedResource Include="libros\Editar_libros.resx">
       <DependentUpon>Editar_libros.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Movimientos\Movimientos.resx">
+      <DependentUpon>Movimientos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="unidades logisticas\agregarUL.resx">
       <DependentUpon>agregarUL.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="unidades logisticas\gestionar_del_stock.resx">
       <DependentUpon>gestionar_del_stock.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HistorialTransacciones.resx">
-      <DependentUpon>HistorialTransacciones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="libros\añadire_libro.resx">
       <DependentUpon>añadire_libro.vb</DependentUpon>

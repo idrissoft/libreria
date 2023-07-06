@@ -145,8 +145,8 @@ Public Class Venta
     End Sub
 
     Private Sub HistoriaLTransaccionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriaLTransaccionesToolStripMenuItem.Click
-        Dim HistorialTransacciones As New HistorialTransacciones()
-        HistorialTransacciones.Show()
+        Movimientos.Show()
+
     End Sub
     Private Sub Btn_editar_venta_Click(sender As Object, e As EventArgs) Handles Btn_editar_venta.Click
         ' Comprobar si hay una fila seleccionada

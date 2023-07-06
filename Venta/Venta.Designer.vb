@@ -107,7 +107,7 @@ Partial Class Venta
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 3)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 1, 0, 1)
-        Me.MenuStrip1.Size = New System.Drawing.Size(427, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(494, 24)
         Me.MenuStrip1.TabIndex = 3
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -132,8 +132,8 @@ Partial Class Venta
         'HistoriaLTransaccionesToolStripMenuItem
         '
         Me.HistoriaLTransaccionesToolStripMenuItem.Name = "HistoriaLTransaccionesToolStripMenuItem"
-        Me.HistoriaLTransaccionesToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.HistoriaLTransaccionesToolStripMenuItem.Text = "Historia l Transacciones"
+        Me.HistoriaLTransaccionesToolStripMenuItem.Size = New System.Drawing.Size(89, 22)
+        Me.HistoriaLTransaccionesToolStripMenuItem.Text = "Movimientos"
         '
         'VolverToolStripMenuItem
         '
