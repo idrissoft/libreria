@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class Clientes
     Public Property ID_Cliente As String
@@ -58,14 +59,16 @@ Public Class Clientes
     End Sub
     Sub buscar()
 
+
         Dim dt As New DataTable()
         Dim con As SqlConnection = miconexion.CrearConexion()
         Dim da As New SqlDataAdapter("buscar_clientes", con)
         da.SelectCommand.CommandType = CommandType.StoredProcedure
-        da.SelectCommand.Parameters.AddWithValue("@letra", ComboBox1.Text)
+        da.SelectCommand.Parameters.AddWithValue("@letra", TextBox1.Text)
         da.Fill(dt)
         DataGridView_clientes.DataSource = dt
     End Sub
+
 
     Sub Editar()
         Try
@@ -103,9 +106,6 @@ Public Class Clientes
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-    Private Sub ComboBox1_TextChanged(sender As Object, e As EventArgs) Handles ComboBox1.TextChanged
-        buscar()
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Btn_editar_clientes.Click
         Editar()
@@ -115,5 +115,10 @@ Public Class Clientes
         Dim entrada As New Entrada()
         entrada.Show()
         Hide()
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        buscar()
+
     End Sub
 End Class

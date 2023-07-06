@@ -21,15 +21,12 @@ Public Class añadire_libro
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
             command.Parameters.AddWithValue("@autor", TextBox2.Text)
-
             command.Parameters.AddWithValue("@precio", TextBox3.Text)
             command.Parameters.AddWithValue("@ficha", DateTimePicker1.Value)
             command.Parameters.AddWithValue("@description", TextBox4.Text)
-
             con.Open()
             command.ExecuteNonQuery()
             con.Close()
-
             MessageBox.Show("El libro se ha modificado correctamente.")
             Dim fr_libro As New Libros
             fr_libro.Show()
@@ -57,13 +54,11 @@ Public Class añadire_libro
 
             ' Insertar nuevo libro
             Dim command As New SqlCommand("INSERT INTO libros(nombre, autor,precio,ficha ,description) OUTPUT INSERTED.idlibro VALUES (@nombre, @autor,@precio,@ficha ,@description)", con)
-
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
             command.Parameters.AddWithValue("@autor", TextBox2.Text)
             command.Parameters.AddWithValue("@precio", TextBox3.Text)
             command.Parameters.AddWithValue("@ficha", DateTimePicker1.Value)
             command.Parameters.AddWithValue("@description", TextBox4.Text)
-
             con.Open()
             ' Ejecutar la consulta y obtener el idlibro del libro recién insertado
             Dim idlibro As Integer = command.ExecuteScalar()
@@ -71,24 +66,20 @@ Public Class añadire_libro
 
             ' Insertar en UnidadesLogisticas con el idlibro obtenido
             command = New SqlCommand("INSERT INTO UnidadesLogisticas(idlibro, tipoUL,unidades_por_UL, stock) VALUES (@idlibro, @tipoUL,@unidades_por_UL, @stock)", con)
-
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@tipoUL", ComboBox_unidad_logistica.SelectedItem)
             command.Parameters.AddWithValue("@unidades_por_UL", TxtUporUL.Text)
             command.Parameters.AddWithValue("@stock", TextBox7.Text)
-
             con.Open()
             command.ExecuteNonQuery()
             con.Close()
             ' Actualización del stock total
             command = New SqlCommand("EXEC ActualizarStockTotal @idLibro", con)
             command.Parameters.AddWithValue("@idLibro", idlibro)
-
             con.Open()
             command.ExecuteNonQuery()
             con.Close()
             MessageBox.Show("El libro se ha agregado correctamente.")
-
             Dim fr_libro As New Libros()
             fr_libro.Show()
             Me.Close()
@@ -120,9 +111,7 @@ Public Class añadire_libro
             TextBox7.Text = "0"  ' TextBox7 es stock
         ElseIf ComboBox_unidad_logistica.SelectedItem.ToString() = "1" Then
             ' Cuando la Unidad Logística es 1, entonces la Unidad_por_UL tiene el número de unidades dentro de la Unidad Logística
-
             TxtUporUL.Text = "1"
-
             TextBox7.Text = TxtUporUL.Text
         Else
             ' Manejo de otros valores

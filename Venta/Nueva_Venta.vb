@@ -177,23 +177,35 @@ Public Class Nueva_Venta
                         Return
                     End If
 
-                    Dim Precio_Des_por_unidad As Integer = precio * cantidad
+                    Dim Precio_Des_total As Integer
+                    Dim descuento As Integer
+
+                    If Integer.TryParse(TxtDescuento.Text, descuento) Then
+                        If descuento > 0 Then
+                            Precio_Des_total = descuento * cantidad
+                        Else
+                            Precio_Des_total = descuento
+                        End If
+                    Else
+                        MessageBox.Show("Por favor, introduzca un descuento válido.")
+                        Return
+                    End If
                     Dim subtotal As Integer = 0
                     If tipoUL = 1 Then
                         cantidad = cantidad * unidades_por_UL
-                        subtotal = cantidad * Precio_Des_por_unidad
+                        subtotal = cantidad * precio - Precio_Des_total
                     Else
-                        subtotal = cantidad * Precio_Des_por_unidad
+                        subtotal = cantidad * precio - Precio_Des_total
                     End If
 
-                    Dim ventaQuery As String = "INSERT INTO venta (ID_Cliente, idlibro,UL, Cantidad,Precio_venta,Precio_Des_por_unidad, ficha_de_venta, Subtotal, Descuento) VALUES (@ID_Cliente, @idlibro,@UL, @Cantidad,@Precio_venta,@Precio_Des_por_unidad, @ficha_de_venta, @Subtotal, @Descuento)"
+
+                    Dim ventaQuery As String = "INSERT INTO venta (ID_Cliente, idlibro, Cantidad,Precio_venta,Precio_Des_total, ficha_de_venta, Subtotal, Descuento) VALUES (@ID_Cliente, @idlibro, @Cantidad,@Precio_venta,@Precio_Des_total, @ficha_de_venta, @Subtotal, @Descuento)"
                     Dim ventaCmd As New SqlCommand(ventaQuery, con)
                     ventaCmd.Parameters.AddWithValue("@ID_Cliente", ID_cliente)
                     ventaCmd.Parameters.AddWithValue("@idlibro", idlibro)
-                    ventaCmd.Parameters.AddWithValue("@UL", ComboBox1.SelectedItem)
                     ventaCmd.Parameters.AddWithValue("@Cantidad", cantidad)
                     ventaCmd.Parameters.AddWithValue("@Precio_venta", precio)
-                    ventaCmd.Parameters.AddWithValue("@Precio_Des_por_unidad", Precio_Des_por_unidad)
+                    ventaCmd.Parameters.AddWithValue("@Precio_Des_total", Precio_Des_total)
                     ventaCmd.Parameters.AddWithValue("@ficha_de_venta", ficha_de_venta.Value) ' DateTimePicker value
                     ventaCmd.Parameters.AddWithValue("@Subtotal", subtotal)
                     ventaCmd.Parameters.AddWithValue("@Descuento", Convert.ToInt32(TxtDescuento.Text))
@@ -232,6 +244,7 @@ Public Class Nueva_Venta
     Private Sub BtnAddVenta1_Click(sender As Object, e As EventArgs) Handles BtnAddVenta1.Click
         ' Añadir una nueva venta cuando se hace clic en el botón "Añadir venta"
         agregar_venta()
+        Venta.Show()
     End Sub
 
     Private Sub editar_venta_Click(sender As Object, e As EventArgs) Handles editar_venta.Click

@@ -31,10 +31,11 @@ Partial Class Libros
         Me.Btn_añadir_libro = New System.Windows.Forms.Button()
         Me.DataGridView_libros = New System.Windows.Forms.DataGridView()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Btn_Editar = New System.Windows.Forms.Button()
         Me.Btn_agregar_imagen = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -43,7 +44,6 @@ Partial Class Libros
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.DataGridView_UnidadesLogisticas = New System.Windows.Forms.DataGridView()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView_libros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -154,6 +154,21 @@ Partial Class Libros
         Me.Panel3.Size = New System.Drawing.Size(90, 656)
         Me.Panel3.TabIndex = 3
         '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(3, 216)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(84, 51)
+        Me.Button2.TabIndex = 7
+        Me.Button2.Text = "unidades logisticas"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'Btn_Editar
         '
         Me.Btn_Editar.BackColor = System.Drawing.Color.Transparent
@@ -187,7 +202,7 @@ Partial Class Libros
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.SystemColors.Highlight
-        Me.Panel4.Controls.Add(Me.ComboBox2)
+        Me.Panel4.Controls.Add(Me.TextBox1)
         Me.Panel4.Controls.Add(Me.PictureBox2)
         Me.Panel4.Controls.Add(Me.PictureBox1)
         Me.Panel4.Controls.Add(Me.Button1)
@@ -198,13 +213,12 @@ Partial Class Libros
         Me.Panel4.Size = New System.Drawing.Size(967, 37)
         Me.Panel4.TabIndex = 4
         '
-        'ComboBox2
+        'TextBox1
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(240, 10)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(474, 21)
-        Me.ComboBox2.TabIndex = 8
+        Me.TextBox1.Location = New System.Drawing.Point(267, 6)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(387, 20)
+        Me.TextBox1.TabIndex = 8
         '
         'PictureBox2
         '
@@ -273,34 +287,19 @@ Partial Class Libros
         Me.DataGridView_UnidadesLogisticas.AllowUserToAddRows = False
         Me.DataGridView_UnidadesLogisticas.AllowUserToDeleteRows = False
         Me.DataGridView_UnidadesLogisticas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView_UnidadesLogisticas.Location = New System.Drawing.Point(265, 8)
+        Me.DataGridView_UnidadesLogisticas.Location = New System.Drawing.Point(265, 3)
         Me.DataGridView_UnidadesLogisticas.Name = "DataGridView_UnidadesLogisticas"
         Me.DataGridView_UnidadesLogisticas.ReadOnly = True
-        Me.DataGridView_UnidadesLogisticas.Size = New System.Drawing.Size(699, 281)
+        Me.DataGridView_UnidadesLogisticas.Size = New System.Drawing.Size(699, 286)
         Me.DataGridView_UnidadesLogisticas.TabIndex = 7
         '
         'PictureBox3
         '
-        Me.PictureBox3.Location = New System.Drawing.Point(1, 0)
+        Me.PictureBox3.Location = New System.Drawing.Point(1, 3)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(262, 290)
+        Me.PictureBox3.Size = New System.Drawing.Size(262, 287)
         Me.PictureBox3.TabIndex = 6
         Me.PictureBox3.TabStop = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(3, 216)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(84, 51)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "unidades logisticas"
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'Libros
         '
@@ -320,6 +319,7 @@ Partial Class Libros
         CType(Me.DataGridView_libros, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
@@ -343,7 +343,6 @@ Partial Class Libros
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Button1 As Button
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Btn_agregar_imagen As Button
     Friend WithEvents Panel6 As Panel
@@ -351,4 +350,5 @@ Partial Class Libros
     Friend WithEvents Btn_Editar As Button
     Friend WithEvents DataGridView_UnidadesLogisticas As DataGridView
     Friend WithEvents Button2 As Button
+    Friend WithEvents TextBox1 As TextBox
 End Class

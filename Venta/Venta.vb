@@ -2,12 +2,6 @@
 
 Public Class Venta
     Private miConexion As New connexion()
-
-    'Public Function ObtenerDataGridView_Venta() As DataGridView
-    'Return DataGridView_Venta
-    'End Function
-
-
     Public Function mostrar_venta() As DataTable
         Dim dt As New DataTable()
         Dim con As SqlConnection = miConexion.CrearConexion()
@@ -147,20 +141,13 @@ Public Class Venta
     Private Sub CrearNuevaVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CrearNuevaVentaToolStripMenuItem.Click
         Dim nueva_venta As New Nueva_Venta()
         nueva_venta.Show()
-
+        Me.Hide()
     End Sub
 
     Private Sub HistoriaLTransaccionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriaLTransaccionesToolStripMenuItem.Click
         Dim HistorialTransacciones As New HistorialTransacciones()
         HistorialTransacciones.Show()
     End Sub
-
-
-    Sub editar_venta()
-
-
-    End Sub
-
     Private Sub Btn_editar_venta_Click(sender As Object, e As EventArgs) Handles Btn_editar_venta.Click
         ' Comprobar si hay una fila seleccionada
         If DataGridView_Venta.SelectedRows.Count > 0 Then
@@ -213,5 +200,35 @@ Public Class Venta
         End If
     End Sub
 
+    Private Sub Eliminar_venta_Click(sender As Object, e As EventArgs) Handles Eliminar_venta.Click
+        ' Comprobar si hay una fila seleccionada
+        If DataGridView_Venta.SelectedRows.Count > 0 Then
+            Dim fila As DataGridViewRow = DataGridView_Venta.SelectedRows(0)
+
+            ' Obtener el ID de la venta de la fila seleccionada
+            Dim idVenta As Integer = Convert.ToInt32(fila.Cells("id de Venta").Value)
+
+            ' Preguntar al usuario si realmente desea eliminar la venta
+            Dim result As DialogResult = MessageBox.Show("¿Estás seguro que deseas eliminar la venta con ID " & idVenta & "?", "Confirmar eliminación", MessageBoxButtons.YesNo)
+
+            If result = DialogResult.Yes Then
+                ' Si el usuario confirma, eliminar la venta de la base de datos
+                Using con As SqlConnection = miConexion.CrearConexion()
+                    con.Open()
+
+                    Dim deleteQuery As String = "DELETE FROM Venta WHERE id_venta = @id_venta"
+                    Dim deleteCmd As New SqlCommand(deleteQuery, con)
+                    deleteCmd.Parameters.AddWithValue("@id_venta", idVenta)
+
+                    deleteCmd.ExecuteNonQuery()
+                End Using
+
+                ' Recargar el DataGridView para reflejar los cambios
+                DataGridView_Venta.DataSource = mostrar_venta()
+            End If
+        Else
+            MessageBox.Show("Por favor, selecciona una fila para eliminar.")
+        End If
+    End Sub
 
 End Class

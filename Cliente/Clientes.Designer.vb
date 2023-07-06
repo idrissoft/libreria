@@ -33,7 +33,7 @@ Partial Class Clientes
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Btn_editar_clientes = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
         CType(Me.DataGridView_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -157,7 +157,7 @@ Partial Class Clientes
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.SystemColors.Highlight
-        Me.Panel4.Controls.Add(Me.ComboBox1)
+        Me.Panel4.Controls.Add(Me.TextBox1)
         Me.Panel4.Controls.Add(Me.PictureBox1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(127, 26)
@@ -165,13 +165,12 @@ Partial Class Clientes
         Me.Panel4.Size = New System.Drawing.Size(1192, 51)
         Me.Panel4.TabIndex = 7
         '
-        'ComboBox1
+        'TextBox1
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(129, 15)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(474, 21)
-        Me.ComboBox1.TabIndex = 1
+        Me.TextBox1.Location = New System.Drawing.Point(129, 14)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(341, 20)
+        Me.TextBox1.TabIndex = 1
         '
         'PictureBox1
         '
@@ -208,6 +207,7 @@ Partial Class Clientes
         Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -223,8 +223,8 @@ Partial Class Clientes
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Btn_editar_clientes As Button
+    Friend WithEvents TextBox1 As TextBox
 End Class

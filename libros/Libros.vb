@@ -12,7 +12,7 @@ Public Class Libros
     Public Property Cantidad As Integer
     Public Property Stock As Integer
     Public Property Description As String
-    Public Property Precio As Decimal
+    Public Property Precio As Integer
 
     Public Function ObtenerDataGridView_UnidadesLogisticas() As DataGridView
         Return DataGridView_UnidadesLogisticas
@@ -26,7 +26,7 @@ Public Class Libros
         DataGridView_libros.DataSource = MostrarLibros()
     End Sub
     Private Sub Btn_volver_Click(sender As Object, e As EventArgs) Handles Btn_volver.Click
-        Dim entrada As New Entrada()
+        Dim entrada As New Entrada
         entrada.Show()
         Hide()
     End Sub
@@ -146,23 +146,18 @@ Public Class Libros
         Try
             Dim editarLibrosForm As New Editar_libros(Me)
             editarLibrosForm.Show()
-
             ' Conexión a SQL Server
             Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
                 Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
                 Dim con As SqlConnection = miConexion.CrearConexion()
-
                 ' Consulta SQL para obtener los datos de la tabla filtrados por un parámetro
                 Dim query As String = "SELECT nombre, autor,precio,ficha,description, stock_Total  from libros WHERE idlibro = @idlibro"
-
                 ' Creación del comando y asignación de parámetros
                 Dim command As New SqlCommand(query, con)
                 command.Parameters.AddWithValue("@idlibro", idlibro)
-
                 ' Lectura de los datos de la fila seleccionada
                 con.Open()
                 Dim reader As SqlDataReader = command.ExecuteReader()
-
                 If reader.Read() Then
                     ' Asignación de los valores a los TextBox correspondientes
                     editarLibrosForm.TextBox5.Text = Convert.ToString(idlibro)
@@ -172,9 +167,7 @@ Public Class Libros
                     editarLibrosForm.TextBox3.Text = reader("precio").ToString()
                     editarLibrosForm.DateTimePicker1.Value = Date.Parse(reader("ficha").ToString())
                     editarLibrosForm.TextBox4.Text = reader("description").ToString()
-
                 End If
-
                 reader.Close()
                 con.Close()
             End Using
@@ -185,32 +178,47 @@ Public Class Libros
     End Sub
     Private Sub Btn_Editar_Click(sender As Object, e As EventArgs) Handles Btn_Editar.Click
         editar_libros()
+        Me.Hide()
     End Sub
-
     Private Sub Btn_añadir_libro_Click(sender As Object, e As EventArgs) Handles Btn_añadir_libro.Click
-        Dim añadir_libro As New añadire_libro()
         añadire_libro.Show()
         Me.Hide()
     End Sub
     Public Sub eliminar_libros()
-        Try
-            Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
-                Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
-                Dim con As SqlConnection = miConexion.CrearConexion()
+        Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
+            Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
+            Dim con As SqlConnection = miConexion.CrearConexion()
 
-                Dim delete As New SqlCommand("DELETE FROM libros WHERE idlibro = @idlibro", con)
-                delete.Parameters.AddWithValue("@idlibro", idlibro)
+            ' Verifica si existen referencias en UnidadesLogisticas
+            Dim countUL As Integer
+            Dim countCmdUL As New SqlCommand("SELECT COUNT(*) FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
+            countCmdUL.Parameters.AddWithValue("@idlibro", idlibro)
+            con.Open()
+            countUL = Convert.ToInt32(countCmdUL.ExecuteScalar())
+            con.Close()
 
-                con.Open()
-                delete.ExecuteNonQuery()
+            ' Verifica si existen referencias en Venta
+            Dim countVenta As Integer
+            Dim countCmdVenta As New SqlCommand("SELECT COUNT(*) FROM Venta WHERE idlibro = @idlibro", con)
+            countCmdVenta.Parameters.AddWithValue("@idlibro", idlibro)
+            con.Open()
+            countVenta = Convert.ToInt32(countCmdVenta.ExecuteScalar())
+            con.Close()
 
-                con.Close()
-                MostrarLibros()
-            End Using
-        Catch ex As Exception
-            ' Si ocurre un error, mostrar un cuadro de mensaje con el mensaje de error
-            MessageBox.Show(ex.Message)
-        End Try
+            ' Si existen referencias, mostrar mensaje y terminar la subrutina
+            If countUL > 0 Or countVenta > 0 Then
+                MessageBox.Show("El libro tiene referencias en UnidadesLogisticas y/o Venta. No puede ser eliminado.")
+                Return
+            End If
+
+            ' Eliminación del libro
+            Dim delete As New SqlCommand("DELETE FROM libros WHERE idlibro = @idlibro", con)
+            delete.Parameters.AddWithValue("@idlibro", idlibro)
+            con.Open()
+            delete.ExecuteNonQuery()
+            con.Close()
+            MostrarLibros()
+        End Using
     End Sub
 
     Private Sub Btn_eliminar_libro_Click(sender As Object, e As EventArgs) Handles Btn_eliminar_libro.Click
@@ -221,12 +229,9 @@ Public Class Libros
         Dim dt As New DataTable()
         Dim con As SqlConnection = miConexion.CrearConexion()
         Dim cmd As New SqlCommand("SELECT * FROM UnidadesLogisticas WHERE idLibro = @idLibro ORDER BY tipoUL", con)
-
         cmd.CommandType = CommandType.Text
         cmd.Parameters.AddWithValue("@idLibro", idLibro)
-
         con.Open()
-
         Using da As New SqlDataAdapter(cmd)
             da.Fill(dt)
         End Using
@@ -237,5 +242,17 @@ Public Class Libros
         Dim gestionar_del_stock As New unidades_logisticas()
         gestionar_del_stock.Show()
         Me.Hide()
+    End Sub
+    Sub buscar()
+        Dim dt As New DataTable()
+        Dim con As SqlConnection = miConexion.CrearConexion()
+        Dim da As New SqlDataAdapter("buscar_libros", con)
+        da.SelectCommand.CommandType = CommandType.StoredProcedure
+        da.SelectCommand.Parameters.AddWithValue("@letra", TextBox1.Text)
+        da.Fill(dt)
+        DataGridView_libros.DataSource = dt
+    End Sub
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        buscar()
     End Sub
 End Class
