@@ -3,7 +3,8 @@ Imports System.IO
 Public Class unidades_logisticas
     Private miConexion As New connexion()
     Private libros As New Libros()
-
+    Private ComboBox_Servidor As ComboBox
+    Public Property ServerName As String
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim libros As New Libros
         libros.Show()
@@ -65,8 +66,9 @@ Public Class unidades_logisticas
         Dim selectedRow As DataGridViewRow = DataGridView_UL.Rows(rowindex)
 
         Try
-            Dim con As SqlConnection = miConexion.CrearConexion()
 
+            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim con As SqlConnection = miConexion.CrearConexion(serverName)
             Dim stock As Integer = Convert.ToInt32(TextBox8.Text)
             Dim unidades_por_UL As Integer = Convert.ToInt32(TextBox9.Text)
             Dim idUL As Integer = Convert.ToInt32(TextBox6.Text)
@@ -115,7 +117,8 @@ Public Class unidades_logisticas
         Dim selectedRow As DataGridViewRow = DataGridView_UL.Rows(rowindex)
 
         Try
-            Dim con As SqlConnection = miConexion.CrearConexion()
+            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim con As SqlConnection = miConexion.CrearConexion(serverName)
 
             Dim stock As Integer = Convert.ToInt32(TextBox8.Text)
             Dim idUL As Integer = Convert.ToInt32(TextBox6.Text)

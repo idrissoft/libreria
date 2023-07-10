@@ -2,9 +2,12 @@
 
 Public Class Venta
     Private miConexion As New connexion()
+    Private ComboBox_Servidor As ComboBox
+    Public Property ServerName As String
     Public Function mostrar_venta() As DataTable
         Dim dt As New DataTable()
-        Dim con As SqlConnection = miConexion.CrearConexion()
+
+        Dim con As SqlConnection = miConexion.CrearConexion(serverName)
         Dim cmd As New SqlCommand("mostrar_venta", con)
 
         cmd.CommandType = CommandType.StoredProcedure
@@ -33,8 +36,8 @@ Public Class Venta
     End Sub
 
     Private Sub VolverToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VolverToolStripMenuItem.Click
-        Dim entrada As New Entrada()
-        entrada.Show()
+        'Dim entrada As New Entrada()
+        'entrada.Show()
         Me.Hide()
     End Sub
 
@@ -86,7 +89,8 @@ Public Class Venta
         Dim libro As New Libros()
 
         ' Conexión a la base de datos
-        Dim conn As SqlConnection = miConexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim conn As SqlConnection = miConexion.CrearConexion(serverName)
         conn.Open()
 
         ' Consulta SQL para obtener los datos del libro por su ID
@@ -113,7 +117,8 @@ Public Class Venta
         Dim cliente As New Clientes()
 
         ' Conexión a la base de datos
-        Dim conn As SqlConnection = miConexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim conn As SqlConnection = miConexion.CrearConexion(serverName)
         conn.Open()
 
         ' Consulta SQL para obtener los datos del cliente por su ID
@@ -160,7 +165,8 @@ Public Class Venta
             Dim idCliente As Integer = Convert.ToInt32(fila.Cells("ID de cliente").Value)
 
             ' Consultar la base de datos para obtener el nombre del cliente
-            Using con As SqlConnection = miConexion.CrearConexion()
+            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Using con As SqlConnection = miConexion.CrearConexion(serverName)
                 con.Open()
 
                 Dim clienteQuery As String = "SELECT Nombre FROM Cliente WHERE ID_cliente = @ID_cliente"
@@ -213,7 +219,8 @@ Public Class Venta
 
             If result = DialogResult.Yes Then
                 ' Si el usuario confirma, eliminar la venta de la base de datos
-                Using con As SqlConnection = miConexion.CrearConexion()
+                Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+                Using con As SqlConnection = miConexion.CrearConexion(serverName)
                     con.Open()
 
                     Dim deleteQuery As String = "DELETE FROM Venta WHERE id_venta = @id_venta"

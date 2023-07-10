@@ -3,6 +3,7 @@
 Public Class Editar_libros
     Private miConexion As New connexion()
     Private librosForm As Libros ' 
+    Private ComboBox_Servidor As ComboBox
     Public DataGridView_libros As New DataGridView()
     Public Sub New(librosForm As Libros)
         ' Llamada necesaria para el diseñador.
@@ -15,7 +16,8 @@ Public Class Editar_libros
         ' Aquí vendría el código que obtiene los libros desde tu base de datos
         ' Este es un ejemplo genérico
         Dim dt As New DataTable()
-        Using con As SqlConnection = miConexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
             Using cmd As New SqlCommand("SELECT * FROM libros", con)
                 Using da As New SqlDataAdapter(cmd)
@@ -28,7 +30,8 @@ Public Class Editar_libros
 
     Sub editar_libros(idLibro As Integer)
         Try
-            Dim con As SqlConnection = miConexion.CrearConexion()
+            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim con As SqlConnection = miConexion.CrearConexion(serverName)
             Dim consulta As String = "UPDATE libros SET nombre = @nombre, autor = @autor, precio = @precio, ficha = @ficha, description = @description, stock_total = @stock_total WHERE idlibro = @idlibro"
 
             ' Creación del comando y asignación de parámetros

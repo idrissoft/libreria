@@ -3,8 +3,13 @@ Imports System.Drawing.Imaging
 Imports System.IO
 
 Public Class Libros
+    Private miConexion As New connexion()
+
+    Public Property ServerName As String
+
     Public Property idLibro As String
     Public Property Nombre As String
+
     Public Property Autor As String
     Public Property Ficha As String
     Public Property unidad_logistica As String
@@ -13,40 +18,41 @@ Public Class Libros
     Public Property Stock As Integer
     Public Property Description As String
     Public Property Precio As Integer
-
+    Private ComboBox_Servidor As ComboBox
     Public Function ObtenerDataGridView_UnidadesLogisticas() As DataGridView
         Return DataGridView_UnidadesLogisticas
     End Function
     Public Function ObtenerDataGridViewLibros() As DataGridView
         Return DataGridView_libros
     End Function
-    Private miConexion As New connexion()
+
     Private Sub Libros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CenterToParent()
         DataGridView_libros.DataSource = MostrarLibros()
     End Sub
     Private Sub Btn_volver_Click(sender As Object, e As EventArgs) Handles Btn_volver.Click
-        Dim entrada As New Entrada
-        entrada.Show()
+        ''Dim entrada As New Entrada
+        'Entrada.Show()
         Hide()
     End Sub
 
     Public Function MostrarLibros() As DataTable
         Dim dt As New DataTable()
-        Dim con As SqlConnection = miConexion.CrearConexion()
+
+        Dim con As SqlConnection = miConexion.CrearConexion(ServerName)
         Dim cmd As New SqlCommand("mostrar_libros", con)
+            cmd.CommandType = CommandType.StoredProcedure
 
-        cmd.CommandType = CommandType.StoredProcedure
+            con.Open()
 
-        con.Open()
+            Using da As New SqlDataAdapter(cmd)
+                da.Fill(dt)
+            End Using
+        con.Close()
 
-        Using da As New SqlDataAdapter(cmd)
-            da.Fill(dt)
-
-        End Using
         Return dt
-
     End Function
+
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Btn_agregar_imagen.Click
         Try
@@ -74,7 +80,8 @@ Public Class Libros
                     ' Guardar la imagen en la base de datos
 
                     ' Establecer la conexión a la base de datos
-                    Dim con As SqlConnection = miConexion.CrearConexion()
+                    Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+                    Dim con As SqlConnection = miConexion.CrearConexion(serverName)
                     con.Open()
 
                     ' Convertir la imagen a un arreglo de bytes utilizando un objeto MemoryStream
@@ -149,7 +156,8 @@ Public Class Libros
             ' Conexión a SQL Server
             Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
                 Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
-                Dim con As SqlConnection = miConexion.CrearConexion()
+                Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+                Dim con As SqlConnection = miConexion.CrearConexion(serverName)
                 ' Consulta SQL para obtener los datos de la tabla filtrados por un parámetro
                 Dim query As String = "SELECT nombre, autor,precio,ficha,description, stock_Total  from libros WHERE idlibro = @idlibro"
                 ' Creación del comando y asignación de parámetros
@@ -187,8 +195,8 @@ Public Class Libros
     Public Sub eliminar_libros()
         Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
             Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
-            Dim con As SqlConnection = miConexion.CrearConexion()
-
+            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim con As SqlConnection = miConexion.CrearConexion(serverName)
             ' Verifica si existen referencias en UnidadesLogisticas
             Dim countUL As Integer
             Dim countCmdUL As New SqlCommand("SELECT COUNT(*) FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
@@ -227,7 +235,8 @@ Public Class Libros
     End Sub
     Public Function MostrarUnidadesLogisticas(idLibro As Integer) As DataTable
         Dim dt As New DataTable()
-        Dim con As SqlConnection = miConexion.CrearConexion()
+        'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim con As SqlConnection = miConexion.CrearConexion(serverName)
         Dim cmd As New SqlCommand("SELECT * FROM UnidadesLogisticas WHERE idLibro = @idLibro ORDER BY tipoUL", con)
         cmd.CommandType = CommandType.Text
         cmd.Parameters.AddWithValue("@idLibro", idLibro)
@@ -245,7 +254,8 @@ Public Class Libros
     End Sub
     Sub buscar()
         Dim dt As New DataTable()
-        Dim con As SqlConnection = miConexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim con As SqlConnection = miConexion.CrearConexion(serverName)
         Dim da As New SqlDataAdapter("buscar_libros", con)
         da.SelectCommand.CommandType = CommandType.StoredProcedure
         da.SelectCommand.Parameters.AddWithValue("@letra", TextBox1.Text)

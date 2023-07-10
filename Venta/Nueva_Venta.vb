@@ -2,6 +2,7 @@
 
 Public Class Nueva_Venta
     Private miConexion As New connexion()
+    Private ComboBox_Servidor As ComboBox
     Friend WithEvents BtnAddVenta As Button
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ' Cerrar la venta actual y volver a la vista principal
@@ -16,7 +17,8 @@ Public Class Nueva_Venta
 
     Private Sub CargarClientes()
         ' Obtener los nombres de todos los clientes de la base de datos
-        Using con As SqlConnection = miConexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
             Dim query As String = "SELECT nombre FROM Cliente"
@@ -35,7 +37,8 @@ Public Class Nueva_Venta
 
     Private Sub CargarLibros()
         ' Obtener los nombres de todos los libros de la base de datos
-        Using con As SqlConnection = miConexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
             Dim query As String = "SELECT nombre FROM libros"
@@ -57,7 +60,8 @@ Public Class Nueva_Venta
 
     Private Sub carga_precio_libro()
         ' Obtener el precio del libro seleccionado y mostrarlo en el formulario
-        Using con As SqlConnection = miConexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
             Dim libroQuery As String = "SELECT precio FROM libros WHERE nombre = @nombre"
@@ -83,7 +87,8 @@ Public Class Nueva_Venta
         carga_precio_libro()
 
         ' Obtener el idLibro del libro seleccionado
-        Using con As SqlConnection = miConexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
             Dim idLibroQuery As String = "SELECT idLibro FROM libros WHERE nombre = @nombre"
@@ -109,7 +114,8 @@ Public Class Nueva_Venta
 
     Private Sub CargarUnidadesLogisticas(idLibro As Integer)
         ' Obtener las unidades logísticas del libro seleccionado y llenar el ComboBox
-        Using con As SqlConnection = miConexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
             Dim ulQuery As String = "SELECT tipoUL FROM UnidadesLogisticas WHERE idLibro = @idLibro"
@@ -130,7 +136,8 @@ Public Class Nueva_Venta
 
     Public Sub agregar_venta()
         ' Agregar una nueva venta a la base de datos
-        Using con As SqlConnection = miConexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
             Dim clienteQuery As String = "SELECT ID_cliente FROM Cliente WHERE Nombre = @Nombre"
@@ -258,7 +265,8 @@ Public Class Nueva_Venta
         Dim idVenta As Integer
 
         ' Editar una venta existente en la base de datos
-        Using con As SqlConnection = miConexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
             Dim ventaQuery As String = "UPDATE venta SET ID_Cliente = @ID_Cliente, idlibro = @idlibro, UL = @UL, Cantidad = @Cantidad, Precio_venta = @Precio_venta, Precio_Des_por_unidad = @Precio_Des_por_unidad, ficha_de_venta = @ficha_de_venta, Subtotal = @Subtotal, Descuento = @Descuento WHERE idVenta = @idVenta"

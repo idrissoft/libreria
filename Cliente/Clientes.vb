@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+
+Imports System.Windows.Forms
 
 Public Class Clientes
     Public Property ID_Cliente As String
@@ -7,6 +8,8 @@ Public Class Clientes
     Public Property Telefono As String
     Public Property Direccion As String
     Public Property Informacion As String
+    Private ComboBox_Servidor As ComboBox
+    Public Property ServerName As String
     Public Function ObtenerDataGridViewClientes() As DataGridView
         Return DataGridView_clientes
     End Function
@@ -22,7 +25,8 @@ Public Class Clientes
     End Sub
     Public Function mostrarClientes() As DataTable
         Dim dt As New DataTable()
-        Dim con As SqlConnection = miconexion.CrearConexion()
+
+        Dim con As SqlConnection = miconexion.CrearConexion(serverName)
         Dim cmd As New SqlCommand("mostrar_cliente", con)
         cmd.CommandType = CommandType.StoredProcedure
 
@@ -38,7 +42,8 @@ Public Class Clientes
         Try
             Using selectedRow As DataGridViewRow = DataGridView_clientes.SelectedRows(0)
                 Dim id_cliente As Integer = Convert.ToInt32(selectedRow.Cells("id_cliente").Value)
-                Dim con As SqlConnection = miconexion.CrearConexion()
+                Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+                Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
                 Dim delete As New SqlCommand("DELETE FROM cliente WHERE id_cliente = @id_cliente", con)
                 delete.Parameters.AddWithValue("@id_cliente", id_cliente)
@@ -61,7 +66,8 @@ Public Class Clientes
 
 
         Dim dt As New DataTable()
-        Dim con As SqlConnection = miconexion.CrearConexion()
+        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim con As SqlConnection = miconexion.CrearConexion(serverName)
         Dim da As New SqlDataAdapter("buscar_clientes", con)
         da.SelectCommand.CommandType = CommandType.StoredProcedure
         da.SelectCommand.Parameters.AddWithValue("@letra", TextBox1.Text)
@@ -77,7 +83,8 @@ Public Class Clientes
             ' Conexión a SQL Server
             Using selectedRow As DataGridViewRow = DataGridView_clientes.SelectedRows(0)
                 Dim ID_cliente As Integer = Convert.ToInt32(selectedRow.Cells("ID_cliente").Value)
-                Dim con As SqlConnection = miconexion.CrearConexion()
+                Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+                Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
                 ' Consulta SQL para obtener los datos de la tabla filtrados por un parámetro
                 Dim query As String = "SELECT nombre, telefono, direccion, informacion from cliente WHERE ID_cliente = @ID_cliente"
@@ -112,8 +119,8 @@ Public Class Clientes
     End Sub
 
     Private Sub btn_volver_Click(sender As Object, e As EventArgs) Handles btn_volver.Click
-        Dim entrada As New Entrada()
-        entrada.Show()
+        'Dim entrada As New Entrada()
+        'entrada.Show()
         Hide()
     End Sub
 

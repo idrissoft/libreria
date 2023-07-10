@@ -3,7 +3,7 @@
 Public Class agregarUL
     Private miconexion As New connexion
     Private idLibro As Integer
-
+    Private ComboBox_Servidor As ComboBox
     Public Sub New(ByVal idLibro As Integer)
         InitializeComponent()
         Me.idLibro = idLibro
@@ -11,7 +11,8 @@ Public Class agregarUL
 
     Private Sub Btn_guardar_UL_Click(sender As Object, e As EventArgs) Handles Btn_guardar_UL.Click
         Try
-            Dim con As SqlConnection = miconexion.CrearConexion()
+            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
             Dim tipoUL As Integer = ComboBox1.SelectedItem
             Dim stock As Integer = TextBox2.Text

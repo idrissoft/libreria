@@ -8,7 +8,7 @@ Public Class añadire_libro
     End Sub
     Private idlibro As Integer
     Private miconexion As New connexion
-
+    Private ComboBox_Servidor As ComboBox
     Public Sub modificar_libro(idlibro As Integer)
         Try
             If idlibro <= 0 Then
@@ -16,7 +16,9 @@ Public Class añadire_libro
                 Return
             End If
 
-            Dim con As SqlConnection = miconexion.CrearConexion()
+
+            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim con As SqlConnection = miconexion.CrearConexion(serverName)
             Dim command As New SqlCommand("UPDATE libros SET nombre = @nombre, autor = @autor, ,precio = @precio, ficha = @ficha,  description = @description WHERE idlibro = @idlibro", con)
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
@@ -53,7 +55,8 @@ Public Class añadire_libro
 
     Sub agregar_libro()
         Try
-            Dim con As SqlConnection = miconexion.CrearConexion()
+            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
             ' Insertar nuevo libro
             Dim command As New SqlCommand("INSERT INTO libros(nombre, autor, precio, ficha, description) OUTPUT INSERTED.idlibro VALUES (@nombre, @autor, @precio, @ficha, @description)", con)
@@ -107,7 +110,8 @@ Public Class añadire_libro
 
     Sub Insertar_MV_LIBROS(cantidad As Integer)
         Try
-            Dim con As SqlConnection = miconexion.CrearConexion()
+            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
             ' Primero, obtener el valor de stock para el libro actual.
             Dim command As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)

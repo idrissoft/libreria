@@ -1,10 +1,14 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class Movimientos
+    Public Property ServerName As String
+
     Dim miconexion As New connexion
-    Dim con As SqlConnection = miConexion.CrearConexion()
 
     Sub mostrar_Movimientos()
+        ' La conexión se crea aquí ahora
+        Dim con As SqlConnection = miconexion.CrearConexion(ServerName)
+
         ' Abre la conexión
         con.Open()
 
