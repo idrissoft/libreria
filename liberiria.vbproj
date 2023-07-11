@@ -147,6 +147,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="nocreated.Designer.vb">
+      <DependentUpon>nocreated.vb</DependentUpon>
+    </Compile>
+    <Compile Include="nocreated.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RGBColors.vb" />
     <Compile Include="unidades logisticas\agregarUL.Designer.vb">
       <DependentUpon>agregarUL.vb</DependentUpon>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Movimientos\Movimientos.resx">
       <DependentUpon>Movimientos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nocreated.resx">
+      <DependentUpon>nocreated.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="unidades logisticas\agregarUL.resx">
       <DependentUpon>agregarUL.vb</DependentUpon>

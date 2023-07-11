@@ -23,8 +23,6 @@ Partial Class Libros
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Libros))
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Btn_eliminar_libro = New System.Windows.Forms.Button()
         Me.Btn_volver = New System.Windows.Forms.Button()
@@ -44,9 +42,7 @@ Partial Class Libros
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.DataGridView_UnidadesLogisticas = New System.Windows.Forms.DataGridView()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.Panel1.SuspendLayout()
         CType(Me.DataGridView_libros, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,32 +52,12 @@ Partial Class Libros
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.Red
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1057, 29)
-        Me.Panel1.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(435, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(84, 26)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Libreria"
-        '
         'Panel2
         '
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(0, 29)
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1057, 656)
+        Me.Panel2.Size = New System.Drawing.Size(1057, 685)
         Me.Panel2.TabIndex = 1
         '
         'Btn_eliminar_libro
@@ -92,7 +68,7 @@ Partial Class Libros
         Me.Btn_eliminar_libro.FlatAppearance.BorderSize = 0
         Me.Btn_eliminar_libro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_eliminar_libro.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_eliminar_libro.Location = New System.Drawing.Point(3, 76)
+        Me.Btn_eliminar_libro.Location = New System.Drawing.Point(118, 307)
         Me.Btn_eliminar_libro.Name = "Btn_eliminar_libro"
         Me.Btn_eliminar_libro.Size = New System.Drawing.Size(81, 35)
         Me.Btn_eliminar_libro.TabIndex = 4
@@ -107,7 +83,7 @@ Partial Class Libros
         Me.Btn_volver.FlatAppearance.BorderSize = 0
         Me.Btn_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_volver.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_volver.Location = New System.Drawing.Point(3, 273)
+        Me.Btn_volver.Location = New System.Drawing.Point(747, 307)
         Me.Btn_volver.Name = "Btn_volver"
         Me.Btn_volver.Size = New System.Drawing.Size(84, 33)
         Me.Btn_volver.TabIndex = 2
@@ -122,9 +98,9 @@ Partial Class Libros
         Me.Btn_añadir_libro.FlatAppearance.BorderSize = 0
         Me.Btn_añadir_libro.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_añadir_libro.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_añadir_libro.Location = New System.Drawing.Point(3, 37)
+        Me.Btn_añadir_libro.Location = New System.Drawing.Point(6, 307)
         Me.Btn_añadir_libro.Name = "Btn_añadir_libro"
-        Me.Btn_añadir_libro.Size = New System.Drawing.Size(81, 33)
+        Me.Btn_añadir_libro.Size = New System.Drawing.Size(81, 35)
         Me.Btn_añadir_libro.TabIndex = 1
         Me.Btn_añadir_libro.Text = "Añadir"
         Me.Btn_añadir_libro.UseVisualStyleBackColor = False
@@ -142,16 +118,10 @@ Partial Class Libros
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.Highlight
-        Me.Panel3.Controls.Add(Me.Button2)
-        Me.Panel3.Controls.Add(Me.Btn_Editar)
-        Me.Panel3.Controls.Add(Me.Btn_agregar_imagen)
-        Me.Panel3.Controls.Add(Me.Btn_volver)
-        Me.Panel3.Controls.Add(Me.Btn_eliminar_libro)
-        Me.Panel3.Controls.Add(Me.Btn_añadir_libro)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel3.Location = New System.Drawing.Point(0, 29)
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(90, 656)
+        Me.Panel3.Size = New System.Drawing.Size(90, 685)
         Me.Panel3.TabIndex = 3
         '
         'Button2
@@ -162,9 +132,9 @@ Partial Class Libros
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(3, 216)
+        Me.Button2.Location = New System.Drawing.Point(548, 307)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(84, 51)
+        Me.Button2.Size = New System.Drawing.Size(163, 35)
         Me.Button2.TabIndex = 7
         Me.Button2.Text = "unidades logisticas"
         Me.Button2.UseVisualStyleBackColor = False
@@ -177,7 +147,7 @@ Partial Class Libros
         Me.Btn_Editar.FlatAppearance.BorderSize = 0
         Me.Btn_Editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_Editar.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Editar.Location = New System.Drawing.Point(3, 118)
+        Me.Btn_Editar.Location = New System.Drawing.Point(237, 307)
         Me.Btn_Editar.Name = "Btn_Editar"
         Me.Btn_Editar.Size = New System.Drawing.Size(81, 35)
         Me.Btn_Editar.TabIndex = 6
@@ -192,9 +162,9 @@ Partial Class Libros
         Me.Btn_agregar_imagen.FlatAppearance.BorderSize = 0
         Me.Btn_agregar_imagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_agregar_imagen.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_agregar_imagen.Location = New System.Drawing.Point(3, 159)
+        Me.Btn_agregar_imagen.Location = New System.Drawing.Point(365, 307)
         Me.Btn_agregar_imagen.Name = "Btn_agregar_imagen"
-        Me.Btn_agregar_imagen.Size = New System.Drawing.Size(84, 51)
+        Me.Btn_agregar_imagen.Size = New System.Drawing.Size(133, 35)
         Me.Btn_agregar_imagen.TabIndex = 5
         Me.Btn_agregar_imagen.Text = "agregar image"
         Me.Btn_agregar_imagen.UseVisualStyleBackColor = False
@@ -208,7 +178,7 @@ Partial Class Libros
         Me.Panel4.Controls.Add(Me.Button1)
         Me.Panel4.Controls.Add(Me.ComboBox1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel4.Location = New System.Drawing.Point(90, 29)
+        Me.Panel4.Location = New System.Drawing.Point(90, 0)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(967, 37)
         Me.Panel4.TabIndex = 4
@@ -267,15 +237,21 @@ Partial Class Libros
         '
         Me.Panel5.Controls.Add(Me.DataGridView_libros)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel5.Location = New System.Drawing.Point(90, 66)
+        Me.Panel5.Location = New System.Drawing.Point(90, 37)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(967, 619)
+        Me.Panel5.Size = New System.Drawing.Size(967, 648)
         Me.Panel5.TabIndex = 5
         '
         'Panel6
         '
+        Me.Panel6.Controls.Add(Me.Btn_volver)
+        Me.Panel6.Controls.Add(Me.Button2)
         Me.Panel6.Controls.Add(Me.DataGridView_UnidadesLogisticas)
+        Me.Panel6.Controls.Add(Me.Btn_agregar_imagen)
+        Me.Panel6.Controls.Add(Me.Btn_Editar)
         Me.Panel6.Controls.Add(Me.PictureBox3)
+        Me.Panel6.Controls.Add(Me.Btn_añadir_libro)
+        Me.Panel6.Controls.Add(Me.Btn_eliminar_libro)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel6.Location = New System.Drawing.Point(90, 320)
         Me.Panel6.Name = "Panel6"
@@ -311,13 +287,9 @@ Partial Class Libros
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
         Me.Name = "Libros"
         Me.Text = "Libros"
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         CType(Me.DataGridView_libros, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -329,9 +301,6 @@ Partial Class Libros
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label1 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Btn_eliminar_libro As Button
     Friend WithEvents Btn_volver As Button

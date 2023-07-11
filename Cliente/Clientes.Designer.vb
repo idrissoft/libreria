@@ -28,8 +28,6 @@ Partial Class Clientes
         Me.Btn_anadir_clientes = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btn_volver = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Btn_editar_clientes = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -37,7 +35,6 @@ Partial Class Clientes
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
         CType(Me.DataGridView_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,26 +103,6 @@ Partial Class Clientes
         Me.btn_volver.Text = "Volver"
         Me.btn_volver.UseVisualStyleBackColor = False
         '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.Red
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1319, 26)
-        Me.Panel1.TabIndex = 3
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(448, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(91, 26)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Clientes"
-        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.Highlight
@@ -134,9 +111,9 @@ Partial Class Clientes
         Me.Panel3.Controls.Add(Me.Btn_eliminar_clientes)
         Me.Panel3.Controls.Add(Me.Btn_anadir_clientes)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel3.Location = New System.Drawing.Point(0, 26)
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(127, 513)
+        Me.Panel3.Size = New System.Drawing.Size(127, 539)
         Me.Panel3.TabIndex = 6
         '
         'Btn_editar_clientes
@@ -160,7 +137,7 @@ Partial Class Clientes
         Me.Panel4.Controls.Add(Me.TextBox1)
         Me.Panel4.Controls.Add(Me.PictureBox1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel4.Location = New System.Drawing.Point(127, 26)
+        Me.Panel4.Location = New System.Drawing.Point(127, 0)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(1192, 51)
         Me.Panel4.TabIndex = 7
@@ -199,12 +176,9 @@ Partial Class Clientes
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
         Me.Name = "Clientes"
         Me.Text = "Clientes"
         CType(Me.DataGridView_clientes, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
@@ -219,8 +193,6 @@ Partial Class Clientes
     Friend WithEvents Btn_anadir_clientes As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btn_volver As Button
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label1 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents PictureBox1 As PictureBox

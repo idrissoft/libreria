@@ -4,6 +4,8 @@ Public Class Venta
     Private miConexion As New connexion()
     Private ComboBox_Servidor As ComboBox
     Public Property ServerName As String
+
+
     Public Function mostrar_venta() As DataTable
         Dim dt As New DataTable()
 
@@ -89,7 +91,7 @@ Public Class Venta
         Dim libro As New Libros()
 
         ' Conexión a la base de datos
-        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+
         Dim conn As SqlConnection = miConexion.CrearConexion(serverName)
         conn.Open()
 
@@ -117,7 +119,7 @@ Public Class Venta
         Dim cliente As New Clientes()
 
         ' Conexión a la base de datos
-        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+
         Dim conn As SqlConnection = miConexion.CrearConexion(serverName)
         conn.Open()
 

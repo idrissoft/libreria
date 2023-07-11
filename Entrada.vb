@@ -106,27 +106,27 @@ Public Class Entrada
 
     Private Sub btnUsuarios_Click(sender As Object, e As EventArgs) Handles btnUsuarios.Click
         ActivateButton(sender, RGBColors.color6)
-        openchildform(ventaForm)
+        openchildform(nocreated)
     End Sub
 
     Private Sub btnUL_Click(sender As Object, e As EventArgs) Handles btnUL.Click
         ActivateButton(sender, RGBColors.color7)
-        'openchildform(unidades_logisticasform)
+        openchildform(nocreated)
     End Sub
 
     Private Sub btnReportes_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
         ActivateButton(sender, RGBColors.color8)
-        openchildform(ventaForm)
+        openchildform(nocreated)
     End Sub
 
     Private Sub btnConfiguraciones_Click(sender As Object, e As EventArgs) Handles btnConfiguracione.Click
         ActivateButton(sender, RGBColors.color9)
-        openchildform(ventaForm)
+        openchildform(nocreated)
     End Sub
 
     Private Sub btnAyuda_Click(sender As Object, e As EventArgs) Handles btnAyuda.Click
         ActivateButton(sender, RGBColors.color10)
-        openchildform(ventaForm)
+        openchildform(nocreated)
     End Sub
 
     Private Sub imgHome_Click(sender As Object, e As EventArgs) Handles imgHome.Click

@@ -42,7 +42,7 @@ Public Class Clientes
         Try
             Using selectedRow As DataGridViewRow = DataGridView_clientes.SelectedRows(0)
                 Dim id_cliente As Integer = Convert.ToInt32(selectedRow.Cells("id_cliente").Value)
-                Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+                'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
                 Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
                 Dim delete As New SqlCommand("DELETE FROM cliente WHERE id_cliente = @id_cliente", con)
@@ -66,7 +66,7 @@ Public Class Clientes
 
 
         Dim dt As New DataTable()
-        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
         Dim con As SqlConnection = miconexion.CrearConexion(serverName)
         Dim da As New SqlDataAdapter("buscar_clientes", con)
         da.SelectCommand.CommandType = CommandType.StoredProcedure
@@ -83,7 +83,7 @@ Public Class Clientes
             ' Conexión a SQL Server
             Using selectedRow As DataGridViewRow = DataGridView_clientes.SelectedRows(0)
                 Dim ID_cliente As Integer = Convert.ToInt32(selectedRow.Cells("ID_cliente").Value)
-                Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+                'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
                 Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
                 ' Consulta SQL para obtener los datos de la tabla filtrados por un parámetro

@@ -195,7 +195,7 @@ Public Class Libros
     Public Sub eliminar_libros()
         Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
             Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
-            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miConexion.CrearConexion(serverName)
             ' Verifica si existen referencias en UnidadesLogisticas
             Dim countUL As Integer

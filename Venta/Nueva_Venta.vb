@@ -4,6 +4,7 @@ Public Class Nueva_Venta
     Private miConexion As New connexion()
     Private ComboBox_Servidor As ComboBox
     Friend WithEvents BtnAddVenta As Button
+    Public Property ServerName As String
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ' Cerrar la venta actual y volver a la vista principal
         Me.Hide()
@@ -17,7 +18,7 @@ Public Class Nueva_Venta
 
     Private Sub CargarClientes()
         ' Obtener los nombres de todos los clientes de la base de datos
-        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
         Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 

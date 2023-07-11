@@ -8,11 +8,37 @@ Public Class Login
     Public librosform As New Libros
     Public ventaform As New Venta
     Public unidades_logisticasform As New unidades_logisticas
+    Public Nueva_Ventaform As New Nueva_Venta
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox_Servidor.Items.Add("DESKTOP-N0AAU33\SQLEXPRESS")
         ComboBox_Servidor.Items.Add("MBWS093\SQLEXPRESS")
     End Sub
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        If ComboBox_Servidor.SelectedIndex < 0 Then
+            MessageBox.Show("Por favor, selecciona un servidor.")
+            Return
+        End If
+        Dim servidor As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim usuario As String = txtUser.Text
+        Dim contraseña As String = txtPass.Text
+        If AutenticarUsuario(usuario, contraseña, servidor) Then
+            ' Autenticación exitosa
+            ' Aquí puedes mostrar el formulario de entrada
+            movimientosForm.ServerName = servidor
+            clientesform.ServerName = servidor
+            librosform.ServerName = servidor
+            ventaform.ServerName = servidor
+            unidades_logisticasform.ServerName = servidor
 
+            Dim entradaForm As New Entrada(movimientosForm, clientesform, librosform, ventaform, unidades_logisticasform) ' Pasa la instancia de Movimientos al constructor de Entrada
+
+            entradaForm.Show() ' Muestra el formulario Entrada
+            Me.Hide() ' Esconde el formulario de Login
+        Else
+            ' Autenticación fallida
+            MessageBox.Show("Usuario o contraseña incorrecta.")
+        End If
+    End Sub
     Private Sub exite_Click(sender As Object, e As EventArgs) Handles exite.Click
         Application.Exit()
     End Sub
@@ -72,29 +98,5 @@ Public Class Login
         Return autenticado
     End Function
 
-    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        If ComboBox_Servidor.SelectedIndex < 0 Then
-            MessageBox.Show("Por favor, selecciona un servidor.")
-            Return
-        End If
-        Dim servidor As String = ComboBox_Servidor.SelectedItem.ToString()
-        Dim usuario As String = txtUser.Text
-        Dim contraseña As String = txtPass.Text
-        If AutenticarUsuario(usuario, contraseña, servidor) Then
-            ' Autenticación exitosa
-            ' Aquí puedes mostrar el formulario de entrada
-            movimientosForm.ServerName = servidor
-            clientesform.ServerName = servidor
-            librosform.ServerName = servidor
-            ventaform.ServerName = servidor
-            unidades_logisticasform.ServerName = servidor
-            Dim entradaForm As New Entrada(movimientosForm, clientesform, librosform, ventaform, unidades_logisticasform) ' Pasa la instancia de Movimientos al constructor de Entrada
-            entradaForm.Show() ' Muestra el formulario Entrada
-            Me.Hide() ' Esconde el formulario de Login
-        Else
-            ' Autenticación fallida
-            MessageBox.Show("Usuario o contraseña incorrecta.")
-        End If
-    End Sub
 
 End Class
