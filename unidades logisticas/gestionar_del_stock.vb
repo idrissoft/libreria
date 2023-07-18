@@ -12,10 +12,10 @@ Public Class unidades_logisticas
     End Sub
 
     Private Sub unidades_logisticas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim servername As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         DataGridView2.DataSource = libros.MostrarLibros()
 
     End Sub
-
     Private Sub DataGridView2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellClick
         ' Obtener el número de fila seleccionada
         Dim rowindex As Integer = DataGridView2.CurrentCell.RowIndex
@@ -23,9 +23,6 @@ Public Class unidades_logisticas
 
         ' Obtener las unidades logísticas del libro seleccionado
         Dim dtUL As DataTable = libros.MostrarUnidadesLogisticas(idLibro)
-
-
-
         ' Mostrar las unidades logísticas en un DataGridView
         DataGridView_UL.DataSource = dtUL
     End Sub
@@ -67,7 +64,7 @@ Public Class unidades_logisticas
 
         Try
 
-            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miConexion.CrearConexion(serverName)
             Dim stock As Integer = Convert.ToInt32(TextBox8.Text)
             Dim unidades_por_UL As Integer = Convert.ToInt32(TextBox9.Text)
@@ -79,7 +76,6 @@ Public Class unidades_logisticas
             commandUpdate.Parameters.AddWithValue("@unidades_por_UL", unidades_por_UL)
             commandUpdate.Parameters.AddWithValue("@stock", stock)
             commandUpdate.Parameters.AddWithValue("@idLibro", idLibro)
-
             con.Open()
             commandUpdate.ExecuteNonQuery()
             con.Close()
@@ -117,7 +113,7 @@ Public Class unidades_logisticas
         Dim selectedRow As DataGridViewRow = DataGridView_UL.Rows(rowindex)
 
         Try
-            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miConexion.CrearConexion(serverName)
 
             Dim stock As Integer = Convert.ToInt32(TextBox8.Text)

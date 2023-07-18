@@ -3,8 +3,8 @@ Imports System.Drawing.Imaging
 Imports System.IO
 
 Public Class Libros
+    'Inherits Form
     Private miConexion As New connexion()
-
     Public Property ServerName As String
 
     Public Property idLibro As String
@@ -30,24 +30,25 @@ Public Class Libros
         CenterToParent()
         DataGridView_libros.DataSource = MostrarLibros()
     End Sub
-    Private Sub Btn_volver_Click(sender As Object, e As EventArgs) Handles Btn_volver.Click
+    Private Sub Btn_volver_Click(sender As Object, e As EventArgs)
         ''Dim entrada As New Entrada
         'Entrada.Show()
         Hide()
     End Sub
 
     Public Function MostrarLibros() As DataTable
-        Dim dt As New DataTable()
 
+        Dim dt As New DataTable()
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         Dim con As SqlConnection = miConexion.CrearConexion(ServerName)
         Dim cmd As New SqlCommand("mostrar_libros", con)
-            cmd.CommandType = CommandType.StoredProcedure
+        cmd.CommandType = CommandType.StoredProcedure
 
-            con.Open()
+        con.Open()
 
-            Using da As New SqlDataAdapter(cmd)
-                da.Fill(dt)
-            End Using
+        Using da As New SqlDataAdapter(cmd)
+            da.Fill(dt)
+        End Using
         con.Close()
 
         Return dt
@@ -156,8 +157,8 @@ Public Class Libros
             ' Conexión a SQL Server
             Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
                 Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
-                Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
-                Dim con As SqlConnection = miConexion.CrearConexion(serverName)
+                'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+                Dim con As SqlConnection = miConexion.CrearConexion(ServerName)
                 ' Consulta SQL para obtener los datos de la tabla filtrados por un parámetro
                 Dim query As String = "SELECT nombre, autor,precio,ficha,description, stock_Total  from libros WHERE idlibro = @idlibro"
                 ' Creación del comando y asignación de parámetros
@@ -186,7 +187,7 @@ Public Class Libros
     End Sub
     Private Sub Btn_Editar_Click(sender As Object, e As EventArgs) Handles Btn_Editar.Click
         editar_libros()
-        Me.Hide()
+        'Me.Hide()
     End Sub
     Private Sub Btn_añadir_libro_Click(sender As Object, e As EventArgs) Handles Btn_añadir_libro.Click
         añadire_libro.Show()
@@ -196,7 +197,7 @@ Public Class Libros
         Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
             Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
             'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
-            Dim con As SqlConnection = miConexion.CrearConexion(serverName)
+            Dim con As SqlConnection = miConexion.CrearConexion(ServerName)
             ' Verifica si existen referencias en UnidadesLogisticas
             Dim countUL As Integer
             Dim countCmdUL As New SqlCommand("SELECT COUNT(*) FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
@@ -235,8 +236,8 @@ Public Class Libros
     End Sub
     Public Function MostrarUnidadesLogisticas(idLibro As Integer) As DataTable
         Dim dt As New DataTable()
-        'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
-        Dim con As SqlConnection = miConexion.CrearConexion(serverName)
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
+        Dim con As SqlConnection = miConexion.CrearConexion(ServerName)
         Dim cmd As New SqlCommand("SELECT * FROM UnidadesLogisticas WHERE idLibro = @idLibro ORDER BY tipoUL", con)
         cmd.CommandType = CommandType.Text
         cmd.Parameters.AddWithValue("@idLibro", idLibro)
@@ -247,7 +248,7 @@ Public Class Libros
         Return dt
     End Function
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs)
         Dim gestionar_del_stock As New unidades_logisticas()
         gestionar_del_stock.Show()
         Me.Hide()

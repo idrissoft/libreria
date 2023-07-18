@@ -28,13 +28,13 @@ Public Class Venta
     Private Sub LibrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibrosToolStripMenuItem.Click
         Dim libros As New Libros()
         libros.Show()
-        Me.Hide()
+        'Me.Hide() 
     End Sub
 
     Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClientesToolStripMenuItem.Click
         Dim cliente As New Clientes()
         cliente.Show()
-        Me.Hide()
+        'Me.Hide()
     End Sub
 
     Private Sub VolverToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VolverToolStripMenuItem.Click
@@ -148,7 +148,7 @@ Public Class Venta
     Private Sub CrearNuevaVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CrearNuevaVentaToolStripMenuItem.Click
         Dim nueva_venta As New Nueva_Venta()
         nueva_venta.Show()
-        Me.Hide()
+        'Me.Hide()
     End Sub
 
     Private Sub HistoriaLTransaccionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriaLTransaccionesToolStripMenuItem.Click

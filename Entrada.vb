@@ -111,7 +111,7 @@ Public Class Entrada
 
     Private Sub btnUL_Click(sender As Object, e As EventArgs) Handles btnUL.Click
         ActivateButton(sender, RGBColors.color7)
-        openchildform(nocreated)
+        openchildform(unidades_logisticas)
     End Sub
 
     Private Sub btnReportes_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
@@ -179,4 +179,6 @@ Public Class Entrada
     Private Sub btnMinimize_Click(sender As Object, e As EventArgs) Handles btnMinimize.Click
         WindowState = FormWindowState.Minimized
     End Sub
+
+
 End Class

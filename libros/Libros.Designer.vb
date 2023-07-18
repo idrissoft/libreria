@@ -25,11 +25,9 @@ Partial Class Libros
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Libros))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Btn_eliminar_libro = New System.Windows.Forms.Button()
-        Me.Btn_volver = New System.Windows.Forms.Button()
         Me.Btn_añadir_libro = New System.Windows.Forms.Button()
         Me.DataGridView_libros = New System.Windows.Forms.DataGridView()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Btn_Editar = New System.Windows.Forms.Button()
         Me.Btn_agregar_imagen = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -75,21 +73,6 @@ Partial Class Libros
         Me.Btn_eliminar_libro.Text = "Eliminar"
         Me.Btn_eliminar_libro.UseVisualStyleBackColor = False
         '
-        'Btn_volver
-        '
-        Me.Btn_volver.BackColor = System.Drawing.Color.Transparent
-        Me.Btn_volver.BackgroundImage = CType(resources.GetObject("Btn_volver.BackgroundImage"), System.Drawing.Image)
-        Me.Btn_volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Btn_volver.FlatAppearance.BorderSize = 0
-        Me.Btn_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_volver.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_volver.Location = New System.Drawing.Point(747, 307)
-        Me.Btn_volver.Name = "Btn_volver"
-        Me.Btn_volver.Size = New System.Drawing.Size(84, 33)
-        Me.Btn_volver.TabIndex = 2
-        Me.Btn_volver.Text = "Volver"
-        Me.Btn_volver.UseVisualStyleBackColor = False
-        '
         'Btn_añadir_libro
         '
         Me.Btn_añadir_libro.BackColor = System.Drawing.Color.Transparent
@@ -123,21 +106,6 @@ Partial Class Libros
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(90, 685)
         Me.Panel3.TabIndex = 3
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(548, 307)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(163, 35)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "unidades logisticas"
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'Btn_Editar
         '
@@ -244,8 +212,6 @@ Partial Class Libros
         '
         'Panel6
         '
-        Me.Panel6.Controls.Add(Me.Btn_volver)
-        Me.Panel6.Controls.Add(Me.Button2)
         Me.Panel6.Controls.Add(Me.DataGridView_UnidadesLogisticas)
         Me.Panel6.Controls.Add(Me.Btn_agregar_imagen)
         Me.Panel6.Controls.Add(Me.Btn_Editar)
@@ -303,7 +269,6 @@ Partial Class Libros
     End Sub
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Btn_eliminar_libro As Button
-    Friend WithEvents Btn_volver As Button
     Friend WithEvents Btn_añadir_libro As Button
     Friend WithEvents DataGridView_libros As DataGridView
     Friend WithEvents Panel3 As Panel
@@ -318,6 +283,5 @@ Partial Class Libros
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Btn_Editar As Button
     Friend WithEvents DataGridView_UnidadesLogisticas As DataGridView
-    Friend WithEvents Button2 As Button
     Friend WithEvents TextBox1 As TextBox
 End Class

@@ -65,8 +65,6 @@ Public Class Editar_libros
     End Sub
 
     Private Sub btn_volver_Click(sender As Object, e As EventArgs) Handles btn_volver.Click
-        Dim libros As New Libros
-        libros.Show()
         Me.Hide()
     End Sub
 End Class

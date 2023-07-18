@@ -8,7 +8,7 @@ Public Class Clientes
     Public Property Telefono As String
     Public Property Direccion As String
     Public Property Informacion As String
-    Private ComboBox_Servidor As ComboBox
+    'Private ComboBox_Servidor As ComboBox
     Public Property ServerName As String
     Public Function ObtenerDataGridViewClientes() As DataGridView
         Return DataGridView_clientes
@@ -17,7 +17,7 @@ Public Class Clientes
     Private Sub Btn_anadir_clientes_Click(sender As Object, e As EventArgs) Handles Btn_anadir_clientes.Click
         Dim añadir_cliente As New añadir_Cliente
         añadir_cliente.Show()
-        Hide()
+
     End Sub
 
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load

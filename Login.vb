@@ -29,7 +29,7 @@ Public Class Login
             librosform.ServerName = servidor
             ventaform.ServerName = servidor
             unidades_logisticasform.ServerName = servidor
-
+            Libros.ServerName = servidor
             Dim entradaForm As New Entrada(movimientosForm, clientesform, librosform, ventaform, unidades_logisticasform) ' Pasa la instancia de Movimientos al constructor de Entrada
 
             entradaForm.Show() ' Muestra el formulario Entrada

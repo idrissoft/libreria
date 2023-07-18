@@ -18,7 +18,7 @@ Public Class Nueva_Venta
 
     Private Sub CargarClientes()
         ' Obtener los nombres de todos los clientes de la base de datos
-        'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
@@ -38,7 +38,7 @@ Public Class Nueva_Venta
 
     Private Sub CargarLibros()
         ' Obtener los nombres de todos los libros de la base de datos
-        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
@@ -304,5 +304,9 @@ Public Class Nueva_Venta
 
             MessageBox.Show("Venta actualizada correctamente.")
         End Using
+    End Sub
+
+    Private Sub txtprecio_des_TextChanged(sender As Object, e As EventArgs) Handles txtprecio_des.TextChanged
+
     End Sub
 End Class
