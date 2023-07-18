@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Login
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Login
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.TitleBar = New System.Windows.Forms.Panel()
@@ -41,11 +41,17 @@ Partial Class Login
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.btnMinimize = New System.Windows.Forms.PictureBox()
+        Me.btnMaximize = New System.Windows.Forms.PictureBox()
+        Me.btnExit = New System.Windows.Forms.PictureBox()
         Me.TitleBar.SuspendLayout()
         CType(Me.Minimize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.exite, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnMaximize, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnExit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TitleBar
@@ -57,7 +63,7 @@ Partial Class Login
         Me.TitleBar.Dock = System.Windows.Forms.DockStyle.Top
         Me.TitleBar.Location = New System.Drawing.Point(0, 0)
         Me.TitleBar.Name = "TitleBar"
-        Me.TitleBar.Size = New System.Drawing.Size(437, 1)
+        Me.TitleBar.Size = New System.Drawing.Size(448, 1)
         Me.TitleBar.TabIndex = 0
         '
         'Panel3
@@ -93,9 +99,9 @@ Partial Class Login
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 727)
+        Me.Panel1.Location = New System.Drawing.Point(0, 707)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(437, 1)
+        Me.Panel1.Size = New System.Drawing.Size(448, 1)
         Me.Panel1.TabIndex = 1
         '
         'Nombre
@@ -208,11 +214,11 @@ Partial Class Login
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(149, 11)
+        Me.Label5.Location = New System.Drawing.Point(169, 11)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(92, 25)
+        Me.Label5.Size = New System.Drawing.Size(85, 25)
         Me.Label5.TabIndex = 12
-        Me.Label5.Text = "Lberiria"
+        Me.Label5.Text = "Libriria"
         '
         'Panel4
         '
@@ -220,7 +226,7 @@ Partial Class Login
         Me.Panel4.Controls.Add(Me.Label5)
         Me.Panel4.Location = New System.Drawing.Point(0, 42)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(437, 57)
+        Me.Panel4.Size = New System.Drawing.Size(449, 57)
         Me.Panel4.TabIndex = 13
         '
         'PictureBox2
@@ -233,12 +239,48 @@ Partial Class Login
         Me.PictureBox2.TabIndex = 14
         Me.PictureBox2.TabStop = False
         '
+        'btnMinimize
+        '
+        Me.btnMinimize.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMinimize.Image = CType(resources.GetObject("btnMinimize.Image"), System.Drawing.Image)
+        Me.btnMinimize.Location = New System.Drawing.Point(333, 8)
+        Me.btnMinimize.Name = "btnMinimize"
+        Me.btnMinimize.Size = New System.Drawing.Size(25, 28)
+        Me.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnMinimize.TabIndex = 17
+        Me.btnMinimize.TabStop = False
+        '
+        'btnMaximize
+        '
+        Me.btnMaximize.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMaximize.Image = CType(resources.GetObject("btnMaximize.Image"), System.Drawing.Image)
+        Me.btnMaximize.Location = New System.Drawing.Point(377, 8)
+        Me.btnMaximize.Name = "btnMaximize"
+        Me.btnMaximize.Size = New System.Drawing.Size(25, 28)
+        Me.btnMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnMaximize.TabIndex = 15
+        Me.btnMaximize.TabStop = False
+        '
+        'btnExit
+        '
+        Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Image)
+        Me.btnExit.Location = New System.Drawing.Point(420, 8)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(16, 28)
+        Me.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnExit.TabIndex = 16
+        Me.btnExit.TabStop = False
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(764, 1274)
+        Me.ClientSize = New System.Drawing.Size(448, 708)
+        Me.Controls.Add(Me.btnMinimize)
+        Me.Controls.Add(Me.btnMaximize)
+        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Label3)
@@ -265,6 +307,9 @@ Partial Class Login
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnMinimize, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnMaximize, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnExit, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -288,4 +333,7 @@ Partial Class Login
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel4 As Panel
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents btnMinimize As PictureBox
+    Friend WithEvents btnMaximize As PictureBox
+    Friend WithEvents btnExit As PictureBox
 End Class
