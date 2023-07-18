@@ -25,8 +25,6 @@ Partial Class Login
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.TitleBar = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Minimize = New System.Windows.Forms.PictureBox()
         Me.exite = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -44,7 +42,6 @@ Partial Class Login
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.TitleBar.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Minimize, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.exite, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
@@ -55,14 +52,12 @@ Partial Class Login
         '
         Me.TitleBar.BackColor = System.Drawing.Color.Silver
         Me.TitleBar.Controls.Add(Me.Panel3)
-        Me.TitleBar.Controls.Add(Me.Label4)
-        Me.TitleBar.Controls.Add(Me.PictureBox1)
         Me.TitleBar.Controls.Add(Me.Minimize)
         Me.TitleBar.Controls.Add(Me.exite)
         Me.TitleBar.Dock = System.Windows.Forms.DockStyle.Top
         Me.TitleBar.Location = New System.Drawing.Point(0, 0)
         Me.TitleBar.Name = "TitleBar"
-        Me.TitleBar.Size = New System.Drawing.Size(437, 50)
+        Me.TitleBar.Size = New System.Drawing.Size(437, 1)
         Me.TitleBar.TabIndex = 0
         '
         'Panel3
@@ -71,27 +66,6 @@ Partial Class Login
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(434, 57)
         Me.Panel3.TabIndex = 12
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label4.Location = New System.Drawing.Point(36, 16)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(144, 20)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "Identificació Usuari"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 4)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(27, 43)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 12
-        Me.PictureBox1.TabStop = False
         '
         'Minimize
         '
@@ -119,9 +93,9 @@ Partial Class Login
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 713)
+        Me.Panel1.Location = New System.Drawing.Point(0, 727)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(437, 15)
+        Me.Panel1.Size = New System.Drawing.Size(437, 1)
         Me.Panel1.TabIndex = 1
         '
         'Nombre
@@ -234,15 +208,15 @@ Partial Class Login
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(22, 18)
+        Me.Label5.Location = New System.Drawing.Point(149, 11)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(311, 25)
+        Me.Label5.Size = New System.Drawing.Size(92, 25)
         Me.Label5.TabIndex = 12
-        Me.Label5.Text = "Mistral Bonsai - Identificació"
+        Me.Label5.Text = "Lberiria"
         '
         'Panel4
         '
-        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(108, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel4.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.Panel4.Controls.Add(Me.Label5)
         Me.Panel4.Location = New System.Drawing.Point(0, 42)
         Me.Panel4.Name = "Panel4"
@@ -264,7 +238,7 @@ Partial Class Login
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(437, 728)
+        Me.ClientSize = New System.Drawing.Size(764, 1274)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Label3)
@@ -286,8 +260,6 @@ Partial Class Login
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
         Me.TitleBar.ResumeLayout(False)
-        Me.TitleBar.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Minimize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.exite, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
@@ -312,8 +284,6 @@ Partial Class Login
     Friend WithEvents btnLogin As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label5 As Label
     Friend WithEvents Panel4 As Panel

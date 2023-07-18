@@ -32,6 +32,7 @@ Partial Class Entrada
         Me.btnMovimientos = New FontAwesome.Sharp.IconButton()
         Me.btnClientes = New FontAwesome.Sharp.IconButton()
         Me.btnVentas = New FontAwesome.Sharp.IconButton()
+        Me.Panel11 = New System.Windows.Forms.Panel()
         Me.btnlibros = New FontAwesome.Sharp.IconButton()
         Me.PanelLogo = New System.Windows.Forms.Panel()
         Me.imgHome = New System.Windows.Forms.PictureBox()
@@ -106,6 +107,7 @@ Partial Class Entrada
         Me.PanelMenu.Controls.Add(Me.btnMovimientos)
         Me.PanelMenu.Controls.Add(Me.btnClientes)
         Me.PanelMenu.Controls.Add(Me.btnVentas)
+        Me.PanelMenu.Controls.Add(Me.Panel11)
         Me.PanelMenu.Controls.Add(Me.btnlibros)
         Me.PanelMenu.Controls.Add(Me.PanelLogo)
         Me.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left
@@ -126,12 +128,12 @@ Partial Class Entrada
         Me.btnAyuda.IconColor = System.Drawing.Color.White
         Me.btnAyuda.IconSize = 32
         Me.btnAyuda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAyuda.Location = New System.Drawing.Point(0, 614)
+        Me.btnAyuda.Location = New System.Drawing.Point(0, 637)
         Me.btnAyuda.Name = "btnAyuda"
         Me.btnAyuda.Padding = New System.Windows.Forms.Padding(10, 0, 20, 0)
         Me.btnAyuda.Rotation = 0R
         Me.btnAyuda.Size = New System.Drawing.Size(220, 60)
-        Me.btnAyuda.TabIndex = 9
+        Me.btnAyuda.TabIndex = 17
         Me.btnAyuda.Text = "Ayuda"
         Me.btnAyuda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAyuda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -149,12 +151,12 @@ Partial Class Entrada
         Me.btnConfiguracione.IconColor = System.Drawing.Color.White
         Me.btnConfiguracione.IconSize = 32
         Me.btnConfiguracione.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnConfiguracione.Location = New System.Drawing.Point(0, 554)
+        Me.btnConfiguracione.Location = New System.Drawing.Point(0, 577)
         Me.btnConfiguracione.Name = "btnConfiguracione"
         Me.btnConfiguracione.Padding = New System.Windows.Forms.Padding(10, 0, 20, 0)
         Me.btnConfiguracione.Rotation = 0R
         Me.btnConfiguracione.Size = New System.Drawing.Size(220, 60)
-        Me.btnConfiguracione.TabIndex = 8
+        Me.btnConfiguracione.TabIndex = 16
         Me.btnConfiguracione.Text = "Configuraciones"
         Me.btnConfiguracione.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnConfiguracione.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -172,12 +174,12 @@ Partial Class Entrada
         Me.btnReportes.IconColor = System.Drawing.Color.White
         Me.btnReportes.IconSize = 32
         Me.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnReportes.Location = New System.Drawing.Point(0, 494)
+        Me.btnReportes.Location = New System.Drawing.Point(0, 517)
         Me.btnReportes.Name = "btnReportes"
         Me.btnReportes.Padding = New System.Windows.Forms.Padding(10, 0, 20, 0)
         Me.btnReportes.Rotation = 0R
         Me.btnReportes.Size = New System.Drawing.Size(220, 60)
-        Me.btnReportes.TabIndex = 7
+        Me.btnReportes.TabIndex = 15
         Me.btnReportes.Text = "Reportes"
         Me.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -195,12 +197,12 @@ Partial Class Entrada
         Me.btnUL.IconColor = System.Drawing.Color.White
         Me.btnUL.IconSize = 32
         Me.btnUL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnUL.Location = New System.Drawing.Point(0, 434)
+        Me.btnUL.Location = New System.Drawing.Point(0, 457)
         Me.btnUL.Name = "btnUL"
         Me.btnUL.Padding = New System.Windows.Forms.Padding(10, 0, 20, 0)
         Me.btnUL.Rotation = 0R
         Me.btnUL.Size = New System.Drawing.Size(220, 60)
-        Me.btnUL.TabIndex = 6
+        Me.btnUL.TabIndex = 14
         Me.btnUL.Text = "Unidades Logísticas"
         Me.btnUL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnUL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -218,12 +220,12 @@ Partial Class Entrada
         Me.btnUsuarios.IconColor = System.Drawing.Color.White
         Me.btnUsuarios.IconSize = 32
         Me.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnUsuarios.Location = New System.Drawing.Point(0, 374)
+        Me.btnUsuarios.Location = New System.Drawing.Point(0, 397)
         Me.btnUsuarios.Name = "btnUsuarios"
         Me.btnUsuarios.Padding = New System.Windows.Forms.Padding(10, 0, 20, 0)
         Me.btnUsuarios.Rotation = 0R
         Me.btnUsuarios.Size = New System.Drawing.Size(220, 60)
-        Me.btnUsuarios.TabIndex = 5
+        Me.btnUsuarios.TabIndex = 13
         Me.btnUsuarios.Text = "Usuarios"
         Me.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -241,12 +243,12 @@ Partial Class Entrada
         Me.btnMovimientos.IconColor = System.Drawing.Color.White
         Me.btnMovimientos.IconSize = 32
         Me.btnMovimientos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnMovimientos.Location = New System.Drawing.Point(0, 314)
+        Me.btnMovimientos.Location = New System.Drawing.Point(0, 337)
         Me.btnMovimientos.Name = "btnMovimientos"
         Me.btnMovimientos.Padding = New System.Windows.Forms.Padding(10, 0, 20, 0)
         Me.btnMovimientos.Rotation = 0R
         Me.btnMovimientos.Size = New System.Drawing.Size(220, 60)
-        Me.btnMovimientos.TabIndex = 4
+        Me.btnMovimientos.TabIndex = 12
         Me.btnMovimientos.Text = "Movimientos"
         Me.btnMovimientos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnMovimientos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -264,12 +266,12 @@ Partial Class Entrada
         Me.btnClientes.IconColor = System.Drawing.Color.White
         Me.btnClientes.IconSize = 32
         Me.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClientes.Location = New System.Drawing.Point(0, 254)
+        Me.btnClientes.Location = New System.Drawing.Point(0, 277)
         Me.btnClientes.Name = "btnClientes"
         Me.btnClientes.Padding = New System.Windows.Forms.Padding(10, 0, 20, 0)
         Me.btnClientes.Rotation = 0R
         Me.btnClientes.Size = New System.Drawing.Size(220, 60)
-        Me.btnClientes.TabIndex = 3
+        Me.btnClientes.TabIndex = 11
         Me.btnClientes.Text = "Clientes"
         Me.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -287,16 +289,24 @@ Partial Class Entrada
         Me.btnVentas.IconColor = System.Drawing.Color.White
         Me.btnVentas.IconSize = 32
         Me.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnVentas.Location = New System.Drawing.Point(0, 194)
+        Me.btnVentas.Location = New System.Drawing.Point(0, 217)
         Me.btnVentas.Name = "btnVentas"
         Me.btnVentas.Padding = New System.Windows.Forms.Padding(10, 0, 20, 0)
         Me.btnVentas.Rotation = 0R
         Me.btnVentas.Size = New System.Drawing.Size(220, 60)
-        Me.btnVentas.TabIndex = 2
+        Me.btnVentas.TabIndex = 10
         Me.btnVentas.Text = "Ventas"
         Me.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnVentas.UseVisualStyleBackColor = True
+        '
+        'Panel11
+        '
+        Me.Panel11.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel11.Location = New System.Drawing.Point(0, 207)
+        Me.Panel11.Name = "Panel11"
+        Me.Panel11.Size = New System.Drawing.Size(220, 10)
+        Me.Panel11.TabIndex = 2
         '
         'btnlibros
         '
@@ -314,7 +324,7 @@ Partial Class Entrada
         Me.btnlibros.Name = "btnlibros"
         Me.btnlibros.Padding = New System.Windows.Forms.Padding(10, 0, 20, 0)
         Me.btnlibros.Rotation = 0R
-        Me.btnlibros.Size = New System.Drawing.Size(220, 60)
+        Me.btnlibros.Size = New System.Drawing.Size(220, 73)
         Me.btnlibros.TabIndex = 1
         Me.btnlibros.Text = "Libros"
         Me.btnlibros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -760,14 +770,6 @@ Partial Class Entrada
     Friend WithEvents btnlibros As FontAwesome.Sharp.IconButton
     Friend WithEvents PanelLogo As Panel
     Friend WithEvents imgHome As PictureBox
-    Friend WithEvents btnAyuda As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnConfiguracione As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnReportes As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnUL As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnUsuarios As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnMovimientos As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnClientes As FontAwesome.Sharp.IconButton
-    Friend WithEvents btnVentas As FontAwesome.Sharp.IconButton
     Friend WithEvents PanelTitleBar As Panel
     Friend WithEvents lblFormTitle As Label
     Friend WithEvents IconCurrentForm As FontAwesome.Sharp.IconPictureBox
@@ -801,4 +803,13 @@ Partial Class Entrada
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Label10 As Label
+    Friend WithEvents btnAyuda As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnConfiguracione As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnReportes As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnUL As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnUsuarios As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnMovimientos As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnClientes As FontAwesome.Sharp.IconButton
+    Friend WithEvents btnVentas As FontAwesome.Sharp.IconButton
+    Friend WithEvents Panel11 As Panel
 End Class
