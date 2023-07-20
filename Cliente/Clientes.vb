@@ -14,11 +14,7 @@ Public Class Clientes
         Return DataGridView_clientes
     End Function
     Dim miconexion As New connexion
-    Private Sub Btn_anadir_clientes_Click(sender As Object, e As EventArgs) Handles Btn_anadir_clientes.Click
-        Dim añadir_cliente As New añadir_Cliente
-        añadir_cliente.Show()
 
-    End Sub
 
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mostrarClientes()
@@ -59,9 +55,7 @@ Public Class Clientes
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-    Private Sub Btn_eliminar_clientes_Click(sender As Object, e As EventArgs) Handles Btn_eliminar_clientes.Click
-        eliminar_clientes()
-    End Sub
+
     Sub buscar()
 
 
@@ -84,21 +78,16 @@ Public Class Clientes
             Using selectedRow As DataGridViewRow = DataGridView_clientes.SelectedRows(0)
                 Dim ID_cliente As Integer = Convert.ToInt32(selectedRow.Cells("ID_cliente").Value)
                 'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
-                Dim con As SqlConnection = miconexion.CrearConexion(serverName)
+                Dim con As SqlConnection = miconexion.CrearConexion(ServerName)
 
-                ' Consulta SQL para obtener los datos de la tabla filtrados por un parámetro
                 Dim query As String = "SELECT nombre, telefono, direccion, informacion from cliente WHERE ID_cliente = @ID_cliente"
 
-                ' Creación del comando y asignación de parámetros
                 Dim command As New SqlCommand(query, con)
                 command.Parameters.AddWithValue("@ID_cliente", ID_cliente)
-
-                ' Lectura de los datos de la fila seleccionada
                 con.Open()
                 Dim reader As SqlDataReader = command.ExecuteReader()
 
                 If reader.Read() Then
-                    ' Asignación de los valores a los TextBox correspondientes
                     a.TextBox1.Text = reader("nombre").ToString()
                     a.TextBox2.Text = reader("telefono").ToString()
                     a.TextBox3.Text = reader("direccion").ToString()
@@ -114,11 +103,11 @@ Public Class Clientes
         End Try
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Btn_editar_clientes.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         Editar()
     End Sub
 
-    Private Sub btn_volver_Click(sender As Object, e As EventArgs) Handles btn_volver.Click
+    Private Sub btn_volver_Click(sender As Object, e As EventArgs)
         'Dim entrada As New Entrada()
         'entrada.Show()
         Hide()
@@ -126,6 +115,5 @@ Public Class Clientes
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         buscar()
-
     End Sub
 End Class

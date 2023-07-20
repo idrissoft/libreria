@@ -55,7 +55,7 @@ Public Class añadire_libro
 
     Sub agregar_libro()
         Try
-            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
             ' Insertar nuevo libro
@@ -100,7 +100,7 @@ Public Class añadire_libro
 
             MessageBox.Show("El libro se ha agregado correctamente.")
             Dim fr_libro As New Libros()
-            fr_libro.Show()
+            'fr_libro.Show()
             Me.Close()
             fr_libro.MostrarLibros()
         Catch ex As Exception
@@ -110,7 +110,7 @@ Public Class añadire_libro
 
     Sub Insertar_MV_LIBROS(cantidad As Integer)
         Try
-            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
             ' Primero, obtener el valor de stock para el libro actual.
@@ -144,7 +144,7 @@ Public Class añadire_libro
 
 
     Private Sub Btn_guardar_libro1_Click(sender As Object, e As EventArgs) Handles Btn_guardar_libro1.Click
-        ' Intentar convertir el contenido de TextBox7.Text a un número
+
         Dim cantidad As Integer
         If Not Integer.TryParse(TextBox7.Text, cantidad) Then
             MessageBox.Show("Por favor, ingrese un número válido en TextBox7.")

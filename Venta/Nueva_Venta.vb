@@ -61,7 +61,7 @@ Public Class Nueva_Venta
 
     Private Sub carga_precio_libro()
         ' Obtener el precio del libro seleccionado y mostrarlo en el formulario
-        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
@@ -88,7 +88,7 @@ Public Class Nueva_Venta
         carga_precio_libro()
 
         ' Obtener el idLibro del libro seleccionado
-        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
@@ -115,7 +115,7 @@ Public Class Nueva_Venta
 
     Private Sub CargarUnidadesLogisticas(idLibro As Integer)
         ' Obtener las unidades logísticas del libro seleccionado y llenar el ComboBox
-        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
@@ -137,7 +137,7 @@ Public Class Nueva_Venta
 
     Public Sub agregar_venta()
         ' Agregar una nueva venta a la base de datos
-        Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         Using con As SqlConnection = miConexion.CrearConexion(serverName)
             con.Open()
 
@@ -206,7 +206,6 @@ Public Class Nueva_Venta
                         subtotal = cantidad * precio - Precio_Des_total
                     End If
 
-
                     Dim ventaQuery As String = "INSERT INTO venta (ID_Cliente, idlibro, Cantidad,Precio_venta,Precio_Des_total, ficha_de_venta, Subtotal, Descuento) VALUES (@ID_Cliente, @idlibro, @Cantidad,@Precio_venta,@Precio_Des_total, @ficha_de_venta, @Subtotal, @Descuento)"
                     Dim ventaCmd As New SqlCommand(ventaQuery, con)
                     ventaCmd.Parameters.AddWithValue("@ID_Cliente", ID_cliente)
@@ -249,11 +248,6 @@ Public Class Nueva_Venta
     End Sub
 
 
-    Private Sub BtnAddVenta1_Click(sender As Object, e As EventArgs) Handles BtnAddVenta1.Click
-        ' Añadir una nueva venta cuando se hace clic en el botón "Añadir venta"
-        agregar_venta()
-        Venta.Show()
-    End Sub
 
     Private Sub editar_venta_Click(sender As Object, e As EventArgs) Handles editar_venta.Click
         Dim ID_cliente As Integer
@@ -306,7 +300,11 @@ Public Class Nueva_Venta
         End Using
     End Sub
 
-    Private Sub txtprecio_des_TextChanged(sender As Object, e As EventArgs) Handles txtprecio_des.TextChanged
+    Private Sub Btn_guardar_venta_Click(sender As Object, e As EventArgs) Handles Btn_guardar_venta.Click
+        agregar_venta()
+    End Sub
 
+    Private Sub btn_volver_Click(sender As Object, e As EventArgs) Handles btn_volver.Click
+        Me.Hide()
     End Sub
 End Class

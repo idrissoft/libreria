@@ -156,6 +156,9 @@ Public Class Venta
 
     End Sub
     Private Sub Btn_editar_venta_Click(sender As Object, e As EventArgs) Handles Btn_editar_venta.Click
+        editar_venta()
+    End Sub
+    Sub editar_venta()
         ' Comprobar si hay una fila seleccionada
         If DataGridView_Venta.SelectedRows.Count > 0 Then
             Dim fila As DataGridViewRow = DataGridView_Venta.SelectedRows(0)
@@ -167,7 +170,7 @@ Public Class Venta
             Dim idCliente As Integer = Convert.ToInt32(fila.Cells("ID de cliente").Value)
 
             ' Consultar la base de datos para obtener el nombre del cliente
-            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Using con As SqlConnection = miConexion.CrearConexion(serverName)
                 con.Open()
 
@@ -207,7 +210,6 @@ Public Class Venta
             MessageBox.Show("Por favor, selecciona una fila para editar.")
         End If
     End Sub
-
     Private Sub Eliminar_venta_Click(sender As Object, e As EventArgs) Handles Eliminar_venta.Click
         ' Comprobar si hay una fila seleccionada
         If DataGridView_Venta.SelectedRows.Count > 0 Then

@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class connexion
+
     'Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
     Public Function CrearConexion(serverName As String) As SqlConnection
 

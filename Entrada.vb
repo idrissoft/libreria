@@ -2,10 +2,11 @@
 Imports FontAwesome.Sharp
 
 Public Class Entrada
+
     Private currentBtn As IconButton
     Private leftBorderBtn As Panel
     Private currentchildform As Form
-
+    Private currentPanel As Panel
     ' Nuevas variables de instancia para formularios
     Private movimientosForm As Movimientos
     Private clientesForm As Clientes
@@ -67,6 +68,14 @@ Public Class Entrada
             currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText
         End If
     End Sub
+    Private Sub Activatepanel()
+        currentPanel.Show()
+    End Sub
+    Private Sub disablePanel()
+        If currentPanel IsNot Nothing Then
+            currentPanel.Visible = False
+        End If
+    End Sub
     Private Sub openchildform(childform As Form)
         'open only form
         'If currentchildform IsNot Nothing Then
@@ -86,40 +95,57 @@ Public Class Entrada
     Private Sub btnlibros_Click(sender As Object, e As EventArgs) Handles btnlibros.Click
         ActivateButton(sender, RGBColors.color1)
         openchildform(librosform)
-
+        disablePanel()
+        currentPanel = Panel_libros
+        Activatepanel()
     End Sub
 
     Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
         ActivateButton(sender, RGBColors.color2)
         openchildform(ventaForm)
+        disablePanel()
+        currentPanel = Panel_ventas
+        Activatepanel()
     End Sub
 
-    Private Sub btnClientes_Click(sender As Object, e As EventArgs) Handles btnClientes.Click
+    Private Sub btnClientes_Click_1(sender As Object, e As EventArgs) Handles btnClientes.Click
         ActivateButton(sender, RGBColors.color4)
         openchildform(clientesForm)
+        disablePanel()
+        currentPanel = Panel_clientes
+        Activatepanel()
     End Sub
 
-    Private Sub btnMovimientos_Click(sender As Object, e As EventArgs) Handles btnMovimientos.Click
+    Private Sub btnMovimientos_Click_1(sender As Object, e As EventArgs) Handles btnMovimientos.Click
         ActivateButton(sender, RGBColors.color5)
-        openchildform(movimientosForm) ' Muestra la instancia de Movimientos
+        openchildform(movimientosForm)
+        disablePanel()
+        currentPanel = Panel_movimientos
+        Activatepanel()
     End Sub
 
-    Private Sub btnUsuarios_Click(sender As Object, e As EventArgs) Handles btnUsuarios.Click
+    Private Sub btnUsuarios_Click_1(sender As Object, e As EventArgs) Handles btnUsuarios.Click
         ActivateButton(sender, RGBColors.color6)
         openchildform(nocreated)
+        disablePanel()
+        currentPanel = Panel_usuarios
+        Activatepanel()
     End Sub
 
-    Private Sub btnUL_Click(sender As Object, e As EventArgs) Handles btnUL.Click
+    Private Sub btnUL_Click_1(sender As Object, e As EventArgs) Handles btnUL.Click
         ActivateButton(sender, RGBColors.color7)
         openchildform(unidades_logisticas)
+        disablePanel()
+        'currentPanel = Panel_usuarios
+        'Activatepanel()
     End Sub
 
-    Private Sub btnReportes_Click(sender As Object, e As EventArgs) Handles btnReportes.Click
+    Private Sub btnReportes_Click_1(sender As Object, e As EventArgs) Handles btnReportes.Click
         ActivateButton(sender, RGBColors.color8)
         openchildform(nocreated)
     End Sub
 
-    Private Sub btnConfiguraciones_Click(sender As Object, e As EventArgs) Handles btnConfiguracione.Click
+    Private Sub btnConfiguracione_Click(sender As Object, e As EventArgs) Handles btnConfiguracione.Click
         ActivateButton(sender, RGBColors.color9)
         openchildform(nocreated)
     End Sub
@@ -140,7 +166,7 @@ Public Class Entrada
         leftBorderBtn.Visible = False
         IconCurrentForm.IconChar = IconChar.Home
         IconCurrentForm.IconColor = Color.MediumPurple
-        lblFormTitle.Text = "home"
+        lblFormTitle.Text = "Home"
 
     End Sub
 
@@ -180,5 +206,43 @@ Public Class Entrada
         WindowState = FormWindowState.Minimized
     End Sub
 
+    Private Sub añadir_libro_Click(sender As Object, e As EventArgs) Handles añadir_libro.Click
+        añadire_libro.Show()
+    End Sub
 
+    Private Sub editar_libro_Click(sender As Object, e As EventArgs) Handles editar_libro.Click
+        librosform.editar_libros()
+    End Sub
+
+    Private Sub eliminar_libro_Click(sender As Object, e As EventArgs) Handles eliminar_libro.Click
+        librosform.eliminar_libros()
+        librosform.MostrarLibros()
+    End Sub
+
+    Private Sub add_img_libro_Click(sender As Object, e As EventArgs) Handles add_img_libro.Click
+        librosform.add_imagen()
+        librosform.MostrarLibros()
+    End Sub
+
+    Private Sub add_venta_Click(sender As Object, e As EventArgs) Handles add_venta.Click
+        Dim nueva_venta As New Nueva_Venta()
+        nueva_venta.Show()
+    End Sub
+
+    Private Sub editar_venta_Click(sender As Object, e As EventArgs) Handles editar_venta.Click
+        ventaForm.editar_venta()
+    End Sub
+
+    Private Sub add_cliente_Click(sender As Object, e As EventArgs) Handles add_cliente.Click
+        Dim añadir_cliente As New añadir_Cliente
+        añadir_cliente.Show()
+    End Sub
+
+    Private Sub editar_cliente_Click(sender As Object, e As EventArgs) Handles editar_cliente.Click
+        clientesForm.Editar()
+    End Sub
+
+    Private Sub eliminar_cliente_Click(sender As Object, e As EventArgs) Handles eliminar_cliente.Click
+        clientesForm.eliminar_clientes()
+    End Sub
 End Class

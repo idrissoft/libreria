@@ -45,6 +45,8 @@ Partial Class Nueva_Venta
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.editar_venta = New System.Windows.Forms.Button()
+        Me.Btn_guardar_venta = New System.Windows.Forms.Button()
+        Me.btn_volver = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -178,7 +180,7 @@ Partial Class Nueva_Venta
         'TxtDescuento
         '
         Me.TxtDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtDescuento.Location = New System.Drawing.Point(178, 276)
+        Me.TxtDescuento.Location = New System.Drawing.Point(178, 263)
         Me.TxtDescuento.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.TxtDescuento.Name = "TxtDescuento"
         Me.TxtDescuento.Size = New System.Drawing.Size(98, 23)
@@ -187,7 +189,7 @@ Partial Class Nueva_Venta
         'txtprecio_des
         '
         Me.txtprecio_des.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtprecio_des.Location = New System.Drawing.Point(178, 313)
+        Me.txtprecio_des.Location = New System.Drawing.Point(178, 309)
         Me.txtprecio_des.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.txtprecio_des.Name = "txtprecio_des"
         Me.txtprecio_des.ReadOnly = True
@@ -197,7 +199,7 @@ Partial Class Nueva_Venta
         'Txt_subtota
         '
         Me.Txt_subtota.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_subtota.Location = New System.Drawing.Point(178, 358)
+        Me.Txt_subtota.Location = New System.Drawing.Point(178, 361)
         Me.Txt_subtota.Margin = New System.Windows.Forms.Padding(6, 5, 6, 5)
         Me.Txt_subtota.Name = "Txt_subtota"
         Me.Txt_subtota.ReadOnly = True
@@ -292,11 +294,43 @@ Partial Class Nueva_Venta
         Me.editar_venta.Text = "editar venta"
         Me.editar_venta.UseVisualStyleBackColor = False
         '
+        'Btn_guardar_venta
+        '
+        Me.Btn_guardar_venta.BackColor = System.Drawing.Color.Transparent
+        Me.Btn_guardar_venta.BackgroundImage = CType(resources.GetObject("Btn_guardar_venta.BackgroundImage"), System.Drawing.Image)
+        Me.Btn_guardar_venta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Btn_guardar_venta.FlatAppearance.BorderSize = 0
+        Me.Btn_guardar_venta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_guardar_venta.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_guardar_venta.Location = New System.Drawing.Point(43, 416)
+        Me.Btn_guardar_venta.Name = "Btn_guardar_venta"
+        Me.Btn_guardar_venta.Size = New System.Drawing.Size(81, 35)
+        Me.Btn_guardar_venta.TabIndex = 92
+        Me.Btn_guardar_venta.Text = "guardar"
+        Me.Btn_guardar_venta.UseVisualStyleBackColor = False
+        '
+        'btn_volver
+        '
+        Me.btn_volver.BackColor = System.Drawing.Color.Transparent
+        Me.btn_volver.BackgroundImage = CType(resources.GetObject("btn_volver.BackgroundImage"), System.Drawing.Image)
+        Me.btn_volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn_volver.FlatAppearance.BorderSize = 0
+        Me.btn_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_volver.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_volver.Location = New System.Drawing.Point(279, 416)
+        Me.btn_volver.Name = "btn_volver"
+        Me.btn_volver.Size = New System.Drawing.Size(81, 35)
+        Me.btn_volver.TabIndex = 93
+        Me.btn_volver.Text = "volver"
+        Me.btn_volver.UseVisualStyleBackColor = False
+        '
         'Nueva_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(18.0!, 33.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(526, 436)
+        Me.ClientSize = New System.Drawing.Size(404, 476)
+        Me.Controls.Add(Me.btn_volver)
+        Me.Controls.Add(Me.Btn_guardar_venta)
         Me.Controls.Add(Me.editar_venta)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ComboBox1)
@@ -351,4 +385,6 @@ Partial Class Nueva_Venta
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents editar_venta As Button
+    Friend WithEvents Btn_guardar_venta As Button
+    Friend WithEvents btn_volver As Button
 End Class

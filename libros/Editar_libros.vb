@@ -30,7 +30,7 @@ Public Class Editar_libros
 
     Sub editar_libros(idLibro As Integer)
         Try
-            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miConexion.CrearConexion(serverName)
             Dim consulta As String = "UPDATE libros SET nombre = @nombre, autor = @autor, precio = @precio, ficha = @ficha, description = @description, stock_total = @stock_total WHERE idlibro = @idlibro"
 

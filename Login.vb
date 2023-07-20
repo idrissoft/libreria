@@ -22,8 +22,7 @@ Public Class Login
         Dim usuario As String = txtUser.Text
         Dim contraseña As String = txtPass.Text
         If AutenticarUsuario(usuario, contraseña, servidor) Then
-            ' Autenticación exitosa
-            ' Aquí puedes mostrar el formulario de entrada
+
             movimientosForm.ServerName = servidor
             clientesform.ServerName = servidor
             librosform.ServerName = servidor
@@ -36,7 +35,7 @@ Public Class Login
             Me.Hide() ' Esconde el formulario de Login
         Else
             ' Autenticación fallida
-            MessageBox.Show("Usuario o contraseña incorrecta.")
+            MessageBox.Show("Usuario o contraseña o El Servidor incorrecta.")
         End If
     End Sub
     Private Sub exite_Click(sender As Object, e As EventArgs) Handles exite.Click
@@ -82,20 +81,28 @@ Public Class Login
     End Sub
 
     Private Function AutenticarUsuario(usuario As String, contraseña As String, servidor As String) As Boolean
+
+
+
         Dim autenticado As Boolean = False
-        Dim connString As String = "Data Source=" & servidor & ";Initial Catalog=libreria;Integrated Security=True;"
+            Dim connString As String = "Data Source=" & servidor & ";Initial Catalog=libreria;Integrated Security=True;"
         Using conn As New SqlConnection(connString)
-            conn.Open()
-            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM dbo.Usuarios WHERE Usuario = @user AND Contrasena = @pass", conn)
-            cmd.Parameters.AddWithValue("@user", usuario)
-            cmd.Parameters.AddWithValue("@pass", contraseña)
-            Dim count = Convert.ToInt32(cmd.ExecuteScalar())
-            If count > 0 Then
-                autenticado = True
-            End If
-            conn.Close()
+            Try
+                conn.Open()
+                Dim cmd As New SqlCommand("SELECT COUNT(*) FROM dbo.Usuarios WHERE Usuario = @user AND Contrasena = @pass", conn)
+                cmd.Parameters.AddWithValue("@user", usuario)
+                cmd.Parameters.AddWithValue("@pass", contraseña)
+                Dim count = Convert.ToInt32(cmd.ExecuteScalar())
+                If count > 0 Then
+                    autenticado = True
+                End If
+                conn.Close()
+            Catch ex As Exception
+                'MessageBox.Show("El Servidor falso")
+            End Try
         End Using
         Return autenticado
+
     End Function
 
 

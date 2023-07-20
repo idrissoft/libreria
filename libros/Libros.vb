@@ -3,7 +3,6 @@ Imports System.Drawing.Imaging
 Imports System.IO
 
 Public Class Libros
-    'Inherits Form
     Private miConexion As New connexion()
     Public Property ServerName As String
 
@@ -40,7 +39,7 @@ Public Class Libros
 
         Dim dt As New DataTable()
         Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
-        Dim con As SqlConnection = miConexion.CrearConexion(ServerName)
+        Dim con As SqlConnection = miConexion.CrearConexion(serverName)
         Dim cmd As New SqlCommand("mostrar_libros", con)
         cmd.CommandType = CommandType.StoredProcedure
 
@@ -56,6 +55,10 @@ Public Class Libros
 
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Btn_agregar_imagen.Click
+        add_imagen()
+        MostrarLibros()
+    End Sub
+    Sub add_imagen()
         Try
             ' Obtener la fila seleccionada en el DataGridView
             Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
@@ -81,7 +84,7 @@ Public Class Libros
                     ' Guardar la imagen en la base de datos
 
                     ' Establecer la conexión a la base de datos
-                    Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+                    Dim serverName As String = login.ComboBox_Servidor.SelectedItem.ToString()
                     Dim con As SqlConnection = miConexion.CrearConexion(serverName)
                     con.Open()
 
@@ -105,9 +108,7 @@ Public Class Libros
             ' Si ocurre un error, mostrar un cuadro de mensaje con el mensaje de error correspondiente
             MessageBox.Show(ex.Message)
         End Try
-        MostrarLibros()
     End Sub
-
     Public Sub DataGridView_libros_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_libros.CellClick
         Try
             If e.RowIndex >= 0 Then
@@ -150,7 +151,7 @@ Public Class Libros
         End Try
     End Sub
 
-    Sub editar_libros()
+    Public Sub editar_libros()
         Try
             Dim editarLibrosForm As New Editar_libros(Me)
             editarLibrosForm.Show()
@@ -205,7 +206,6 @@ Public Class Libros
             con.Open()
             countUL = Convert.ToInt32(countCmdUL.ExecuteScalar())
             con.Close()
-
             ' Verifica si existen referencias en Venta
             Dim countVenta As Integer
             Dim countCmdVenta As New SqlCommand("SELECT COUNT(*) FROM Venta WHERE idlibro = @idlibro", con)
@@ -213,13 +213,11 @@ Public Class Libros
             con.Open()
             countVenta = Convert.ToInt32(countCmdVenta.ExecuteScalar())
             con.Close()
-
             ' Si existen referencias, mostrar mensaje y terminar la subrutina
             If countUL > 0 Or countVenta > 0 Then
                 MessageBox.Show("El libro tiene referencias en UnidadesLogisticas y/o Venta. No puede ser eliminado.")
                 Return
             End If
-
             ' Eliminación del libro
             Dim delete As New SqlCommand("DELETE FROM libros WHERE idlibro = @idlibro", con)
             delete.Parameters.AddWithValue("@idlibro", idlibro)
@@ -237,7 +235,7 @@ Public Class Libros
     Public Function MostrarUnidadesLogisticas(idLibro As Integer) As DataTable
         Dim dt As New DataTable()
         Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
-        Dim con As SqlConnection = miConexion.CrearConexion(ServerName)
+        Dim con As SqlConnection = miConexion.CrearConexion(serverName)
         Dim cmd As New SqlCommand("SELECT * FROM UnidadesLogisticas WHERE idLibro = @idLibro ORDER BY tipoUL", con)
         cmd.CommandType = CommandType.Text
         cmd.Parameters.AddWithValue("@idLibro", idLibro)

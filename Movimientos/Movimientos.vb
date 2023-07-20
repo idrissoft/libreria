@@ -6,25 +6,13 @@ Public Class Movimientos
     Dim miconexion As New connexion
 
     Sub mostrar_Movimientos()
-        ' La conexión se crea aquí ahora
+
         Dim con As SqlConnection = miconexion.CrearConexion(ServerName)
-
-        ' Abre la conexión
         con.Open()
-
-        ' Crea un nuevo SqlDataAdapter
         Dim da As New SqlDataAdapter("SELECT * FROM Movimientos", con)
-
-        ' Crea un nuevo DataTable
         Dim dt As New DataTable()
-
-        ' Llena el DataTable con los datos del SqlDataAdapter
         da.Fill(dt)
-
-        ' Ajusta el DataGridView para que muestre los datos del DataTable
         DataGridView_Movimientos.DataSource = dt
-
-        ' Cierra la conexión
         con.Close()
     End Sub
 

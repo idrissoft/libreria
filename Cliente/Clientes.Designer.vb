@@ -24,18 +24,13 @@ Partial Class Clientes
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Clientes))
         Me.DataGridView_clientes = New System.Windows.Forms.DataGridView()
-        Me.Btn_eliminar_clientes = New System.Windows.Forms.Button()
-        Me.Btn_anadir_clientes = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btn_volver = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Btn_editar_clientes = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel5 = New System.Windows.Forms.Panel()
         CType(Me.DataGridView_clientes, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
@@ -50,36 +45,6 @@ Partial Class Clientes
         Me.DataGridView_clientes.Size = New System.Drawing.Size(1189, 341)
         Me.DataGridView_clientes.TabIndex = 5
         '
-        'Btn_eliminar_clientes
-        '
-        Me.Btn_eliminar_clientes.BackColor = System.Drawing.Color.Transparent
-        Me.Btn_eliminar_clientes.BackgroundImage = CType(resources.GetObject("Btn_eliminar_clientes.BackgroundImage"), System.Drawing.Image)
-        Me.Btn_eliminar_clientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Btn_eliminar_clientes.FlatAppearance.BorderSize = 0
-        Me.Btn_eliminar_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_eliminar_clientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_eliminar_clientes.Location = New System.Drawing.Point(41, 120)
-        Me.Btn_eliminar_clientes.Name = "Btn_eliminar_clientes"
-        Me.Btn_eliminar_clientes.Size = New System.Drawing.Size(86, 49)
-        Me.Btn_eliminar_clientes.TabIndex = 4
-        Me.Btn_eliminar_clientes.Text = "Eliminar"
-        Me.Btn_eliminar_clientes.UseVisualStyleBackColor = False
-        '
-        'Btn_anadir_clientes
-        '
-        Me.Btn_anadir_clientes.BackColor = System.Drawing.Color.Transparent
-        Me.Btn_anadir_clientes.BackgroundImage = CType(resources.GetObject("Btn_anadir_clientes.BackgroundImage"), System.Drawing.Image)
-        Me.Btn_anadir_clientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Btn_anadir_clientes.FlatAppearance.BorderSize = 0
-        Me.Btn_anadir_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_anadir_clientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_anadir_clientes.Location = New System.Drawing.Point(41, 54)
-        Me.Btn_anadir_clientes.Name = "Btn_anadir_clientes"
-        Me.Btn_anadir_clientes.Size = New System.Drawing.Size(86, 49)
-        Me.Btn_anadir_clientes.TabIndex = 1
-        Me.Btn_anadir_clientes.Text = "Añadir"
-        Me.Btn_anadir_clientes.UseVisualStyleBackColor = False
-        '
         'Panel2
         '
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -88,48 +53,14 @@ Partial Class Clientes
         Me.Panel2.Size = New System.Drawing.Size(1319, 107)
         Me.Panel2.TabIndex = 4
         '
-        'btn_volver
-        '
-        Me.btn_volver.BackColor = System.Drawing.Color.Transparent
-        Me.btn_volver.BackgroundImage = CType(resources.GetObject("btn_volver.BackgroundImage"), System.Drawing.Image)
-        Me.btn_volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btn_volver.FlatAppearance.BorderSize = 0
-        Me.btn_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_volver.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btn_volver.Location = New System.Drawing.Point(37, 255)
-        Me.btn_volver.Name = "btn_volver"
-        Me.btn_volver.Size = New System.Drawing.Size(91, 49)
-        Me.btn_volver.TabIndex = 2
-        Me.btn_volver.Text = "Volver"
-        Me.btn_volver.UseVisualStyleBackColor = False
-        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.SystemColors.Highlight
-        Me.Panel3.Controls.Add(Me.Btn_editar_clientes)
-        Me.Panel3.Controls.Add(Me.btn_volver)
-        Me.Panel3.Controls.Add(Me.Btn_eliminar_clientes)
-        Me.Panel3.Controls.Add(Me.Btn_anadir_clientes)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(127, 539)
         Me.Panel3.TabIndex = 6
-        '
-        'Btn_editar_clientes
-        '
-        Me.Btn_editar_clientes.BackColor = System.Drawing.Color.Transparent
-        Me.Btn_editar_clientes.BackgroundImage = CType(resources.GetObject("Btn_editar_clientes.BackgroundImage"), System.Drawing.Image)
-        Me.Btn_editar_clientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Btn_editar_clientes.FlatAppearance.BorderSize = 0
-        Me.Btn_editar_clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_editar_clientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_editar_clientes.Location = New System.Drawing.Point(36, 186)
-        Me.Btn_editar_clientes.Name = "Btn_editar_clientes"
-        Me.Btn_editar_clientes.Size = New System.Drawing.Size(91, 49)
-        Me.Btn_editar_clientes.TabIndex = 5
-        Me.Btn_editar_clientes.Text = "Editar"
-        Me.Btn_editar_clientes.UseVisualStyleBackColor = False
         '
         'Panel4
         '
@@ -179,7 +110,6 @@ Partial Class Clientes
         Me.Name = "Clientes"
         Me.Text = "Clientes"
         CType(Me.DataGridView_clientes, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel3.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -189,14 +119,10 @@ Partial Class Clientes
     End Sub
 
     Friend WithEvents DataGridView_clientes As DataGridView
-    Friend WithEvents Btn_eliminar_clientes As Button
-    Friend WithEvents Btn_anadir_clientes As Button
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents btn_volver As Button
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents Btn_editar_clientes As Button
     Friend WithEvents TextBox1 As TextBox
 End Class

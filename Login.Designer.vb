@@ -216,9 +216,9 @@ Partial Class Login
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(169, 11)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(85, 25)
+        Me.Label5.Size = New System.Drawing.Size(92, 25)
         Me.Label5.TabIndex = 12
-        Me.Label5.Text = "Libriria"
+        Me.Label5.Text = "Libreria"
         '
         'Panel4
         '

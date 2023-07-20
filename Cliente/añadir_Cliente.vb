@@ -14,7 +14,7 @@ Public Class añadir_Cliente
 
     Public Sub agregar_clientes()
         Try
-            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
             Dim command As New SqlCommand("INSERT INTO Cliente(nombre, telefono, direccion, informacion) 
@@ -51,7 +51,7 @@ Public Class añadir_Cliente
 
     Public Sub modificar_cliente(ID_cliente As Integer)
         Try
-            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
             Dim command As New SqlCommand("UPDATE Cliente SET nombre = @nombre, telefono = @telefono, direccion = @direccion, informacion = @informacion WHERE ID_cliente = @ID_cliente", con)

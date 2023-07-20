@@ -55,7 +55,7 @@ Partial Class Libros
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1057, 685)
+        Me.Panel2.Size = New System.Drawing.Size(1247, 801)
         Me.Panel2.TabIndex = 1
         '
         'Btn_eliminar_libro
@@ -95,7 +95,7 @@ Partial Class Libros
         Me.DataGridView_libros.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView_libros.Name = "DataGridView_libros"
         Me.DataGridView_libros.RowHeadersWidth = 62
-        Me.DataGridView_libros.Size = New System.Drawing.Size(967, 889)
+        Me.DataGridView_libros.Size = New System.Drawing.Size(1157, 889)
         Me.DataGridView_libros.TabIndex = 2
         '
         'Panel3
@@ -104,7 +104,7 @@ Partial Class Libros
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(90, 685)
+        Me.Panel3.Size = New System.Drawing.Size(90, 801)
         Me.Panel3.TabIndex = 3
         '
         'Btn_Editar
@@ -148,7 +148,7 @@ Partial Class Libros
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(90, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(967, 37)
+        Me.Panel4.Size = New System.Drawing.Size(1157, 37)
         Me.Panel4.TabIndex = 4
         '
         'TextBox1
@@ -207,7 +207,7 @@ Partial Class Libros
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(90, 37)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(967, 648)
+        Me.Panel5.Size = New System.Drawing.Size(1157, 764)
         Me.Panel5.TabIndex = 5
         '
         'Panel6
@@ -219,9 +219,9 @@ Partial Class Libros
         Me.Panel6.Controls.Add(Me.Btn_añadir_libro)
         Me.Panel6.Controls.Add(Me.Btn_eliminar_libro)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel6.Location = New System.Drawing.Point(90, 320)
+        Me.Panel6.Location = New System.Drawing.Point(90, 436)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(967, 365)
+        Me.Panel6.Size = New System.Drawing.Size(1157, 365)
         Me.Panel6.TabIndex = 8
         '
         'DataGridView_UnidadesLogisticas
@@ -247,7 +247,7 @@ Partial Class Libros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1057, 685)
+        Me.ClientSize = New System.Drawing.Size(1247, 801)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
