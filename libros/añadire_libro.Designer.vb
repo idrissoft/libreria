@@ -44,6 +44,7 @@ Partial Class añadire_libro
         Me.TxtUporUL = New System.Windows.Forms.TextBox()
         Me.ComboBox_unidad_logistica = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.DirectoryEntry1 = New System.DirectoryServices.DirectoryEntry()
         Me.SuspendLayout()
         '
         'Label1
@@ -314,4 +315,5 @@ Partial Class añadire_libro
     Friend WithEvents TxtUporUL As TextBox
     Friend WithEvents ComboBox_unidad_logistica As ComboBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents DirectoryEntry1 As DirectoryServices.DirectoryEntry
 End Class

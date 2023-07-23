@@ -150,7 +150,6 @@ Public Class Libros
             'MessageBox.Show(ex.Message)
         End Try
     End Sub
-
     Public Sub editar_libros()
         Try
             Dim editarLibrosForm As New Editar_libros(Me)
@@ -194,40 +193,97 @@ Public Class Libros
         añadire_libro.Show()
         Me.Hide()
     End Sub
+
     Public Sub eliminar_libros()
+        'Dim idlibro_eliminado As Integer
+        Dim cantidad As Integer
         Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
             Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
-            'Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
-            Dim con As SqlConnection = miConexion.CrearConexion(ServerName)
-            ' Verifica si existen referencias en UnidadesLogisticas
-            Dim countUL As Integer
-            Dim countCmdUL As New SqlCommand("SELECT COUNT(*) FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
-            countCmdUL.Parameters.AddWithValue("@idlibro", idlibro)
+            Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
+            Dim con As SqlConnection = miConexion.CrearConexion(serverName)
+            ' Primero, obtener el valor de stock para el libro actual.
+            'Dim cmd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
+            'cmd.Parameters.AddWithValue("@idlibro", Me.idLibro)
+            'con.Open()
+            'Dim reader As SqlDataReader = cmd.ExecuteReader()
+            'Dim stock As Integer = 0
+            'If reader.Read() Then
+            '    stock = reader.GetInt32(0)
+            'End If
+            'con.Close()
+            Dim cmd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
+            cmd.Parameters.AddWithValue("@idlibro", idlibro) ' Corregido de Me.idLibro a idlibro
             con.Open()
-            countUL = Convert.ToInt32(countCmdUL.ExecuteScalar())
-            con.Close()
-            ' Verifica si existen referencias en Venta
-            Dim countVenta As Integer
-            Dim countCmdVenta As New SqlCommand("SELECT COUNT(*) FROM Venta WHERE idlibro = @idlibro", con)
-            countCmdVenta.Parameters.AddWithValue("@idlibro", idlibro)
-            con.Open()
-            countVenta = Convert.ToInt32(countCmdVenta.ExecuteScalar())
-            con.Close()
-            ' Si existen referencias, mostrar mensaje y terminar la subrutina
-            If countUL > 0 Or countVenta > 0 Then
-                MessageBox.Show("El libro tiene referencias en UnidadesLogisticas y/o Venta. No puede ser eliminado.")
-                Return
+            Dim reader As SqlDataReader = cmd.ExecuteReader()
+            Dim stock As Integer = 0
+            If reader.Read() Then
+                stock = reader.GetInt32(0)
             End If
-            ' Eliminación del libro
-            Dim delete As New SqlCommand("DELETE FROM libros WHERE idlibro = @idlibro", con)
-            delete.Parameters.AddWithValue("@idlibro", idlibro)
-            con.Open()
-            delete.ExecuteNonQuery()
             con.Close()
-            MostrarLibros()
+
+            Dim habia As Integer = stock
+            ' Elimina las referencias en UnidadesLogisticas y Venta si existen
+            Dim result As DialogResult = MessageBox.Show("El libro puede tener referencias en UnidadesLogisticas y/o Venta. ¿Quieres eliminarlo de todos modos?", "Confirmar eliminación", MessageBoxButtons.YesNo)
+
+            If result = DialogResult.Yes Then
+
+                Dim counUL As New SqlCommand("DELETE FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
+                counUL.Parameters.AddWithValue("@idlibro", idlibro)
+                cantidad = stock
+
+                Insertar_MV_eliminar_LIBROS(cantidad, idlibro, habia)
+                con.Open()
+                counUL.ExecuteScalar()
+                con.Close()
+
+                Dim counVenta As New SqlCommand("DELETE FROM Venta WHERE idlibro = @idlibro", con)
+                counVenta.Parameters.AddWithValue("@idlibro", idlibro)
+                con.Open()
+                counVenta.ExecuteScalar()
+                con.Close()
+            End If
+
+            '  Movimientos
+
+            Dim command As New SqlCommand("update  Movimientos set idlibro=NULL WHERE idlibro = @idLibro", con)
+            command.Parameters.AddWithValue("@idLibro", idlibro)
+            con.Open()
+            command.ExecuteNonQuery()
+            con.Close()
+
+
+
+            ' Elimina el libro
+            Dim delete As New SqlCommand("DELETE FROM libros WHERE idlibro = @idlibro", con)
+        delete.Parameters.AddWithValue("@idlibro", idLibro)
+        con.Open()
+        delete.ExecuteNonQuery()
+        con.Close()
+
+        MostrarLibros()
         End Using
     End Sub
 
+    Sub Insertar_MV_eliminar_LIBROS(cantidad As Integer, idLibro As Integer, habia As Integer)
+        Try
+            Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
+            Dim con As SqlConnection = miConexion.CrearConexion(serverName)
+            ' Calcular hay y habia
+            Dim hay As Integer = 0
+            ' Insertar en Movimientos
+            Dim command = New SqlCommand("INSERT INTO Movimientos(FechaMovimiento,idLibro, idlibro_eliminado, TipoMovimiento, Habia,tipo, Cantidad, hay) VALUES (GETDATE(),@idlibro, @idlibro_eliminado, 'salida', @habia,'eliminar libro', @Cantidad, @hay)", con)
+            command.Parameters.AddWithValue("@idlibro", idLibro)
+            command.Parameters.AddWithValue("@idlibro_eliminado", idLibro)
+            command.Parameters.AddWithValue("@habia", habia)
+            command.Parameters.AddWithValue("@Cantidad", cantidad)
+            command.Parameters.AddWithValue("@hay", hay)
+            con.Open()
+            command.ExecuteNonQuery()
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
     Private Sub Btn_eliminar_libro_Click(sender As Object, e As EventArgs) Handles Btn_eliminar_libro.Click
         eliminar_libros()
         MostrarLibros()

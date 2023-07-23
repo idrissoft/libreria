@@ -30,7 +30,7 @@ Public Class añadir_Cliente
 
             MessageBox.Show("El cliente se ha agregado correctamente.")
 
-            Close()
+            con.Close()
 
             Dim fr_clientes As New Clientes()
             fr_clientes.Show()

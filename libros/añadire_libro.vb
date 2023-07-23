@@ -6,6 +6,8 @@ Public Class añadire_libro
         libros.Show()
         Me.Close()
     End Sub
+
+    Private Const Value As String = "+"
     Private idlibro As Integer
     Private miconexion As New connexion
     Private ComboBox_Servidor As ComboBox
@@ -66,29 +68,20 @@ Public Class añadire_libro
             command.Parameters.AddWithValue("@ficha", DateTimePicker1.Value)
             command.Parameters.AddWithValue("@description", TextBox4.Text)
             con.Open()
-
-            ' Ejecutar la consulta y obtener el idlibro del libro recién insertado
             Me.idlibro = command.ExecuteScalar()
             con.Close()
 
-            ' Intentar convertir el contenido de TextBox7.Text a un número
-            Dim cantidad As Integer
-            If Not Integer.TryParse(TextBox7.Text, cantidad) Then
-                MessageBox.Show("Por favor, ingrese un número válido en TextBox7.")
-                Return
-            End If
-
-            ' Insertar en UnidadesLogisticas con el idlibro obtenido
+            'Dim cantidad As Integer
             command = New SqlCommand("INSERT INTO UnidadesLogisticas(idlibro, tipoUL, unidades_por_UL, stock) VALUES (@idlibro, @tipoUL, @unidades_por_UL, @stock)", con)
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@tipoUL", ComboBox_unidad_logistica.SelectedItem)
             command.Parameters.AddWithValue("@unidades_por_UL", TxtUporUL.Text)
-            command.Parameters.AddWithValue("@stock", cantidad)
+            command.Parameters.AddWithValue("@stock", TextBox7.Text)
             con.Open()
             command.ExecuteNonQuery()
             con.Close()
 
-            ' Actualización del stock total
+            'Actualización del stock total
             command = New SqlCommand("EXEC ActualizarStockTotal @idLibro", con)
             command.Parameters.AddWithValue("@idLibro", idlibro)
             con.Open()
@@ -96,11 +89,12 @@ Public Class añadire_libro
             con.Close()
 
             ' Insertar Movimientos
-            Insertar_MV_LIBROS(cantidad)
+            'cantidad = TextBox7.Text
+            ''Insertar_MV_agregar_LIBROS(cantidad)
 
             MessageBox.Show("El libro se ha agregado correctamente.")
             Dim fr_libro As New Libros()
-            'fr_libro.Show()
+
             Me.Close()
             fr_libro.MostrarLibros()
         Catch ex As Exception
@@ -108,16 +102,16 @@ Public Class añadire_libro
         End Try
     End Sub
 
-    Sub Insertar_MV_LIBROS(cantidad As Integer)
+    Sub Insertar_MV_agregar_LIBROS(cantidad As Integer)
         Try
             Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
             ' Primero, obtener el valor de stock para el libro actual.
-            Dim command As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
-            command.Parameters.AddWithValue("@idlibro", Me.idlibro)
+            Dim cmd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
+            cmd.Parameters.AddWithValue("@idlibro", idlibro)
             con.Open()
-            Dim reader As SqlDataReader = command.ExecuteReader()
+            Dim reader As SqlDataReader = cmd.ExecuteReader()
             Dim stock As Integer = 0
             If reader.Read() Then
                 stock = reader.GetInt32(0)
@@ -129,10 +123,10 @@ Public Class añadire_libro
             Dim habia As Integer = stock
 
             ' Insertar en Movimientos
-            command = New SqlCommand("INSERT INTO Movimientos(FechaMovimiento, idlibro, TipoMovimiento, Habia, Cantidad, hay) VALUES (GETDATE(), @idlibro, 'Entrada', @habia, @Cantidad, @hay)", con)
-            command.Parameters.AddWithValue("@idlibro", Me.idlibro)
+            Dim command = New SqlCommand("INSERT INTO Movimientos(FechaMovimiento, idlibro, TipoMovimiento, Habia,tipo, Cantidad, hay) VALUES (GETDATE(), @idlibro, 'Entrada', @habia,'agregar libro', @Cantidad, @hay)", con)
+            command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@habia", habia)
-            command.Parameters.AddWithValue("@Cantidad", "+" & cantidad)
+            command.Parameters.AddWithValue("@Cantidad", cantidad)
             command.Parameters.AddWithValue("@hay", hay)
             con.Open()
             command.ExecuteNonQuery()
@@ -151,7 +145,7 @@ Public Class añadire_libro
             Return
         End If
         agregar_libro()
-        Insertar_MV_LIBROS(cantidad)
+        Insertar_MV_agregar_LIBROS(cantidad)
     End Sub
 
     Sub cargar_unidad_logistoca()
@@ -168,12 +162,12 @@ Public Class añadire_libro
     Private Sub ComboBox_unidad_logistica_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_unidad_logistica.SelectedIndexChanged
         If ComboBox_unidad_logistica.SelectedItem.ToString() = "0" Then
 
-            TxtUporUL.Text = "0"  ' TextBox8 es Unidad_por_UL
-            TextBox7.Text = "0"  ' TextBox7 es stock
+            TxtUporUL.Text = "1"  ' TextBox8 es Unidad_por_UL
+
         ElseIf ComboBox_unidad_logistica.SelectedItem.ToString() = "1" Then
             ' Cuando la Unidad Logística es 1, entonces la Unidad_por_UL tiene el número de unidades dentro de la Unidad Logística
-            TxtUporUL.Text = "1"
-            TextBox7.Text = TxtUporUL.Text
+            'TxtUporUL.Text = "1"
+            'TextBox7.Text = TxtUporUL.Text
         Else
             ' Manejo de otros valores
         End If
