@@ -14,6 +14,11 @@ Public Class Entrada
     Private unidades_logisticasform As unidades_logisticas
     Private librosform As New Libros
 
+    Private Sub Entrada_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        CenterToParent()
+
+    End Sub
     Public Sub New(movimientos As Movimientos, clientes As Clientes, libros As Libros, venta As Venta, unidades_logisticas As unidades_logisticas)
         ' This call is required by the designer.
         InitializeComponent()
@@ -126,7 +131,7 @@ Public Class Entrada
 
     Private Sub btnUsuarios_Click_1(sender As Object, e As EventArgs) Handles btnUsuarios.Click
         ActivateButton(sender, RGBColors.color6)
-        openchildform(nocreated)
+        openchildform(usuarios)
         disablePanel()
         currentPanel = Panel_usuarios
         Activatepanel()

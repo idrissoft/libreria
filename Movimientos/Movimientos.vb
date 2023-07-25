@@ -6,11 +6,11 @@ Public Class Movimientos
     Dim miconexion As New connexion
 
     Sub mostrar_Movimientos()
-
-        Dim con As SqlConnection = miconexion.CrearConexion(ServerName)
-        con.Open()
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
+        Dim con As SqlConnection = miconexion.CrearConexion(serverName)
         Dim da As New SqlDataAdapter("SELECT * FROM Movimientos", con)
         Dim dt As New DataTable()
+        con.Open()
         da.Fill(dt)
         DataGridView_Movimientos.DataSource = dt
         con.Close()

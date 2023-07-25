@@ -24,25 +24,6 @@ Public Class Venta
 
         Return dt
     End Function
-
-    Private Sub LibrosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LibrosToolStripMenuItem.Click
-        Dim libros As New Libros()
-        libros.Show()
-        'Me.Hide() 
-    End Sub
-
-    Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClientesToolStripMenuItem.Click
-        Dim cliente As New Clientes()
-        cliente.Show()
-        'Me.Hide()
-    End Sub
-
-    Private Sub VolverToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VolverToolStripMenuItem.Click
-        'Dim entrada As New Entrada()
-        'entrada.Show()
-        Me.Hide()
-    End Sub
-
     Private Sub Venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CenterToParent()
         DataGridView_Venta.DataSource = mostrar_venta()
@@ -92,7 +73,7 @@ Public Class Venta
 
         ' Conexión a la base de datos
 
-        Dim conn As SqlConnection = miConexion.CrearConexion(serverName)
+        Dim conn As SqlConnection = miConexion.CrearConexion(ServerName)
         conn.Open()
 
         ' Consulta SQL para obtener los datos del libro por su ID
@@ -120,7 +101,7 @@ Public Class Venta
 
         ' Conexión a la base de datos
 
-        Dim conn As SqlConnection = miConexion.CrearConexion(serverName)
+        Dim conn As SqlConnection = miConexion.CrearConexion(ServerName)
         conn.Open()
 
         ' Consulta SQL para obtener los datos del cliente por su ID
@@ -140,9 +121,9 @@ Public Class Venta
 
         ' Cerrar la conexión y el lector
         reader.Close()
-            conn.Close()
+        conn.Close()
 
-            Return cliente
+        Return cliente
     End Function
 
     Private Sub CrearNuevaVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CrearNuevaVentaToolStripMenuItem.Click
@@ -151,7 +132,7 @@ Public Class Venta
         'Me.Hide()
     End Sub
 
-    Private Sub HistoriaLTransaccionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HistoriaLTransaccionesToolStripMenuItem.Click
+    Private Sub HistoriaLTransaccionesToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Movimientos.Show()
 
     End Sub

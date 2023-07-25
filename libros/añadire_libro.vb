@@ -7,7 +7,6 @@ Public Class añadire_libro
         Me.Close()
     End Sub
 
-    Private Const Value As String = "+"
     Private idlibro As Integer
     Private miconexion As New connexion
     Private ComboBox_Servidor As ComboBox
@@ -119,15 +118,16 @@ Public Class añadire_libro
             con.Close()
 
             ' Calcular hay y habia
-            Dim hay As Integer = cantidad + stock
-            Dim habia As Integer = stock
+            Dim hay As Integer = stock
+            Dim habia As Integer = 0
 
             ' Insertar en Movimientos
-            Dim command = New SqlCommand("INSERT INTO Movimientos(FechaMovimiento, idlibro, TipoMovimiento, Habia,tipo, Cantidad, hay) VALUES (GETDATE(), @idlibro, 'Entrada', @habia,'agregar libro', @Cantidad, @hay)", con)
+            Dim command = New SqlCommand("INSERT INTO Movimientos(FechaMovimiento, idlibro, TipoMovimiento, Habia,tipo, Cantidad, hay,usuario) VALUES (GETDATE(), @idlibro, 'Entrada', @habia,'agregar libro', @Cantidad, @hay,@usuario)", con)
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@habia", habia)
             command.Parameters.AddWithValue("@Cantidad", cantidad)
             command.Parameters.AddWithValue("@hay", hay)
+            command.Parameters.AddWithValue("@usuario", Login.txtUser.Text)
             con.Open()
             command.ExecuteNonQuery()
             con.Close()
@@ -164,7 +164,7 @@ Public Class añadire_libro
 
             TxtUporUL.Text = "1"  ' TextBox8 es Unidad_por_UL
 
-        ElseIf ComboBox_unidad_logistica.SelectedItem.ToString() = "1" Then
+            'ElseIf ComboBox_unidad_logistica.SelectedItem.ToString() = "1" Then
             ' Cuando la Unidad Logística es 1, entonces la Unidad_por_UL tiene el número de unidades dentro de la Unidad Logística
             'TxtUporUL.Text = "1"
             'TextBox7.Text = TxtUporUL.Text

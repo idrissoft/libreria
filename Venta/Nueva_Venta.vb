@@ -12,6 +12,7 @@ Public Class Nueva_Venta
 
     Private Sub Nueva_Venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Cargar los nombres de los clientes y libros disponibles al iniciar el formulario
+        CenterToParent()
         CargarClientes()
         CargarLibros()
     End Sub

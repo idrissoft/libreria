@@ -46,7 +46,7 @@ Public Class añadir_Cliente
     End Sub
 
     Private Sub añadir_Cliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        CenterToParent()
     End Sub
 
     Public Sub modificar_cliente(ID_cliente As Integer)
