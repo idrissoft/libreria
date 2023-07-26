@@ -60,13 +60,14 @@ Public Class añadire_libro
             Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
             ' Insertar nuevo libro
-            Dim command As New SqlCommand("INSERT INTO libros(nombre, autor, precio, ficha, description) OUTPUT INSERTED.idlibro VALUES (@nombre, @autor, @precio, @ficha, @description)", con)
+            Dim command As New SqlCommand("INSERT INTO libros(nombre, autor, precio, ficha, description,estado) OUTPUT INSERTED.idlibro VALUES (@nombre, @autor, @precio, @ficha, @description,@estado)", con)
 
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
             command.Parameters.AddWithValue("@autor", TextBox2.Text)
             command.Parameters.AddWithValue("@precio", TextBox3.Text)
             command.Parameters.AddWithValue("@ficha", DateTimePicker1.Value)
             command.Parameters.AddWithValue("@description", TextBox4.Text)
+            command.Parameters.AddWithValue("@estado", "activo")
             con.Open()
             Me.idlibro = command.ExecuteScalar()
             con.Close()

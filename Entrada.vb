@@ -213,25 +213,28 @@ Public Class Entrada
 
     Private Sub añadir_libro_Click(sender As Object, e As EventArgs) Handles añadir_libro.Click
         añadire_libro.Show()
+        librosform.DataGridView_libros.DataSource = librosform.MostrarLibros()
     End Sub
 
     Private Sub editar_libro_Click(sender As Object, e As EventArgs) Handles editar_libro.Click
         librosform.editar_libros()
+        librosform.DataGridView_libros.DataSource = librosform.MostrarLibros()
     End Sub
 
     Private Sub eliminar_libro_Click(sender As Object, e As EventArgs) Handles eliminar_libro.Click
         librosform.eliminar_libros()
-        librosform.MostrarLibros()
+        librosform.DataGridView_libros.DataSource = librosform.MostrarLibros()
     End Sub
 
     Private Sub add_img_libro_Click(sender As Object, e As EventArgs) Handles add_img_libro.Click
         librosform.add_imagen()
-        librosform.MostrarLibros()
+        librosform.DataGridView_libros.DataSource = librosform.MostrarLibros()
     End Sub
 
     Private Sub add_venta_Click(sender As Object, e As EventArgs) Handles add_venta.Click
         Dim nueva_venta As New Nueva_Venta()
         nueva_venta.Show()
+
     End Sub
 
     Private Sub editar_venta_Click(sender As Object, e As EventArgs) Handles editar_venta.Click

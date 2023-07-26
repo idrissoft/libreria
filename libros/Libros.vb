@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Drawing.Imaging
 Imports System.IO
+Imports Microsoft.Win32
 
 Public Class Libros
     Private miConexion As New connexion()
@@ -85,7 +86,7 @@ Public Class Libros
                     ' Guardar la imagen en la base de datos
 
                     ' Establecer la conexión a la base de datos
-                    Dim serverName As String = login.ComboBox_Servidor.SelectedItem.ToString()
+                    Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
                     Dim con As SqlConnection = miConexion.CrearConexion(serverName)
                     con.Open()
 
@@ -256,14 +257,30 @@ Public Class Libros
 
             ' Elimina el libro
             Dim delete As New SqlCommand("DELETE FROM libros WHERE idlibro = @idlibro", con)
-        delete.Parameters.AddWithValue("@idlibro", idLibro)
-        con.Open()
-        delete.ExecuteNonQuery()
-        con.Close()
+            delete.Parameters.AddWithValue("@idlibro", idlibro)
+            con.Open()
+            delete.ExecuteNonQuery()
+            con.Close()
 
-        MostrarLibros()
+            MostrarLibros()
         End Using
     End Sub
+    'Sub Eliminar_Libros2()
+    '    Dim image As Image =
+    '    Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
+    '    Dim con As SqlConnection = miConexion.CrearConexion(ServerName)
+    '    con.Open()
+    '    Dim ms As New MemoryStream()
+    '    image.Save(ms, ImageFormat.Jpeg)
+    '    Dim imageData As Byte()
+    '    Using selectedRow As DataGridViewRow = DataGridView_libros.SelectedRows(0)
+    '        Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
+    '        Dim cmd = New SqlCommand("UPDATE libros SET imagenes=@imagenes WHERE idlibro=@idlibro")
+    '        cmd.Parameters.AddWithValue("@imagenes", imageData)
+    '        cmd.Parameters.AddWithValue("@idlibro", idlibro)
+    '        cmd.ExecuteNonQuery()
+    '    End Using
+    'End Sub
 
     Sub Insertar_MV_eliminar_LIBROS(cantidad As Integer, idLibro As Integer, habia As Integer, Usuario As String)
         Try
@@ -289,7 +306,7 @@ Public Class Libros
     End Sub
     Private Sub Btn_eliminar_libro_Click(sender As Object, e As EventArgs) Handles Btn_eliminar_libro.Click
         eliminar_libros()
-        MostrarLibros()
+        DataGridView_libros.DataSource = MostrarLibros()
     End Sub
     Public Function MostrarUnidadesLogisticas(idLibro As Integer) As DataTable
         Dim dt As New DataTable()

@@ -248,7 +248,28 @@ Public Class Nueva_Venta
         End Using
     End Sub
 
-
+    'Sub Insertar_MV_eliminar_LIBROS(cantidad As Integer, idLibro As Integer, habia As Integer, Usuario As String)
+    '    Try
+    '        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
+    '        Dim con As SqlConnection = miConexion.CrearConexion(serverName)
+    '        ' Calcular hay y habia
+    '        Dim hay As Integer = 0
+    '        ' Insertar en Movimientos
+    '        Usuario = Login.txtUser.Text
+    '        Dim command = New SqlCommand("INSERT INTO Movimientos(FechaMovimiento,idLibro, idlibro_eliminado, TipoMovimiento, Habia,tipo, Cantidad, hay,Usuario) VALUES (GETDATE(),@idlibro, @idlibro_eliminado, 'salida', @habia,'eliminar libro', @Cantidad, @hay,@Usuario)", con)
+    '        command.Parameters.AddWithValue("@idlibro", idLibro)
+    '        command.Parameters.AddWithValue("@idlibro_eliminado", idLibro)
+    '        command.Parameters.AddWithValue("@habia", habia)
+    '        command.Parameters.AddWithValue("@Cantidad", cantidad)
+    '        command.Parameters.AddWithValue("@hay", hay)
+    '        command.Parameters.AddWithValue("@Usuario", Usuario)
+    '        con.Open()
+    '        command.ExecuteNonQuery()
+    '        con.Close()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message)
+    '    End Try
+    'End Sub
 
     Private Sub editar_venta_Click(sender As Object, e As EventArgs) Handles editar_venta.Click
         Dim ID_cliente As Integer
@@ -303,6 +324,8 @@ Public Class Nueva_Venta
 
     Private Sub Btn_guardar_venta_Click(sender As Object, e As EventArgs) Handles Btn_guardar_venta.Click
         agregar_venta()
+        Dim venta As New Venta
+        venta.DataGridView_Venta.DataSource = venta.mostrar_venta()
     End Sub
 
     Private Sub btn_volver_Click(sender As Object, e As EventArgs) Handles btn_volver.Click
