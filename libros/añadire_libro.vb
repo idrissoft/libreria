@@ -61,6 +61,7 @@ Public Class añadire_libro
 
             ' Insertar nuevo libro
             Dim command As New SqlCommand("INSERT INTO libros(nombre, autor, precio, ficha, description) OUTPUT INSERTED.idlibro VALUES (@nombre, @autor, @precio, @ficha, @description)", con)
+
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
             command.Parameters.AddWithValue("@autor", TextBox2.Text)
             command.Parameters.AddWithValue("@precio", TextBox3.Text)
@@ -93,7 +94,9 @@ Public Class añadire_libro
 
             MessageBox.Show("El libro se ha agregado correctamente.")
             Dim fr_libro As New Libros()
-
+            'acualisar el datagrideview
+            Dim libros As New Libros
+            libros.DataGridView_libros.DataSource = libros.MostrarLibros()
             Me.Close()
             fr_libro.MostrarLibros()
         Catch ex As Exception

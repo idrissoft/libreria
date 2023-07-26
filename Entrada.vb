@@ -250,4 +250,9 @@ Public Class Entrada
     Private Sub eliminar_cliente_Click(sender As Object, e As EventArgs) Handles eliminar_cliente.Click
         clientesForm.eliminar_clientes()
     End Sub
+
+    Private Sub eliminar_venta_Click(sender As Object, e As EventArgs) Handles eliminar_venta.Click
+        Dim venta As New Venta
+        venta.Eliminar__venta()
+    End Sub
 End Class

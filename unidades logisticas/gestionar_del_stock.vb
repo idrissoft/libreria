@@ -1,5 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
+Imports FontAwesome.Sharp
+
 Public Class unidades_logisticas
     Private miConexion As New connexion()
     Private libros As New Libros()
@@ -12,6 +14,7 @@ Public Class unidades_logisticas
     End Sub
 
     Private Sub unidades_logisticas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Dim servername As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         DataGridView2.DataSource = libros.MostrarLibros()
 
@@ -55,6 +58,7 @@ Public Class unidades_logisticas
 
         Dim UL As New agregarUL(idLibro)
         UL.Show()
+
     End Sub
 
     Private Sub desmontar_Click(sender As Object, e As EventArgs) Handles desmontar.Click
@@ -99,7 +103,7 @@ Public Class unidades_logisticas
             con.Open()
             commandUpdate1.ExecuteNonQuery()
             con.Close()
-
+            acualisacion_stock_total(idLibro)
             MessageBox.Show(" se ha agregado correctamente.")
 
         Catch ex As Exception
@@ -120,6 +124,7 @@ Public Class unidades_logisticas
             Dim idUL As Integer = Convert.ToInt32(TextBox6.Text)
             Dim idLibro As Integer = Convert.ToInt32(TextBox13.Text)
             Dim uunidades_por_ULnidad As Integer = Convert.ToInt32(TextBox9.Text)
+            Dim idUL0 As Integer = Convert.ToInt32(TextBox6.Text)
             ' Obtener unidades_por_UL para UnidadLogistica de tipo 1
             Dim commandSelect As New SqlCommand("SELECT unidades_por_UL FROM UnidadesLogisticas WHERE idLibro = @idLibro AND tipoUL = 1", con)
             commandSelect.Parameters.AddWithValue("@idLibro", idLibro)
@@ -146,11 +151,21 @@ Public Class unidades_logisticas
             con.Open()
             commandUpdate1.ExecuteNonQuery()
             con.Close()
-
+            acualisacion_stock_total(idLibro)
             MessageBox.Show("Las unidades han sido montadas correctamente.")
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+    End Sub
+    Private Sub acualisacion_stock_total(idlibro As Integer)
+        Dim libros As New Libros
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
+        Dim con As SqlConnection = miConexion.CrearConexion(serverName)
+        Dim Command = New SqlCommand("EXEC ActualizarStockTotal @idLibro", con)
+        Command.Parameters.AddWithValue("@idLibro", idlibro)
+        con.Open()
+        Command.ExecuteNonQuery()
+        con.Close()
     End Sub
 End Class

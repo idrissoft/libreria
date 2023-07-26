@@ -18,6 +18,7 @@ Public Class Libros
     Public Property Description As String
     Public Property Precio As Integer
     Private ComboBox_Servidor As ComboBox
+    Dim Usuario As String
     Public Function ObtenerDataGridView_UnidadesLogisticas() As DataGridView
         Return DataGridView_UnidadesLogisticas
     End Function
@@ -215,7 +216,7 @@ Public Class Libros
             cmd.Parameters.AddWithValue("@idlibro", idlibro) ' Corregido de Me.idLibro a idlibro
             con.Open()
             Dim reader As SqlDataReader = cmd.ExecuteReader()
-            Dim stock As Integer = 0
+            Dim stock As Integer
             If reader.Read() Then
                 stock = reader.GetInt32(0)
             End If
@@ -231,7 +232,7 @@ Public Class Libros
                 counUL.Parameters.AddWithValue("@idlibro", idlibro)
                 cantidad = stock
 
-                Insertar_MV_eliminar_LIBROS(cantidad, idlibro, habia)
+                Insertar_MV_eliminar_LIBROS(cantidad, idlibro, habia, Usuario)
                 con.Open()
                 counUL.ExecuteScalar()
                 con.Close()
@@ -264,19 +265,21 @@ Public Class Libros
         End Using
     End Sub
 
-    Sub Insertar_MV_eliminar_LIBROS(cantidad As Integer, idLibro As Integer, habia As Integer)
+    Sub Insertar_MV_eliminar_LIBROS(cantidad As Integer, idLibro As Integer, habia As Integer, Usuario As String)
         Try
             Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miConexion.CrearConexion(serverName)
             ' Calcular hay y habia
             Dim hay As Integer = 0
             ' Insertar en Movimientos
-            Dim command = New SqlCommand("INSERT INTO Movimientos(FechaMovimiento,idLibro, idlibro_eliminado, TipoMovimiento, Habia,tipo, Cantidad, hay) VALUES (GETDATE(),@idlibro, @idlibro_eliminado, 'salida', @habia,'eliminar libro', @Cantidad, @hay)", con)
+            Usuario = Login.txtUser.Text
+            Dim command = New SqlCommand("INSERT INTO Movimientos(FechaMovimiento,idLibro, idlibro_eliminado, TipoMovimiento, Habia,tipo, Cantidad, hay,Usuario) VALUES (GETDATE(),@idlibro, @idlibro_eliminado, 'salida', @habia,'eliminar libro', @Cantidad, @hay,@Usuario)", con)
             command.Parameters.AddWithValue("@idlibro", idLibro)
             command.Parameters.AddWithValue("@idlibro_eliminado", idLibro)
             command.Parameters.AddWithValue("@habia", habia)
             command.Parameters.AddWithValue("@Cantidad", cantidad)
             command.Parameters.AddWithValue("@hay", hay)
+            command.Parameters.AddWithValue("@Usuario", Usuario)
             con.Open()
             command.ExecuteNonQuery()
             con.Close()

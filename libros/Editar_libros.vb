@@ -67,4 +67,8 @@ Public Class Editar_libros
     Private Sub btn_volver_Click(sender As Object, e As EventArgs) Handles btn_volver.Click
         Me.Hide()
     End Sub
+
+    Private Sub Editar_libros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CenterToParent()
+    End Sub
 End Class

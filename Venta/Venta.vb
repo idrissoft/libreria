@@ -126,7 +126,7 @@ Public Class Venta
         Return cliente
     End Function
 
-    Private Sub CrearNuevaVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CrearNuevaVentaToolStripMenuItem.Click
+    Private Sub CrearNuevaVentaToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Dim nueva_venta As New Nueva_Venta()
         nueva_venta.Show()
         'Me.Hide()
@@ -136,7 +136,7 @@ Public Class Venta
         Movimientos.Show()
 
     End Sub
-    Private Sub Btn_editar_venta_Click(sender As Object, e As EventArgs) Handles Btn_editar_venta.Click
+    Private Sub Btn_editar_venta_Click(sender As Object, e As EventArgs)
         editar_venta()
     End Sub
     Sub editar_venta()
@@ -183,8 +183,6 @@ Public Class Venta
             ' Continuar rellenando los demás campos como antes
 
             nueva_venta.ComboBox1.SelectedItem = "UL"
-
-
             ' Mostrar la ventana de Nueva_Venta
             nueva_venta.Show()
         Else
@@ -192,6 +190,10 @@ Public Class Venta
         End If
     End Sub
     Private Sub Eliminar_venta_Click(sender As Object, e As EventArgs) Handles Eliminar_venta.Click
+        Eliminar__venta()
+    End Sub
+    Sub Eliminar__venta()
+
         ' Comprobar si hay una fila seleccionada
         If DataGridView_Venta.SelectedRows.Count > 0 Then
             Dim fila As DataGridViewRow = DataGridView_Venta.SelectedRows(0)
@@ -204,14 +206,12 @@ Public Class Venta
 
             If result = DialogResult.Yes Then
                 ' Si el usuario confirma, eliminar la venta de la base de datos
-                Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+                Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
                 Using con As SqlConnection = miConexion.CrearConexion(serverName)
                     con.Open()
-
                     Dim deleteQuery As String = "DELETE FROM Venta WHERE id_venta = @id_venta"
                     Dim deleteCmd As New SqlCommand(deleteQuery, con)
                     deleteCmd.Parameters.AddWithValue("@id_venta", idVenta)
-
                     deleteCmd.ExecuteNonQuery()
                 End Using
 
@@ -222,5 +222,4 @@ Public Class Venta
             MessageBox.Show("Por favor, selecciona una fila para eliminar.")
         End If
     End Sub
-
 End Class

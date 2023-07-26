@@ -11,7 +11,7 @@ Public Class agregarUL
 
     Private Sub Btn_guardar_UL_Click(sender As Object, e As EventArgs) Handles Btn_guardar_UL.Click
         Try
-            Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
+            Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miconexion.CrearConexion(serverName)
 
             Dim tipoUL As Integer = ComboBox1.SelectedItem
@@ -83,6 +83,7 @@ Public Class agregarUL
     End Sub
 
     Private Sub agregarUL_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CenterToParent()
         ComboBox1.Items.Clear()
         ComboBox1.Items.Add(0)
         ComboBox1.Items.Add(1)
