@@ -1,4 +1,5 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Data.SqlClient
+Imports System.Runtime.InteropServices
 Imports FontAwesome.Sharp
 
 Public Class Entrada
@@ -13,7 +14,9 @@ Public Class Entrada
     Private ventaForm As Venta
     Private unidades_logisticasform As unidades_logisticas
     Private librosform As New Libros
-
+    Private miConexion As New connexion()
+    Public Property ServerName As String
+    Public Property idLibro As String
     Private Sub Entrada_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         CenterToParent()
@@ -261,5 +264,38 @@ Public Class Entrada
     Private Sub eliminar_venta_Click(sender As Object, e As EventArgs) Handles eliminar_venta.Click
         Dim venta As New Venta
         venta.Eliminar__venta()
+    End Sub
+
+    Private Sub acualisar_stock_total(idlibro As String)
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
+        Dim con As SqlConnection = miConexion.CrearConexion(serverName)
+        'buscar unidades lugisticas tipo=o
+        Dim cmd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro and tipoUL=0", con)
+        cmd.Parameters.AddWithValue("@idlibro", idlibro)
+        con.Open()
+        Dim reader0 As SqlDataReader = cmd.ExecuteReader()
+        Dim stock0 As Integer
+        If reader0.Read() Then
+            stock0 = reader0.GetInt32(0)
+        End If
+        con.Close()
+        'buscar unidades lugisticas tipo=1
+        Dim cmnd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro and tipoUL=1 ", con)
+        cmnd.Parameters.AddWithValue("@idlibro", idlibro)
+        con.Open()
+        Dim reader1 As SqlDataReader = cmd.ExecuteReader()
+        Dim stock1 As Integer
+        If reader1.Read() Then
+            stock1 = reader1.GetInt32(0)
+        End If
+        con.Close()
+        'acualisar_stock_total
+        Dim stock_Total As String = stock1 + stock0
+        Dim comd As New SqlCommand("update libros set stock_Total=@stock_Total WHERE idlibro = @idlibro", con)
+        comd.Parameters.AddWithValue("@idlibro", idlibro)
+        comd.Parameters.AddWithValue("@stock_Total", stock_Total)
+        con.Open()
+        comd.ExecuteNonQuery()
+        con.Close()
     End Sub
 End Class

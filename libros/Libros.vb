@@ -198,7 +198,7 @@ Public Class Libros
             Dim con As SqlConnection = miConexion.CrearConexion(serverName)
 
             Dim cmd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
-            cmd.Parameters.AddWithValue("@idlibro", idlibro) ' Corregido de Me.idLibro a idlibro
+            cmd.Parameters.AddWithValue("@idlibro", idlibro)
             con.Open()
             Dim reader As SqlDataReader = cmd.ExecuteReader()
             Dim stock As Integer
