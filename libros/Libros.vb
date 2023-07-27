@@ -6,10 +6,8 @@ Imports Microsoft.Win32
 Public Class Libros
     Private miConexion As New connexion()
     Public Property ServerName As String
-
     Public Property idLibro As String
     Public Property Nombre As String
-
     Public Property Autor As String
     Public Property Ficha As String
     Public Property unidad_logistica As String
@@ -32,8 +30,6 @@ Public Class Libros
         DataGridView_libros.DataSource = MostrarLibros()
     End Sub
     Private Sub Btn_volver_Click(sender As Object, e As EventArgs)
-        'Dim entrada As New Entrada
-        'Entrada.Show()
         Hide()
     End Sub
 
@@ -200,16 +196,7 @@ Public Class Libros
             Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
             Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miConexion.CrearConexion(serverName)
-            ' Primero, obtener el valor de stock para el libro actual.
-            'Dim cmd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
-            'cmd.Parameters.AddWithValue("@idlibro", Me.idLibro)
-            'con.Open()
-            'Dim reader As SqlDataReader = cmd.ExecuteReader()
-            'Dim stock As Integer = 0
-            'If reader.Read() Then
-            '    stock = reader.GetInt32(0)
-            'End If
-            'con.Close()
+
             Dim cmd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
             cmd.Parameters.AddWithValue("@idlibro", idlibro) ' Corregido de Me.idLibro a idlibro
             con.Open()
@@ -234,20 +221,7 @@ Public Class Libros
                 con.Open()
                 counUL.ExecuteScalar()
                 con.Close()
-
-                'Dim counVenta As New SqlCommand("DELETE FROM Venta WHERE idlibro = @idlibro", con)
-                'counVenta.Parameters.AddWithValue("@idlibro", idlibro)
-                'con.Open()
-                'counVenta.ExecuteScalar()
-                'con.Close()
             End If
-
-            ''  Movimientos
-            'Dim command As New SqlCommand("update  Movimientos set idlibro=NULL WHERE idlibro = @idLibro", con)
-            'command.Parameters.AddWithValue("@idLibro", idlibro)
-            'con.Open()
-            'command.ExecuteNonQuery()
-            'con.Close()
 
             ' Elimina el libro
             Dim comd As New SqlCommand("update libros set estado='borrado' WHERE idlibro = @idlibro", con)
