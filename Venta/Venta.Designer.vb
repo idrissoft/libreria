@@ -84,7 +84,7 @@ Partial Class Venta
         Me.ListBox2.BackColor = System.Drawing.SystemColors.Menu
         Me.ListBox2.FormattingEnabled = True
         Me.ListBox2.Location = New System.Drawing.Point(2, 153)
-        Me.ListBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ListBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.ListBox2.Name = "ListBox2"
         Me.ListBox2.Size = New System.Drawing.Size(1098, 82)
         Me.ListBox2.TabIndex = 7
@@ -95,7 +95,7 @@ Partial Class Venta
         Me.Panel4.Controls.Add(Me.DataGridView1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 32767)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(1107, 0)
         Me.Panel4.TabIndex = 8
@@ -104,7 +104,7 @@ Partial Class Venta
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(9, 0)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 62
         Me.DataGridView1.RowTemplate.Height = 28
@@ -221,7 +221,7 @@ Partial Class Venta
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1107, 42598)
         Me.Panel2.TabIndex = 5
@@ -240,7 +240,7 @@ Partial Class Venta
         'txtVentaDescuento
         '
         Me.txtVentaDescuento.Location = New System.Drawing.Point(866, 196)
-        Me.txtVentaDescuento.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtVentaDescuento.Margin = New System.Windows.Forms.Padding(2)
         Me.txtVentaDescuento.Name = "txtVentaDescuento"
         Me.txtVentaDescuento.Size = New System.Drawing.Size(68, 20)
         Me.txtVentaDescuento.TabIndex = 52
@@ -250,7 +250,7 @@ Partial Class Venta
         Me.Panel3.Controls.Add(Me.Eliminar_venta)
         Me.Panel3.Controls.Add(Me.DataGridView_Venta)
         Me.Panel3.Location = New System.Drawing.Point(0, 239)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1101, 367)
         Me.Panel3.TabIndex = 51
@@ -274,7 +274,7 @@ Partial Class Venta
         '
         Me.DataGridView_Venta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView_Venta.Location = New System.Drawing.Point(2, 2)
-        Me.DataGridView_Venta.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.DataGridView_Venta.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView_Venta.Name = "DataGridView_Venta"
         Me.DataGridView_Venta.RowHeadersWidth = 62
         Me.DataGridView_Venta.RowTemplate.Height = 28
@@ -307,7 +307,7 @@ Partial Class Venta
         '
         Me.txtVentaSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVentaSubtotal.Location = New System.Drawing.Point(975, 194)
-        Me.txtVentaSubtotal.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtVentaSubtotal.Margin = New System.Windows.Forms.Padding(2)
         Me.txtVentaSubtotal.Name = "txtVentaSubtotal"
         Me.txtVentaSubtotal.Size = New System.Drawing.Size(101, 23)
         Me.txtVentaSubtotal.TabIndex = 48
@@ -316,7 +316,7 @@ Partial Class Venta
         '
         Me.txtVentaPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVentaPrecio.Location = New System.Drawing.Point(720, 194)
-        Me.txtVentaPrecio.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtVentaPrecio.Margin = New System.Windows.Forms.Padding(2)
         Me.txtVentaPrecio.Name = "txtVentaPrecio"
         Me.txtVentaPrecio.Size = New System.Drawing.Size(101, 23)
         Me.txtVentaPrecio.TabIndex = 47
@@ -325,7 +325,7 @@ Partial Class Venta
         '
         Me.txtVentaCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtVentaCantidad.Location = New System.Drawing.Point(520, 194)
-        Me.txtVentaCantidad.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtVentaCantidad.Margin = New System.Windows.Forms.Padding(2)
         Me.txtVentaCantidad.Name = "txtVentaCantidad"
         Me.txtVentaCantidad.Size = New System.Drawing.Size(177, 23)
         Me.txtVentaCantidad.TabIndex = 46
@@ -421,7 +421,7 @@ Partial Class Venta
         '
         Me.txtClientedireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtClientedireccion.Location = New System.Drawing.Point(720, 97)
-        Me.txtClientedireccion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtClientedireccion.Margin = New System.Windows.Forms.Padding(2)
         Me.txtClientedireccion.Multiline = True
         Me.txtClientedireccion.Name = "txtClientedireccion"
         Me.txtClientedireccion.Size = New System.Drawing.Size(233, 37)
@@ -431,7 +431,7 @@ Partial Class Venta
         '
         Me.txtClienteTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtClienteTelefono.Location = New System.Drawing.Point(720, 51)
-        Me.txtClienteTelefono.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtClienteTelefono.Margin = New System.Windows.Forms.Padding(2)
         Me.txtClienteTelefono.Multiline = True
         Me.txtClienteTelefono.Name = "txtClienteTelefono"
         Me.txtClienteTelefono.Size = New System.Drawing.Size(233, 27)
@@ -480,7 +480,7 @@ Partial Class Venta
         Me.ClientSize = New System.Drawing.Size(1107, 747)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel2)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Venta"
         Me.Text = "Venta"
         Me.Panel4.ResumeLayout(False)

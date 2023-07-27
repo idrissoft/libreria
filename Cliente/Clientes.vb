@@ -21,7 +21,7 @@ Public Class Clientes
     End Sub
     Public Function mostrarClientes() As DataTable
         Dim dt As New DataTable()
-
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         Dim con As SqlConnection = miconexion.CrearConexion(serverName)
         Dim cmd As New SqlCommand("mostrar_cliente", con)
         cmd.CommandType = CommandType.StoredProcedure

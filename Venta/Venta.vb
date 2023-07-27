@@ -8,7 +8,7 @@ Public Class Venta
 
     Public Function mostrar_venta() As DataTable
         Dim dt As New DataTable()
-
+        Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         Dim con As SqlConnection = miConexion.CrearConexion(serverName)
         Dim cmd As New SqlCommand("mostrar_venta", con)
 

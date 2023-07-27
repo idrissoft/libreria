@@ -103,7 +103,7 @@ Public Class Entrada
         disablePanel()
         currentPanel = Panel_libros
         Activatepanel()
-        Libros.DataGridView_libros.DataSource = Libros.MostrarLibros()
+        librosform.DataGridView_libros.DataSource = librosform.MostrarLibros()
     End Sub
 
     Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
@@ -112,6 +112,7 @@ Public Class Entrada
         disablePanel()
         currentPanel = Panel_ventas
         Activatepanel()
+        ventaForm.DataGridView_Venta.DataSource = ventaForm.mostrar_venta()
     End Sub
 
     Private Sub btnClientes_Click_1(sender As Object, e As EventArgs) Handles btnClientes.Click
@@ -120,6 +121,7 @@ Public Class Entrada
         disablePanel()
         currentPanel = Panel_clientes
         Activatepanel()
+        clientesForm.mostrarClientes()
     End Sub
 
     Private Sub btnMovimientos_Click_1(sender As Object, e As EventArgs) Handles btnMovimientos.Click
