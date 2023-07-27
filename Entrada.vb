@@ -107,6 +107,7 @@ Public Class Entrada
         currentPanel = Panel_libros
         Activatepanel()
         librosform.DataGridView_libros.DataSource = librosform.MostrarLibros()
+
     End Sub
 
     Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
@@ -267,9 +268,12 @@ Public Class Entrada
     End Sub
 
     Private Sub acualisar_stock_total(idlibro As String)
+
+
         Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
         Dim con As SqlConnection = miConexion.CrearConexion(serverName)
         'buscar unidades lugisticas tipo=o
+
         Dim cmd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro and tipoUL=0", con)
         cmd.Parameters.AddWithValue("@idlibro", idlibro)
         con.Open()
@@ -283,19 +287,31 @@ Public Class Entrada
         Dim cmnd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro and tipoUL=1 ", con)
         cmnd.Parameters.AddWithValue("@idlibro", idlibro)
         con.Open()
-        Dim reader1 As SqlDataReader = cmd.ExecuteReader()
-        Dim stock1 As Integer
-        If reader1.Read() Then
-            stock1 = reader1.GetInt32(0)
+        Dim reader As SqlDataReader = cmnd.ExecuteReader()
+        Dim stock As Integer
+        If reader.Read() Then
+            stock = reader.GetInt32(0)
+        End If
+        con.Close()
+        'buscar unidades por UL por tipoUL=1
+        Dim comnd As New SqlCommand("SELECT unidades_por_UL FROM UnidadesLogisticas WHERE idlibro = @idlibro and tipoUL=1 ", con)
+        comnd.Parameters.AddWithValue("@idlibro", idlibro)
+        con.Open()
+        Dim reader2 As SqlDataReader = comnd.ExecuteReader()
+        Dim unidades_por_UL As Integer
+        If reader2.Read() Then
+            unidades_por_UL = reader2.GetInt32(0)
         End If
         con.Close()
         'acualisar_stock_total
-        Dim stock_Total As String = stock1 + stock0
+        Dim stock_Total As String = stock * unidades_por_UL + stock0
         Dim comd As New SqlCommand("update libros set stock_Total=@stock_Total WHERE idlibro = @idlibro", con)
         comd.Parameters.AddWithValue("@idlibro", idlibro)
         comd.Parameters.AddWithValue("@stock_Total", stock_Total)
         con.Open()
         comd.ExecuteNonQuery()
         con.Close()
+        idlibro += 1
+
     End Sub
 End Class
