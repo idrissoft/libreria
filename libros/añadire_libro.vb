@@ -95,14 +95,15 @@ Public Class añadire_libro
 
             MessageBox.Show("El libro se ha agregado correctamente.")
             Dim fr_libro As New Libros()
-            'acualisar el datagrideview
-            Dim libros As New Libros
-            libros.DataGridView_libros.DataSource = libros.MostrarLibros()
+
             Me.Close()
             fr_libro.MostrarLibros()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+        'acualisar el datagrideview
+        Dim libros As New Libros
+        libros.DataGridView_libros.DataSource = libros.MostrarLibros()
     End Sub
 
     Sub Insertar_MV_agregar_LIBROS(cantidad As Integer)

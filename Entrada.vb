@@ -103,6 +103,7 @@ Public Class Entrada
         disablePanel()
         currentPanel = Panel_libros
         Activatepanel()
+        Libros.DataGridView_libros.DataSource = Libros.MostrarLibros()
     End Sub
 
     Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
