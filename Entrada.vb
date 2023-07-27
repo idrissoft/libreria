@@ -130,6 +130,7 @@ Public Class Entrada
         disablePanel()
         currentPanel = Panel_movimientos
         Activatepanel()
+        movimientosForm.mostrar_Movimientos()
     End Sub
 
     Private Sub btnUsuarios_Click_1(sender As Object, e As EventArgs) Handles btnUsuarios.Click

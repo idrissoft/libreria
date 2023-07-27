@@ -32,7 +32,7 @@ Public Class Libros
         DataGridView_libros.DataSource = MostrarLibros()
     End Sub
     Private Sub Btn_volver_Click(sender As Object, e As EventArgs)
-        ''Dim entrada As New Entrada
+        'Dim entrada As New Entrada
         'Entrada.Show()
         Hide()
     End Sub
@@ -44,9 +44,7 @@ Public Class Libros
         Dim con As SqlConnection = miConexion.CrearConexion(serverName)
         Dim cmd As New SqlCommand("mostrar_libros", con)
         cmd.CommandType = CommandType.StoredProcedure
-
         con.Open()
-
         Using da As New SqlDataAdapter(cmd)
             da.Fill(dt)
         End Using
@@ -54,7 +52,6 @@ Public Class Libros
 
         Return dt
     End Function
-
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Btn_agregar_imagen.Click
         add_imagen()
@@ -245,12 +242,12 @@ Public Class Libros
                 'con.Close()
             End If
 
-            '  Movimientos
-            Dim command As New SqlCommand("update  Movimientos set idlibro=NULL WHERE idlibro = @idLibro", con)
-            command.Parameters.AddWithValue("@idLibro", idlibro)
-            con.Open()
-            command.ExecuteNonQuery()
-            con.Close()
+            ''  Movimientos
+            'Dim command As New SqlCommand("update  Movimientos set idlibro=NULL WHERE idlibro = @idLibro", con)
+            'command.Parameters.AddWithValue("@idLibro", idlibro)
+            'con.Open()
+            'command.ExecuteNonQuery()
+            'con.Close()
 
             ' Elimina el libro
             Dim comd As New SqlCommand("update libros set estado='borrado' WHERE idlibro = @idlibro", con)

@@ -33,12 +33,13 @@ Public Class añadir_Cliente
             con.Close()
 
             Dim fr_clientes As New Clientes()
-            fr_clientes.Show()
+
 
             Clientes.mostrarClientes()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+        Me.Hide()
     End Sub
 
     Private Sub Btn_guardar_cliente1_Click(sender As Object, e As EventArgs) Handles Btn_guardar_cliente1.Click
