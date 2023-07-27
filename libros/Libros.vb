@@ -238,28 +238,25 @@ Public Class Libros
                 counUL.ExecuteScalar()
                 con.Close()
 
-                Dim counVenta As New SqlCommand("DELETE FROM Venta WHERE idlibro = @idlibro", con)
-                counVenta.Parameters.AddWithValue("@idlibro", idlibro)
-                con.Open()
-                counVenta.ExecuteScalar()
-                con.Close()
+                'Dim counVenta As New SqlCommand("DELETE FROM Venta WHERE idlibro = @idlibro", con)
+                'counVenta.Parameters.AddWithValue("@idlibro", idlibro)
+                'con.Open()
+                'counVenta.ExecuteScalar()
+                'con.Close()
             End If
 
             '  Movimientos
-
             Dim command As New SqlCommand("update  Movimientos set idlibro=NULL WHERE idlibro = @idLibro", con)
             command.Parameters.AddWithValue("@idLibro", idlibro)
             con.Open()
             command.ExecuteNonQuery()
             con.Close()
 
-
-
             ' Elimina el libro
-            Dim delete As New SqlCommand("DELETE FROM libros WHERE idlibro = @idlibro", con)
-            delete.Parameters.AddWithValue("@idlibro", idlibro)
+            Dim comd As New SqlCommand("update libros set estado='borrado' WHERE idlibro = @idlibro", con)
+            comd.Parameters.AddWithValue("@idlibro", idlibro)
             con.Open()
-            delete.ExecuteNonQuery()
+            comd.ExecuteNonQuery()
             con.Close()
 
             MostrarLibros()

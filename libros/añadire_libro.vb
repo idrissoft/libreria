@@ -20,7 +20,7 @@ Public Class añadire_libro
 
             Dim serverName As String = ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miconexion.CrearConexion(serverName)
-            Dim command As New SqlCommand("UPDATE libros SET nombre = @nombre, autor = @autor, ,precio = @precio, ficha = @ficha,  description = @description WHERE idlibro = @idlibro", con)
+            Dim command As New SqlCommand("UPDATE libros SET nombre = @nombre, autor = @autor,precio = @precio, ficha = @ficha,  description = @description WHERE idlibro = @idlibro", con)
             command.Parameters.AddWithValue("@idlibro", idlibro)
             command.Parameters.AddWithValue("@nombre", TextBox1.Text)
             command.Parameters.AddWithValue("@autor", TextBox2.Text)
