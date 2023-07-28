@@ -6,8 +6,10 @@ Imports Microsoft.Win32
 Public Class Libros
     Private miConexion As New connexion()
     Public Property ServerName As String
+
     Public Property idLibro As String
     Public Property Nombre As String
+
     Public Property Autor As String
     Public Property Ficha As String
     Public Property unidad_logistica As String
@@ -24,12 +26,13 @@ Public Class Libros
     Public Function ObtenerDataGridViewLibros() As DataGridView
         Return DataGridView_libros
     End Function
-
     Private Sub Libros_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CenterToParent()
         DataGridView_libros.DataSource = MostrarLibros()
     End Sub
     Private Sub Btn_volver_Click(sender As Object, e As EventArgs)
+        ''Dim entrada As New Entrada
+        'Entrada.Show()
         Hide()
     End Sub
 
@@ -45,7 +48,6 @@ Public Class Libros
             da.Fill(dt)
         End Using
         con.Close()
-
         Return dt
     End Function
 
@@ -196,9 +198,18 @@ Public Class Libros
             Dim idlibro As Integer = Convert.ToInt32(selectedRow.Cells("idlibro").Value)
             Dim serverName As String = Login.ComboBox_Servidor.SelectedItem.ToString()
             Dim con As SqlConnection = miConexion.CrearConexion(serverName)
-
+            ' Primero, obtener el valor de stock para el libro actual.
+            'Dim cmd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
+            'cmd.Parameters.AddWithValue("@idlibro", Me.idLibro)
+            'con.Open()
+            'Dim reader As SqlDataReader = cmd.ExecuteReader()
+            'Dim stock As Integer = 0
+            'If reader.Read() Then
+            '    stock = reader.GetInt32(0)
+            'End If
+            'con.Close()
             Dim cmd As New SqlCommand("SELECT stock FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
-            cmd.Parameters.AddWithValue("@idlibro", idlibro)
+            cmd.Parameters.AddWithValue("@idlibro", idlibro) ' Corregido de Me.idLibro a idlibro
             con.Open()
             Dim reader As SqlDataReader = cmd.ExecuteReader()
             Dim stock As Integer
@@ -209,26 +220,20 @@ Public Class Libros
 
             Dim habia As Integer = stock
             ' Elimina las referencias en UnidadesLogisticas y Venta si existen
-            Dim result As DialogResult = MessageBox.Show("El libro puede tener referencias en UnidadesLogisticas y/o Venta. ¿Quieres eliminarlo de todos modos?", "Confirmar eliminación", MessageBoxButtons.YesNo)
+            Dim result As DialogResult = MessageBox.Show("¿Quieres eliminarlar el libro?", "Confirmar eliminación", MessageBoxButtons.YesNo)
 
             If result = DialogResult.Yes Then
 
-                Dim counUL As New SqlCommand("DELETE FROM UnidadesLogisticas WHERE idlibro = @idlibro", con)
-                counUL.Parameters.AddWithValue("@idlibro", idlibro)
-                cantidad = stock
+
 
                 Insertar_MV_eliminar_LIBROS(cantidad, idlibro, habia, Usuario)
+
+                Dim command As New SqlCommand("update  libros set estado='borrado' WHERE idlibro = @idLibro", con)
+                command.Parameters.AddWithValue("@idLibro", idlibro)
                 con.Open()
-                counUL.ExecuteScalar()
+                command.ExecuteNonQuery()
                 con.Close()
             End If
-
-            ' Elimina el libro
-            Dim comd As New SqlCommand("update libros set estado='borrado' WHERE idlibro = @idlibro", con)
-            comd.Parameters.AddWithValue("@idlibro", idlibro)
-            con.Open()
-            comd.ExecuteNonQuery()
-            con.Close()
 
             MostrarLibros()
         End Using
@@ -258,9 +263,8 @@ Public Class Libros
             Dim hay As Integer = 0
             ' Insertar en Movimientos
             Usuario = Login.txtUser.Text
-            Dim command = New SqlCommand("INSERT INTO Movimientos(FechaMovimiento,idLibro, idlibro_eliminado, TipoMovimiento, Habia,tipo, Cantidad, hay,Usuario) VALUES (GETDATE(),@idlibro, @idlibro_eliminado, 'salida', @habia,'eliminar libro', @Cantidad, @hay,@Usuario)", con)
+            Dim command = New SqlCommand("INSERT INTO Movimientos(FechaMovimiento,idLibro, TipoMovimiento, Habia,tipo, Cantidad, hay,Usuario) VALUES (GETDATE(),@idlibro, 'salida', @habia,'eliminar libro', @Cantidad, @hay,@Usuario)", con)
             command.Parameters.AddWithValue("@idlibro", idLibro)
-            command.Parameters.AddWithValue("@idlibro_eliminado", idLibro)
             command.Parameters.AddWithValue("@habia", habia)
             command.Parameters.AddWithValue("@Cantidad", cantidad)
             command.Parameters.AddWithValue("@hay", hay)
